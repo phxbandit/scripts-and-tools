@@ -16,11 +16,13 @@ convertstr.pl		- Converts a string into various formats
 dnsx.pl			- Automates zone file transfers
 dumbname.sh		- Get netbios names on local net
 forgot.py		- POST exercise in Python
+hosts.txt		- hosts.txt for mild.sh
 iso8601			- ISO 8601 standard date and time functions
 map.sh			- Quickly see what's up on the local net
 mild.sh			- Subdomain brute forcer inspired by fierce.pl
 netbiowned.pl		- Simplifies windows share enumeration
 now.sh			- Map and scan local net
+passwords.txt		- Password list
 scan.sh			- Nmap shortcut
 sshscan.py		- Horizontal SSH scanner
 
