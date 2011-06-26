@@ -1,0 +1,29 @@
+README for scripts-n-tools
+
+I tweeted a couple of little scripts that I use at coffee shops,
+and ntheory suggested that I make a github repository of those
+scripts and tools. This is that repository.
+
+It includes Perl, Python and Bash scripts that are great for
+quick recon and, with a couple of other tools, could probalby be
+enough to own a small company.
+
+Here's the current list:
+
+base64pl.pl		- Encodes/decodes string(s) using base64
+charlie_pwniels_band.py - Horizontal brute force tool
+convertstr.pl		- Converts a string into various formats
+dnsx.pl			- Automates zone file transfers
+dumbname.sh		- Get netbios names on local net
+forgot.py		- POST exercise in Python
+iso8601			- ISO 8601 standard date and time functions
+map.sh			- Quickly see what's up on the local net
+mild.sh			- Subdomain brute forcer inspired by fierce.pl
+netbiowned.pl		- Simplifies windows share enumeration
+now.sh			- Map and scan local net
+scan.sh			- Nmap shortcut
+sshscan.py		- Horizontal SSH scanner
+
+Thanks to ntheory and PHX2600 for the ideas and inspiration.
+
+dual

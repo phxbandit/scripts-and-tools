@@ -1,0 +1,22 @@
+# iso8601 - ISO 8601 standard date and time functions
+# by dual
+
+# Normal/long date:
+# 2011-10-09
+DATE=$(date +'%Y-%m-%d')
+
+# Short date:
+# 20111009
+SH_DATE=$(date +'%Y%m%d')
+
+# Year and month:
+# 2011-10
+MONTH=$(date +'%Y-%m')
+
+# Date with time:
+# 2011-10-09 12:34
+TIME=$(date +'%Y-%m-%d %H:%M')
+
+# Short time:
+# 20111009T12:34
+SH_TIME=$(date +'%Y%m%dT%H%M')
