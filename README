@@ -25,6 +25,7 @@ now.sh			- Map and scan local net
 passwords.txt		- Password list
 scan.sh			- Nmap shortcut
 sshscan.py		- Horizontal SSH scanner
+users.txt		- Concise user list
 
 Thanks to ntheory and PHX2600 for the ideas and inspiration.
 
