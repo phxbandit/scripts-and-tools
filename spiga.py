@@ -124,7 +124,6 @@ for tmp_line in conf_lines:
     if beg_func:
         func_call = beg_func.group(1)
         main_func_calls.append(globals()[func_call])
-        #print ">>> Processing function " + func_call + "..."
         func_call_dirs = func_call + "_dirs"
         func_call_dirs = []
         func_check = 1
