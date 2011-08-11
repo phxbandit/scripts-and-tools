@@ -11,9 +11,9 @@ use MIME::Base64;
 use Digest::MD5;
 use Digest::SHA1;
 
-my $usage = "convertstr.pl -
-Reverses and converts a string to base64, binary, hex
-and rot13, and provides the md5 and sha1 hashes
+my $usage = "convertstr.pl - Reverses and converts a string
+to base64, binary, hex and rot13, and provides
+the md5 and sha1 hashes
 Usasge: perl convertstr.pl <string>
 ";
 
@@ -22,7 +22,7 @@ print $usage and exit unless my $string = shift;
 chomp($string);
 
 # Print header
-print "\n>>> Converting \'$string\'...\n\n";
+print "Converting \'$string\'...\n\n";
 
 # Reverse
 print "REVERSED:\n";
@@ -71,4 +71,4 @@ my $sha1hex = $sha1->hexdigest;
 print $sha1hex . "\n\n";
 
 # Close out
-print ">>> Done!\n\n"
+print "Done.\n"
