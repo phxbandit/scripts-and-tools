@@ -83,78 +83,83 @@ def usage():
     print "spiga.py continuously scans random sites without an argument"
     sys.exit()
 
-# Initialize
-main_func_calls = []
-main_func_dirs  = []
-continuous	= 0
-func_check      = 0
+if __name__ == '__main__':
+    # Initialize
+    main_func_calls = []
+    main_func_dirs  = []
+    continuous	= 0
+    func_check      = 0
 
-# Check and verify argument
-if len(sys.argv) == 2:
-    try:
-        url = urlparse.urlparse(sys.argv[1])
-    except IndexError:
-        usage()
-    if url.scheme == 'http' or url.scheme == 'https':
-        if url.netloc != '':
-            target = url.scheme + "://" + url.netloc
+    # Check and verify argument
+    if len(sys.argv) == 2:
+        try:
+            url = urlparse.urlparse(sys.argv[1])
+        except IndexError:
+            usage()
+        if url.scheme == 'http' or url.scheme == 'https':
+            if url.netloc != '':
+                target = url.scheme + "://" + url.netloc
+        else:
+            usage()
     else:
-        usage()
-else:
-    continuous = 1
+        continuous = 1
 
-# spiga.conf parsing regexes
-conf_comment  = re.compile('^#')
-conf_beg_func = re.compile('^\(\)(.*?)\s*{$')
-conf_end_func = re.compile('^}$')
+    # spiga.conf parsing regexes
+    conf_comment  = re.compile('^#')
+    conf_beg_func = re.compile('^\(\)(.*?)\s*{$')
+    conf_end_func = re.compile('^}$')
 
-# Open and read spiga.conf
-try:
-    conf = open('spiga.conf', 'r')
-except:
-    print "No spiga.conf file present... exiting."
-    sys.exit()
-conf_lines = conf.readlines()
+    # Open and read spiga.conf
+    try:
+        conf = open('spiga.conf', 'r')
+    except:
+        print "No spiga.conf file present... exiting."
+        sys.exit()
+    conf_lines = conf.readlines()
 
-# Parse spiga.conf
-for tmp_line in conf_lines:
-    line = tmp_line.strip()
+    # Parse spiga.conf
+    for tmp_line in conf_lines:
+        line = tmp_line.strip()
 
-    beg_func = re.search(conf_beg_func, line)
-    if beg_func:
-        func_call = beg_func.group(1)
-        main_func_calls.append(globals()[func_call])
-        func_call_dirs = func_call + "_dirs"
-        func_call_dirs = []
-        func_check = 1
-        continue
-
-    comment = re.search(conf_comment, line)
-    if comment:
-        continue
-
-    end_func = re.search(conf_end_func, line)
-
-    if func_check:
-        if end_func:
-            func_check = 0
-            main_func_dirs.append(func_call_dirs)
+        beg_func = re.search(conf_beg_func, line)
+        if beg_func:
+            func_call = beg_func.group(1)
+            main_func_calls.append(globals()[func_call])
+            func_call_dirs = func_call + "_dirs"
+            func_call_dirs = []
+            func_check = 1
             continue
-        func_call_dirs.append(line)
 
-dict_of_funcs = dict(zip(main_func_calls, main_func_dirs))
+        comment = re.search(conf_comment, line)
+        if comment:
+            continue
 
-# Main loop
-if continuous == 1:
-    while(1):
-        target = rand_target()
-        if target == '':
-            next
-        print "\nScanning " + target + "..."
-        for key in dict_of_funcs.keys():
-            key(dict_of_funcs[key], target)
-        time.sleep(1)
-else:
-    print "Scanning " + target + "..."
-    for key in dict_of_funcs.keys():
-        key(dict_of_funcs[key], target)
+        end_func = re.search(conf_end_func, line)
+
+        if func_check:
+            if end_func:
+                func_check = 0
+                main_func_dirs.append(func_call_dirs)
+                continue
+            func_call_dirs.append(line)
+
+    dict_of_funcs = dict(zip(main_func_calls, main_func_dirs))
+
+    # Main loop
+    try:
+        if continuous == 1:
+            while(1):
+                target = rand_target()
+                if target == '':
+                    next
+                print "\nScanning " + target + "..."
+                for key in dict_of_funcs.keys():
+                    key(dict_of_funcs[key], target)
+                time.sleep(1)
+        else:
+            print "Scanning " + target + "..."
+            for key in dict_of_funcs.keys():
+                key(dict_of_funcs[key], target)
+    except KeyboardInterrupt:
+        print " Interrupted by user... exiting."
+        sys.exit()
