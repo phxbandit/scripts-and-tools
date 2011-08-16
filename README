@@ -15,7 +15,6 @@ charlie_pwniels_band.py - Horizontal brute force tool
 convertstr.pl		- Converts a string into various formats
 dnsx.pl			- Automates zone file transfers
 dumbname.sh		- Get netbios names on local net
-forgot.py		- POST exercise in Python
 hosts.txt		- hosts.txt for mild.sh
 iso8601			- ISO 8601 standard date and time functions
 map.sh			- Quickly see what's up on the local net
@@ -24,6 +23,8 @@ netbiowned.pl		- Simplifies windows share enumeration
 now.sh			- Map and scan local net
 passwords.txt		- Password list
 scan.sh			- Nmap shortcut
+spiga.py		- Simple scanner for random sites
+spiga.conf		- Conf file for spiga.py
 sshscan.py		- Horizontal SSH scanner
 users.txt		- Concise user list
 

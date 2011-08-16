@@ -1313,6 +1313,7 @@ portal
 portals
 portfolio
 portland
+pos
 post
 postales
 postoffice
