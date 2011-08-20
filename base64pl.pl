@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env perl -w
 
 # base64pl.pl - Encodes/decodes string(s) using base64
 # by dual

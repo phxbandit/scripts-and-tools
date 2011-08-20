@@ -1,19 +1,19 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env perl -w
 
-# convertstr.pl - by dual
+# convertstr.pl - Reverses and converts a string
+# to base64, binary, hex, and rot13 and provides
+# the md5, sha1 and sha256 hashes 
 #
-# Reverses and converts a string to
-# base64, binary, hex, and rot13 and
-# provides the md5 and sha1 hashes 
+# by dual
 
 use strict;
 use MIME::Base64;
 use Digest::MD5;
-use Digest::SHA1;
+use Digest::SHA qw(sha1_hex sha256_hex);
 
 my $usage = "convertstr.pl - Reverses and converts a string
 to base64, binary, hex and rot13, and provides
-the md5 and sha1 hashes
+the md5, sha1 and sha256 hashes
 Usasge: perl convertstr.pl <string>
 ";
 
@@ -65,10 +65,13 @@ print $md5hex . "\n\n";
 
 # SHA1
 print "SHA1:\n";
-my $sha1 = Digest::SHA1->new;
-$sha1->add($string);
-my $sha1hex = $sha1->hexdigest;
+my $sha1hex = sha1_hex($string);
 print $sha1hex . "\n\n";
+
+# SHA256
+print "SHA256:\n";
+my $sha256hex = sha256_hex($string);
+print $sha256hex . "\n\n";
 
 # Close out
 print "Done.\n"
