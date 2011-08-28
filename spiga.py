@@ -29,6 +29,14 @@ def contact(func_call_dirs, target):
         if email_str:
             print "SUCCESS -> " + target_dir
 
+def ftp(func_call_dirs, target):
+    for i in func_call_dirs:
+        target_dir = target + "/" + i
+        (code, response) = useragent(target_dir)
+        print target_dir
+        if code == 200:
+            print "SUCCESS -> " + target_dir
+
 def kmita(func_call_dirs, target):
     for i in func_call_dirs:
         target_dir = target + "/" + i
