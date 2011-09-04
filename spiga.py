@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # spiga.py - Simple scanner for random sites
 # by dual
 #
@@ -10,59 +12,22 @@ import urllib
 import time
 import urlparse
 
-# BEGIN scanner functions
-
-def admin(func_call_dirs, target):
-    for i in func_call_dirs:
-        target_dir = target + "/" + i
-        (code, response) = useragent(target_dir)
-        print target_dir
-        if code == 200:
-            print "SUCCESS -> " + target_dir
-
-def contact(func_call_dirs, target):
-    for i in func_call_dirs:
-        target_dir = target + "/" + i
-        (code, response) = useragent(target_dir)
-        print target_dir
-        email_str = re.search('hidden.+?@', response)
-        if email_str:
-            print "SUCCESS -> " + target_dir
-
-def ftp(func_call_dirs, target):
-    for i in func_call_dirs:
-        target_dir = target + "/" + i
-        (code, response) = useragent(target_dir)
-        print target_dir
-        if code == 200:
-            print "SUCCESS -> " + target_dir
-
-def kmita(func_call_dirs, target):
-    for i in func_call_dirs:
-        target_dir = target + "/" + i
-        (code, response) = useragent(target_dir)
-        print target_dir
-        admin_str = re.search('Kmita Website Administration', response)
-        if admin_str:
-            print "SUCCESS -> " + target_dir
-
-def upload(func_call_dirs, target):
-    for i in func_call_dirs:
-        target_dir = target + "/" + i
-        (code, response) = useragent(target_dir)
-        print target_dir
-        if code == 200:
-            print "SUCCESS -> " + target_dir
-
-def misc(func_call_dirs, target):
-    for i in func_call_dirs:
-        target_dir = target + "/" + i
-        (code, response) = useragent(target_dir)
-        print target_dir
-        if code == 200:
-            print "SUCCESS -> " + target_dir
-
-# END scanner functions
+def scanner(func_call_dirs, target, func_action, action_value):
+    if func_action == 'code':
+        for i in func_call_dirs:
+            target_dir = target + "/" + i
+            (code, response) = useragent(target_dir)
+            print target_dir
+            if str(code) == action_value:
+                print "SUCCESS -> " + target_dir
+    elif func_action == 'search':
+        for i in func_call_dirs:
+            target_dir = target + "/" + i
+            (code, response) = useragent(target_dir)
+            print target_dir
+            search_str = re.search(action_value, response)
+            if search_str:
+                print "SUCCESS -> " + target_dir
 
 def useragent(target_dir):
     try:
@@ -93,10 +58,12 @@ def usage():
 
 if __name__ == '__main__':
     # Initialize
-    main_func_calls = []
-    main_func_dirs  = []
-    continuous	= 0
-    func_check      = 0
+    main_func_calls    = []
+    main_func_dirs     = []
+    func_action_names  = []
+    func_action_values = []
+    continuous	       = 0
+    func_check	       = 0
 
     # Check and verify argument
     if len(sys.argv) == 2:
@@ -115,6 +82,7 @@ if __name__ == '__main__':
     # spiga.conf parsing regexes
     conf_comment  = re.compile('^#')
     conf_beg_func = re.compile('^\(\)(.*?)\s*{$')
+    conf_action   = re.compile('^;(.*?)=(.*)$')
     conf_end_func = re.compile('^}$')
 
     # Open and read spiga.conf
@@ -132,10 +100,19 @@ if __name__ == '__main__':
         beg_func = re.search(conf_beg_func, line)
         if beg_func:
             func_call = beg_func.group(1)
-            main_func_calls.append(globals()[func_call])
+            main_func_calls.append(func_call)
             func_call_dirs = func_call + "_dirs"
             func_call_dirs = []
             func_check = 1
+            continue
+
+        action = re.search(conf_action, line)
+        if action:
+            action_name  = action.group(1)
+            action_value = action.group(2)
+            func_action_name = func_call + "_" + action_name
+            func_action_names.append(func_action_name)
+            func_action_values.append(action_value)
             continue
 
         comment = re.search(conf_comment, line)
@@ -151,7 +128,8 @@ if __name__ == '__main__':
                 continue
             func_call_dirs.append(line)
 
-    dict_of_funcs = dict(zip(main_func_calls, main_func_dirs))
+    dict_of_funcs   = dict(zip(main_func_calls, main_func_dirs))
+    dict_of_actions = dict(zip(func_action_names, func_action_values))
 
     # Main loop
     try:
@@ -161,13 +139,23 @@ if __name__ == '__main__':
                 if target == '':
                     next
                 print "\nScanning " + target + "..."
-                for key in dict_of_funcs.keys():
-                    key(dict_of_funcs[key], target)
+                for keyf in dict_of_funcs.keys():
+                    for keya in dict_of_actions.keys():
+                        keya_in_keyf = re.search(keyf, keya)
+                        if keya_in_keyf:
+                            action_regex = re.compile('%s_' % keyf)
+                            action_sub = re.sub(action_regex, '', keya)
+                            scanner(dict_of_funcs[keyf], target, action_sub, dict_of_actions[keya])
                 time.sleep(1)
         else:
             print "Scanning " + target + "..."
-            for key in dict_of_funcs.keys():
-                key(dict_of_funcs[key], target)
+            for keyf in dict_of_funcs.keys():
+                for keya in dict_of_actions.keys():
+                    keya_in_keyf = re.search(keyf, keya)
+                    if keya_in_keyf:
+                        action_regex = re.compile('%s_' % keyf)
+                        action_sub = re.sub(action_regex, '', keya)
+                        scanner(dict_of_funcs[keyf], target, action_sub, dict_of_actions[keya])
     except KeyboardInterrupt:
         print " Interrupted by user... exiting."
         sys.exit()
