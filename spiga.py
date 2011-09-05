@@ -141,8 +141,8 @@ if __name__ == '__main__':
                 print "\nScanning " + target + "..."
                 for keyf in dict_of_funcs.keys():
                     for keya in dict_of_actions.keys():
-                        keya_in_keyf = re.search(keyf, keya)
-                        if keya_in_keyf:
+                        keyf_in_keya = re.search(keyf, keya)
+                        if keyf_in_keya:
                             action_regex = re.compile('%s_' % keyf)
                             action_sub = re.sub(action_regex, '', keya)
                             scanner(dict_of_funcs[keyf], target, action_sub, dict_of_actions[keya])
@@ -151,8 +151,8 @@ if __name__ == '__main__':
             print "Scanning " + target + "..."
             for keyf in dict_of_funcs.keys():
                 for keya in dict_of_actions.keys():
-                    keya_in_keyf = re.search(keyf, keya)
-                    if keya_in_keyf:
+                    keyf_in_keya = re.search(keyf, keya)
+                    if keyf_in_keya:
                         action_regex = re.compile('%s_' % keyf)
                         action_sub = re.sub(action_regex, '', keya)
                         scanner(dict_of_funcs[keyf], target, action_sub, dict_of_actions[keya])
