@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # sshscan.py - Horizontal SSH scanner
 # by dual
 #

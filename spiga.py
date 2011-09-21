@@ -40,14 +40,14 @@ def useragent(target_dir):
     return(code, response)
 
 def rand_target():
-    yahoo	    = urllib.urlopen('http://random.yahoo.com/bin/ryl')
+    yahoo = urllib.urlopen('http://random.yahoo.com/bin/ryl')
     try:
 	# Get redirect URL
-        rand_url    = yahoo.geturl()
+        rand_url = yahoo.geturl()
     except IOError:
         return
     parsed_rand_url = urlparse.urlparse(rand_url)
-    target	    = parsed_rand_url.scheme + "://" + parsed_rand_url.netloc
+    target = parsed_rand_url.scheme + "://" + parsed_rand_url.netloc
     return(target)
 
 def usage():

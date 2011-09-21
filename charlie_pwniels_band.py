@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # charlie_pwniels_band.py
 # by dual
 #
