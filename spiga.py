@@ -20,6 +20,15 @@ def scanner(func_call_dirs, target, func_action, action_value):
             print target_dir
             if str(code) == action_value:
                 print "SUCCESS -> " + target_dir
+    elif func_action == 'dump':
+        for i in func_call_dirs:
+            target_dir = target + "/" + i
+            (code, response) = useragent(target_dir)
+            print target_dir
+            if code == 200:
+                print response
+            else:
+                print " => No " + target_dir + " to dump"
     elif func_action == 'search':
         for i in func_call_dirs:
             target_dir = target + "/" + i
