@@ -9,10 +9,9 @@ use strict;
 my $domain;
 my $output;
 my $where_to_print = 0;
-my $usage = "dnsx.pl -
-Automates zone file transfers
-Usage: perl dnsx.pl <domain.(com|edu|net)> [o]
-o => Output results to domain.zone.txt
+my $usage = "dnsx.pl - Automates zone file transfers
+Usage: perl dnsx.pl <DOMAIN.(com|edu|net)> [o]
+o => Output results to DOMAIN.zone.txt
 ";
 
 # Get and check args and handle output
@@ -23,15 +22,14 @@ if (my $option = shift) {
   if ($option =~ /o/) {
     $where_to_print = 1;
     ($domain, undef) = split(/\./, $fqdn);
-    open $output, '>>', "$domain.zone.txt" or die ">>> Can't create $domain.zone.txt: $!";
-    print $output ">>> dnsx.pl -\n\n";
+    open $output, '>>', "$domain.zone.txt" or die "Can't create $domain.zone.txt: $!";
   }
   else { print $usage and exit; }
 }
 
 # Print header
-print ">>> dnsx.pl -\n\n";
-print ">>> Printing output to $domain.zone.txt\n" if $where_to_print == 1;
+print "dnsx.pl - Automates zone file transfers\n";
+print "Printing output to $domain.zone.txt\n" if $where_to_print == 1;
 
 # Parse whois query
 my @lookup = `whois -h whois.internic.net $fqdn`;
@@ -39,9 +37,9 @@ my @lookup = `whois -h whois.internic.net $fqdn`;
 foreach my $line (@lookup) {
   if ($line =~ /Name Server: (.+)$/) {
     if ($where_to_print == 1) {
-      print $output ">>> Found name server: $1\n";
+      print $output "\nFound name server: $1\n";
     }
-    else { print ">>> Found name server: $1\n"; }
+    else { print "\nFound name server: $1\n"; }
     transfer($1);
   }
 }
