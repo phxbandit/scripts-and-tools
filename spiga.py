@@ -12,41 +12,24 @@ import urllib
 import time
 import urlparse
 
-def scanner(func_call_dirs, target, func_action, action_value):
-    if func_action == 'code':
-        for i in func_call_dirs:
-            target_dir = target + "/" + i
-            (code, response) = useragent(target_dir)
-            print target_dir
-            if str(code) == action_value:
-                print "SUCCESS -> " + target_dir
-    elif func_action == 'dump':
-        for i in func_call_dirs:
-            target_dir = target + "/" + i
-            (code, response) = useragent(target_dir)
-            print target_dir
-            if code == 200:
-                print response
-            else:
-                print " => No " + target_dir + " to dump"
-    elif func_action == 'search':
-        for i in func_call_dirs:
-            target_dir = target + "/" + i
-            (code, response) = useragent(target_dir)
-            print target_dir
-            search_str = re.search(action_value, response)
-            if search_str:
-                print "SUCCESS -> " + target_dir
+def usage():
+    print "spiga.py - Simple scanner for random sites"
+    print "Usage: ./spiga.py [-v] <http(s)://www.example.com>"
+    print "-v = Verbose mode"
+    print "spiga.py continuously scans random sites without an argument"
+    sys.exit()
 
-def useragent(target_dir):
+def check_url(url_arg):
     try:
-        ua = urllib.urlopen(target_dir)
-    except IOError:
-        print "FAIL -> domain does not exist or is not responding"
-        sys.exit()
-    code = ua.getcode()
-    response = ua.read()
-    return(code, response)
+        url = urlparse.urlparse(url_arg)
+    except IndexError:
+        usage()
+    if url.scheme == 'http' or url.scheme == 'https':
+        if url.netloc != '':
+            target = url.scheme + "://" + url.netloc
+    else:
+        usage()
+    return target
 
 def rand_target():
     yahoo = urllib.urlopen('http://random.yahoo.com/bin/ryl')
@@ -59,46 +42,81 @@ def rand_target():
     target = parsed_rand_url.scheme + "://" + parsed_rand_url.netloc
     return(target)
 
-def usage():
-    print "spiga.py - Simple scanner for random sites"
-    print "Usage: python spiga.py [http(s)://www.example.com]"
-    print "spiga.py continuously scans random sites without an argument"
-    sys.exit()
+def useragent(target_dir):
+    try:
+        ua = urllib.urlopen(target_dir)
+    except IOError:
+        print "FAIL -> domain does not exist or is not responding"
+        sys.exit()
+    code = ua.getcode()
+    response = ua.read()
+    return(code, response)
+
+def scanner(func_call_dirs, target, func_action, action_value):
+    if func_action == 'code':
+        for i in func_call_dirs:
+            target_dir = target + "/" + i
+            (code, response) = useragent(target_dir)
+            if verbose == 1:
+                print target_dir
+            if str(code) == action_value:
+                print "SUCCESS -> " + target_dir
+    elif func_action == 'dump':
+        for i in func_call_dirs:
+            target_dir = target + "/" + i
+            (code, response) = useragent(target_dir)
+            if code == 200:
+                print "Dumping " + target_dir
+                print response
+            else:
+                print "No " + target_dir + " to dump"
+    elif func_action == 'search':
+        for i in func_call_dirs:
+            target_dir = target + "/" + i
+            (code, response) = useragent(target_dir)
+            if verbose == 1:
+                print target_dir
+            search_str = re.search(action_value, response)
+            if search_str:
+                print "SUCCESS -> " + target_dir
 
 if __name__ == '__main__':
     # Initialize
-    main_func_calls    = []
-    main_func_dirs     = []
-    func_action_names  = []
+    main_func_calls = []
+    main_func_dirs = []
+    func_action_names = []
     func_action_values = []
-    continuous	       = 0
-    func_check	       = 0
+    continuous = 0
+    func_check = 0
+    verbose = 0
 
-    # Check and verify argument
-    if len(sys.argv) == 2:
-        try:
-            url = urlparse.urlparse(sys.argv[1])
-        except IndexError:
-            usage()
-        if url.scheme == 'http' or url.scheme == 'https':
-            if url.netloc != '':
-                target = url.scheme + "://" + url.netloc
+    # Get and check arguments
+    if len(sys.argv) == 3:
+        if sys.argv[1] == '-v':
+            verbose = 1
+            target = check_url(sys.argv[2])
         else:
             usage()
+    elif len(sys.argv) == 2:
+        if sys.argv[1] == '-v':
+            verbose = 1
+            continuous = 1
+	else:
+            target = check_url(sys.argv[1])
     else:
         continuous = 1
 
     # spiga.conf parsing regexes
-    conf_comment  = re.compile('^#')
+    conf_comment = re.compile('^#')
     conf_beg_func = re.compile('^\(\)(.*?)\s*{$')
-    conf_action   = re.compile('^;(.*?)=(.*)$')
+    conf_action = re.compile('^;(.*?)=(.*)$')
     conf_end_func = re.compile('^}$')
 
     # Open and read spiga.conf
     try:
         conf = open('spiga.conf', 'r')
     except:
-        print "No spiga.conf file present... exiting."
+        print "No spiga.conf file present... exiting"
         sys.exit()
     conf_lines = conf.readlines()
 
@@ -117,7 +135,7 @@ if __name__ == '__main__':
 
         action = re.search(conf_action, line)
         if action:
-            action_name  = action.group(1)
+            action_name = action.group(1)
             action_value = action.group(2)
             func_action_name = func_call + "_" + action_name
             func_action_names.append(func_action_name)
@@ -137,8 +155,11 @@ if __name__ == '__main__':
                 continue
             func_call_dirs.append(line)
 
-    dict_of_funcs   = dict(zip(main_func_calls, main_func_dirs))
+    dict_of_funcs = dict(zip(main_func_calls, main_func_dirs))
     dict_of_actions = dict(zip(func_action_names, func_action_values))
+
+    iso8601 = time.strftime("%Y-%m-%d %H:%M:%S")
+    print "\nStarting spiga.py ( https://github.com/getdual ) at " + iso8601
 
     # Main loop
     try:
