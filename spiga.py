@@ -14,7 +14,8 @@ import urlparse
 
 def usage():
     print "spiga.py - Simple scanner for random sites"
-    print "Usage: ./spiga.py [-v] http(s)://www.example.com"
+    print "Usage: ./spiga.py [-h] [-v] [http(s)://www.example.com]"
+    print "-h = This help message"
     print "-v = Verbose mode"
     print "spiga scans random sites continuously without an argument"
     sys.exit()
@@ -91,6 +92,8 @@ if __name__ == '__main__':
     verbose = 0
 
     # Get and check arguments
+    if len(sys.argv) > 3:
+        usage()
     if len(sys.argv) == 3:
         if sys.argv[1] == '-v':
             verbose = 1
@@ -98,7 +101,9 @@ if __name__ == '__main__':
         else:
             usage()
     elif len(sys.argv) == 2:
-        if sys.argv[1] == '-v':
+        if sys.argv[1] == '-h':
+            usage()
+        elif sys.argv[1] == '-v':
             verbose = 1
             continuous = 1
 	else:
