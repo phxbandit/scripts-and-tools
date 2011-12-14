@@ -14,9 +14,9 @@ import urlparse
 
 def usage():
     print "spiga.py - Simple scanner for random sites"
-    print "Usage: ./spiga.py [-v] <http(s)://www.example.com>"
+    print "Usage: ./spiga.py [-v] http(s)://www.example.com"
     print "-v = Verbose mode"
-    print "spiga.py continuously scans random sites without an argument"
+    print "spiga scans random sites continuously without an argument"
     sys.exit()
 
 def check_url(url_arg):
