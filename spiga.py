@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# spiga.py - Simple scanner for random sites
+# spiga.py v0.2 - Configurable web resource scanner
 # by dual
 #
 # Thanks to Digicon for tweeting the Yahoo random site link
@@ -13,11 +13,12 @@ import time
 import urlparse
 
 def usage():
-    print "spiga.py - Simple scanner for random sites"
+    print "spiga.py v0.2 - Configurable web resource scanner"
     print "Usage: ./spiga.py [-h] [-v] [http(s)://www.example.com]"
     print "-h = This help message"
     print "-v = Verbose mode"
-    print "spiga scans random sites continuously without an argument"
+    print "Spiga.py scans random sites continuously without an"
+    print "argument, or scans a specific site if one is provided."
     sys.exit()
 
 def check_url(url_arg):
