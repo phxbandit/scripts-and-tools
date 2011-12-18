@@ -13,10 +13,11 @@ import time
 import urlparse
 
 def usage():
-    print "spiga.py v0.2 - Configurable web resource scanner"
-    print "Usage: ./spiga.py [-h] [-v] [http(s)://www.example.com]"
+    print VERSION + " - Configurable web resource scanner"
+    print "Usage: ./spiga.py [-h -v --version] [http(s)://www.example.com]"
     print "-h = This help message"
     print "-v = Verbose mode"
+    print "--version = Version number"
     print "Spiga.py scans random sites continuously without an"
     print "argument, or scans a specific site if one is provided."
     sys.exit()
@@ -83,6 +84,8 @@ def scanner(func_call_dirs, target, func_action, action_value):
                 print "SUCCESS -> " + target_dir
 
 if __name__ == '__main__':
+    VERSION = "spiga.py v0.2"
+
     # Initialize
     main_func_calls = []
     main_func_dirs = []
@@ -107,6 +110,9 @@ if __name__ == '__main__':
         elif sys.argv[1] == '-v':
             verbose = 1
             continuous = 1
+        elif sys.argv[1] == '--version':
+            print VERSION
+            sys.exit()
 	else:
             target = check_url(sys.argv[1])
     else:
@@ -165,7 +171,7 @@ if __name__ == '__main__':
     dict_of_actions = dict(zip(func_action_names, func_action_values))
 
     iso8601 = time.strftime("%Y-%m-%d %H:%M:%S")
-    print "\nStarting spiga.py ( https://github.com/getdual ) at " + iso8601
+    print "\nStarting " + VERSION + " ( https://github.com/getdual ) at " + iso8601
 
     # Main loop
     try:
