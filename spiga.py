@@ -98,11 +98,11 @@ if __name__ == '__main__':
         conf_loc = args.FILE
 
     if args.CONT == True and args.TARGET != None:
-        print "Please choose -c or -t... exiting"
+        print "Please choose -c, -t TARGET or -h for help... exiting"
         sys.exit()
 
     if args.CONT == False and args.TARGET == None:
-        print "Please choose -c or -t... exiting"
+        print "Please choose -c, -t TARGET or -h for help... exiting"
         sys.exit()
 
     if args.TARGET != None:
