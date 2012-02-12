@@ -1,17 +1,66 @@
 #!/usr/bin/env python
 
-# spiga.py v0.3 - Configurable web resource scanner
+# spiga.py v0.5 - Configurable web resource scanner
 # by dual
 #
-# Thanks to Digicon for tweeting the Yahoo random site link
+# Please read spiga.conf and spiga.py -h for instructions.
+#
+# Thanks to Digicon for tweeting the Yahoo random site link.
 # http://twitter.com/#!/Digicon/status/87489978959003648
 
-import argparse
-import re
-import sys
-import time
-import urllib
-import urlparse
+import argparse, Queue, re, sys, threading, time, urllib, urlparse
+
+# Define the number of threads to use here
+NO_OF_THREADS = 5
+
+# Create queue for threads
+queue = Queue.Queue()
+
+# Threaded scanning
+class ThreadScan(threading.Thread):
+    def __init__(self, queue):
+        threading.Thread.__init__(self)
+        self.queue = queue
+
+    def run(self):
+        while True:
+            # Grab resources from queue
+            items          = self.queue.get()
+            func_call_dirs = items[0]
+            target         = items[1]
+            func_action    = items[2]
+            action_value   = items[3]
+
+            # Scanner function
+            if func_action == 'code':
+                for i in func_call_dirs:
+                    target_dir = target + "/" + i
+                    (code, response) = useragent(target_dir)
+                    if args.REQUESTS:
+                        print target_dir
+                    if str(code) == action_value:
+                        print "SUCCESS -> " + target_dir
+            elif func_action == 'dump':
+                for i in func_call_dirs:
+                    target_dir = target + "/" + i
+                    (code, response) = useragent(target_dir)
+                    if code == 200:
+                        print "Dumping " + target_dir
+                        print response
+                    else:
+                        print "No " + target_dir + " to dump"
+            elif func_action == 'search':
+                for i in func_call_dirs:
+                    target_dir = target + "/" + i
+                    (code, response) = useragent(target_dir)
+                    if args.REQUESTS:
+                        print target_dir
+                    search_str = re.search(action_value, response)
+                    if search_str:
+                        print "SUCCESS -> " + target_dir
+
+            # Signals to queue job is done
+            self.queue.task_done()
 
 def check_url(url_arg):
     url = urlparse.urlparse(url_arg)
@@ -44,39 +93,11 @@ def useragent(target_dir):
     response = ua.read()
     return(code, response)
 
-def scanner(func_call_dirs, target, func_action, action_value):
-    if func_action == 'code':
-        for i in func_call_dirs:
-            target_dir = target + "/" + i
-            (code, response) = useragent(target_dir)
-            if args.REQUESTS:
-                print target_dir
-            if str(code) == action_value:
-                print "SUCCESS -> " + target_dir
-    elif func_action == 'dump':
-        for i in func_call_dirs:
-            target_dir = target + "/" + i
-            (code, response) = useragent(target_dir)
-            if code == 200:
-                print "Dumping " + target_dir
-                print response
-            else:
-                print "No " + target_dir + " to dump"
-    elif func_action == 'search':
-        for i in func_call_dirs:
-            target_dir = target + "/" + i
-            (code, response) = useragent(target_dir)
-            if args.REQUESTS:
-                print target_dir
-            search_str = re.search(action_value, response)
-            if search_str:
-                print "SUCCESS -> " + target_dir
-
 if __name__ == '__main__':
     # Initialize
-    main_func_calls = []
-    main_func_dirs = []
-    func_action_names = []
+    main_func_calls    = []
+    main_func_dirs     = []
+    func_action_names  = []
     func_action_values = []
     func_check = 0
 
@@ -87,7 +108,7 @@ if __name__ == '__main__':
     parser.add_argument('-f', '--file', action='store', dest='FILE', help='choose conf file location')
     parser.add_argument('-r', '--requests', action='store_true', dest='REQUESTS', default=False, help='show all requests')
     parser.add_argument('-t', '--target', action='store', dest='TARGET', help='scan target URL like http(s)://www.example.com')
-    parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.3', help='show version number and exit')
+    parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.5', help='show version number and exit')
 
     args = parser.parse_args()
 
@@ -161,7 +182,15 @@ if __name__ == '__main__':
     dict_of_actions = dict(zip(func_action_names, func_action_values))
 
     iso8601 = time.strftime("%Y-%m-%d %H:%M:%S")
-    print "\nStarting spiga.py ( https://github.com/getdual ) at " + iso8601
+    print "\nStarting spiga.py ( https://github.com/getdual ) at %s with %s threads" % (iso8601, NO_OF_THREADS)
+
+    # Spawn a pool of threads and pass them queue instance 
+    for i in range(NO_OF_THREADS):
+        t = ThreadScan(queue)
+        t.setDaemon(True)
+        t.start()
+
+    start = time.time()
 
     # Main loop
     try:
@@ -170,24 +199,31 @@ if __name__ == '__main__':
                 target = rand_target()
                 if target == '':
                     next
-                print "\nScanning " + target + "..."
+                print "\nScanning %s..." % (target)
                 for keyf in dict_of_funcs.keys():
                     for keya in dict_of_actions.keys():
                         keyf_in_keya = re.search(keyf, keya)
                         if keyf_in_keya:
                             action_regex = re.compile('%s_' % keyf)
                             action_sub = re.sub(action_regex, '', keya)
-                            scanner(dict_of_funcs[keyf], target, action_sub, dict_of_actions[keya])
+                            items = [dict_of_funcs[keyf], target, action_sub, dict_of_actions[keya]]
+                            queue.put(items)
                 time.sleep(1)
         else:
-            print "Scanning " + target + "..."
+            print "Scanning %s..." % (target)
             for keyf in dict_of_funcs.keys():
                 for keya in dict_of_actions.keys():
                     keyf_in_keya = re.search(keyf, keya)
                     if keyf_in_keya:
                         action_regex = re.compile('%s_' % keyf)
                         action_sub = re.sub(action_regex, '', keya)
-                        scanner(dict_of_funcs[keyf], target, action_sub, dict_of_actions[keya])
+                        items = [dict_of_funcs[keyf], target, action_sub, dict_of_actions[keya]]
+                        queue.put(items)
     except KeyboardInterrupt:
         print " Interrupted by user... exiting."
         sys.exit()
+
+    # Wait on the queue until everything has been processed
+    queue.join()
+
+    print "Elapsed time: %s seconds" % (time.time() - start)
