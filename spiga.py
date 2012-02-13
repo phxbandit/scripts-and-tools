@@ -4,9 +4,6 @@
 # by dual
 #
 # Please read spiga.conf and spiga.py -h for instructions.
-#
-# Thanks to Digicon for tweeting the Yahoo random site link.
-# http://twitter.com/#!/Digicon/status/87489978959003648
 
 import argparse, Queue, re, sys, threading, time, urllib, urlparse
 
@@ -68,20 +65,9 @@ def check_url(url_arg):
         if url.netloc != '':
             target = url.scheme + "://" + url.netloc
     else:
-        print "Please use target URL like http(s)://www.example.com... exiting"
+        print "Please use target domain like http(s)://www.example.com... exiting"
         sys.exit()
     return target
-
-def rand_target():
-    yahoo = urllib.urlopen('http://random.yahoo.com/bin/ryl')
-    try:
-	# Get redirect URL
-        rand_url = yahoo.geturl()
-    except IOError:
-        return
-    parsed_rand_url = urlparse.urlparse(rand_url)
-    target = parsed_rand_url.scheme + "://" + parsed_rand_url.netloc
-    return(target)
 
 def useragent(target_dir):
     try:
@@ -104,29 +90,23 @@ if __name__ == '__main__':
     # Parse arguments
     parser = argparse.ArgumentParser(description='spiga.py - Configurable web resource scanner')
 
-    parser.add_argument('-c', '--cont', action='store_true', dest='CONT', default=False, help='continuously scan random sites')
-    parser.add_argument('-f', '--file', action='store', dest='FILE', help='choose conf file location')
+    parser.add_argument('-c', '--conf', action='store', dest='CONF', help='choose conf file location')
     parser.add_argument('-r', '--requests', action='store_true', dest='REQUESTS', default=False, help='show all requests')
-    parser.add_argument('-t', '--target', action='store', dest='TARGET', help='scan target URL like http(s)://www.example.com')
+    parser.add_argument('-t', '--target', action='store', dest='TARGET', help='scan target domain like http(s)://www.example.com')
     parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.5', help='show version number and exit')
 
     args = parser.parse_args()
 
     # Handle parsed arguments
-    if args.FILE == None:
+    if args.CONF == None:
         conf_loc = 'spiga.conf'
     else:
-        conf_loc = args.FILE
+        conf_loc = args.CONF
 
-    if args.CONT == True and args.TARGET != None:
-        print "Please choose -c, -t TARGET or -h for help... exiting"
+    if args.TARGET == None:
+        print "Please choose -t TARGET or -h for help... exiting"
         sys.exit()
-
-    if args.CONT == False and args.TARGET == None:
-        print "Please choose -c, -t TARGET or -h for help... exiting"
-        sys.exit()
-
-    if args.TARGET != None:
+    else:
         target = check_url(args.TARGET)
 
     # spiga.conf parsing regexes
@@ -193,35 +173,15 @@ if __name__ == '__main__':
     start = time.time()
 
     # Main loop
-    try:
-        if args.CONT:
-            while(1):
-                target = rand_target()
-                if target == '':
-                    next
-                print "\nScanning %s..." % (target)
-                for keyf in dict_of_funcs.keys():
-                    for keya in dict_of_actions.keys():
-                        keyf_in_keya = re.search(keyf, keya)
-                        if keyf_in_keya:
-                            action_regex = re.compile('%s_' % keyf)
-                            action_sub = re.sub(action_regex, '', keya)
-                            items = [dict_of_funcs[keyf], target, action_sub, dict_of_actions[keya]]
-                            queue.put(items)
-                time.sleep(1)
-        else:
-            print "Scanning %s..." % (target)
-            for keyf in dict_of_funcs.keys():
-                for keya in dict_of_actions.keys():
-                    keyf_in_keya = re.search(keyf, keya)
-                    if keyf_in_keya:
-                        action_regex = re.compile('%s_' % keyf)
-                        action_sub = re.sub(action_regex, '', keya)
-                        items = [dict_of_funcs[keyf], target, action_sub, dict_of_actions[keya]]
-                        queue.put(items)
-    except KeyboardInterrupt:
-        print " Interrupted by user... exiting."
-        sys.exit()
+    print "Scanning %s..." % (target)
+    for keyf in dict_of_funcs.keys():
+        for keya in dict_of_actions.keys():
+            keyf_in_keya = re.search(keyf, keya)
+            if keyf_in_keya:
+                action_regex = re.compile('%s_' % keyf)
+                action_sub = re.sub(action_regex, '', keya)
+                items = [dict_of_funcs[keyf], target, action_sub, dict_of_actions[keya]]
+                queue.put(items)
 
     # Wait on the queue until everything has been processed
     queue.join()

@@ -9,19 +9,20 @@ with a couple of other tools, could probalby be enough to own a small company.
 
 - dual
 
-base64pl.pl		- Encodes/decodes string(s) using base64
+base64pl.pl             - Encodes/decodes string(s) using base64
 charlie_pwniels_band.py - Horizontal brute force tool
-convertstr.pl		- Converts a string into various formats
-dnsx.pl			- Automates zone file transfers
-dumbname.sh		- Get netbios names on local net
-hosts.txt		- hosts.txt for mild.sh
-iso8601			- ISO 8601 standard date and time functions
-map.sh			- Quickly see what's up on the local net
-mild.sh			- Subdomain brute forcer inspired by fierce.pl
-netbiowned.pl		- Simplifies windows share enumeration
-now.sh			- Map and scan local net
-passwords.txt		- Password list
-spiga.py		- Configurable web resource scanner
-spiga.conf		- Conf file for spiga.py
-sshscan.py		- Horizontal SSH scanner
-users.txt		- Concise user list
+convertstr.pl           - Converts a string into various formats
+dnsx.pl                 - Automates zone file transfers
+dumbname.sh             - Get netbios names on local net
+hosts.txt               - hosts.txt for mild.sh
+iso8601                 - ISO 8601 standard date and time functions
+map.sh                  - Quickly see what's up on the local net
+mild.sh                 - Subdomain brute forcer inspired by fierce.pl
+netbiowned.pl           - Simplifies windows share enumeration
+now.sh                  - Map and scan local net
+passwords.txt           - Password list
+spiga.conf              - Conf file for spiga.py
+spiga.py                - Configurable web resource scanner with threading
+spiga-0.3.py            - Configurable web resource scanner with random scanning
+sshscan.py              - Horizontal SSH scanner
+users.txt               - Concise user list
