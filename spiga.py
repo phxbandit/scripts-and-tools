@@ -13,8 +13,8 @@ NO_OF_THREADS = 5
 # Create queue for threads
 queue = Queue.Queue()
 
-# Threaded scanning
 class ThreadScan(threading.Thread):
+    """Threaded scanning"""
     def __init__(self, queue):
         threading.Thread.__init__(self)
         self.queue = queue
