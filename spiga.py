@@ -36,16 +36,16 @@ class ThreadScan(threading.Thread):
                     if args.REQUESTS:
                         print target_dir
                     if str(code) == action_value:
-                        print "SUCCESS -> " + target_dir
+                        print "SUCCESS -> %s" % (target_dir)
             elif func_action == 'dump':
                 for i in func_call_dirs:
                     target_dir = target + "/" + i
                     (code, response) = useragent(target_dir)
                     if code == 200:
-                        print "Dumping " + target_dir
+                        print "Dumping %s" % (target_dir)
                         print response
                     else:
-                        print "No " + target_dir + " to dump"
+                        print "No %s to dump" % (target_dir)
             elif func_action == 'search':
                 for i in func_call_dirs:
                     target_dir = target + "/" + i
@@ -54,7 +54,7 @@ class ThreadScan(threading.Thread):
                         print target_dir
                     search_str = re.search(action_value, response)
                     if search_str:
-                        print "SUCCESS -> " + target_dir
+                        print "SUCCESS -> %s" % (target_dir)
 
             # Signals to queue job is done
             self.queue.task_done()
@@ -90,24 +90,15 @@ if __name__ == '__main__':
     # Parse arguments
     parser = argparse.ArgumentParser(description='spiga.py - Configurable web resource scanner')
 
-    parser.add_argument('-c', '--conf', action='store', dest='CONF', help='choose conf file location')
+    parser.add_argument(action='store', dest='TARGET', help='scan target domain like http(s)://www.example.com')
+    parser.add_argument('-c', '--conf', action='store', dest='CONF', default='spiga.conf', help='choose conf file location')
     parser.add_argument('-r', '--requests', action='store_true', dest='REQUESTS', default=False, help='show all requests')
-    parser.add_argument('-t', '--target', action='store', dest='TARGET', help='scan target domain like http(s)://www.example.com')
     parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.5', help='show version number and exit')
 
     args = parser.parse_args()
 
-    # Handle parsed arguments
-    if args.CONF == None:
-        conf_loc = 'spiga.conf'
-    else:
-        conf_loc = args.CONF
-
-    if args.TARGET == None:
-        print "Please choose -t TARGET or -h for help... exiting"
-        sys.exit()
-    else:
-        target = check_url(args.TARGET)
+    # Verify and assign URL
+    target = check_url(args.TARGET)
 
     # spiga.conf parsing regexes
     conf_comment  = re.compile('^#')
@@ -117,7 +108,7 @@ if __name__ == '__main__':
 
     # Open and read spiga.conf
     try:
-        conf = open(conf_loc, 'r')
+        conf = open(args.CONF, 'r')
     except:
         print "No spiga.conf file present... exiting"
         sys.exit()
@@ -173,7 +164,7 @@ if __name__ == '__main__':
     start = time.time()
 
     # Main loop
-    print "Scanning %s..." % (target)
+    print "\nScanning %s..." % (target)
     for keyf in dict_of_funcs.keys():
         for keya in dict_of_actions.keys():
             keyf_in_keya = re.search(keyf, keya)
@@ -186,4 +177,4 @@ if __name__ == '__main__':
     # Wait on the queue until everything has been processed
     queue.join()
 
-    print "Elapsed time: %s seconds" % (time.time() - start)
+    print "\nspiga.py done: %s scanned in %s seconds" % (target, (time.time() - start))
