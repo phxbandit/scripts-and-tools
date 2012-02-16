@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# spiga.py v0.5 - Configurable web resource scanner
+# spiga.py v0.6 - Configurable web resource scanner
 # by dual
 #
 # Please read spiga.conf and spiga.py -h for instructions.
@@ -54,10 +54,28 @@ class ThreadScan(threading.Thread):
                         print target_dir
                     search_str = re.search(action_value, response)
                     if search_str:
-                        print "SUCCESS -> %s" % (target_dir)
+                        print "SUCCESS -> %s found in %s" % (action_value, target_dir)
 
             # Signals to queue job is done
             self.queue.task_done()
+
+class myURLopener(urllib.FancyURLopener):
+    """urllib 401 error handling workaround from
+    http://cis.poly.edu/cs912/urlopen.txt""" 
+    def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
+        print "BASIC AUTH FOUND"
+
+url_opener = myURLopener()
+
+def useragent(target_dir):
+    try:
+        ua = url_opener.open(target_dir)
+    except IOError:
+        print "FAIL -> domain does not exist or is not responding"
+        sys.exit()
+    code = ua.getcode()
+    response = ua.read()
+    return(code, response)
 
 def check_url(url_arg):
     url = urlparse.urlparse(url_arg)
@@ -68,16 +86,6 @@ def check_url(url_arg):
         print "Please use target domain like http(s)://www.example.com... exiting"
         sys.exit()
     return target
-
-def useragent(target_dir):
-    try:
-        ua = urllib.urlopen(target_dir)
-    except IOError:
-        print "FAIL -> domain does not exist or is not responding"
-        sys.exit()
-    code = ua.getcode()
-    response = ua.read()
-    return(code, response)
 
 if __name__ == '__main__':
     # Initialize
@@ -93,7 +101,7 @@ if __name__ == '__main__':
     parser.add_argument(action='store', dest='TARGET', help='scan target domain like http(s)://www.example.com')
     parser.add_argument('-c', '--conf', action='store', dest='CONF', default='spiga.conf', help='choose conf file location')
     parser.add_argument('-r', '--requests', action='store_true', dest='REQUESTS', default=False, help='show all requests')
-    parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.5', help='show version number and exit')
+    parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.6', help='show version number and exit')
 
     args = parser.parse_args()
 
@@ -149,7 +157,7 @@ if __name__ == '__main__':
                 continue
             func_call_dirs.append(line)
 
-    dict_of_funcs = dict(zip(main_func_calls, main_func_dirs))
+    dict_of_funcs   = dict(zip(main_func_calls, main_func_dirs))
     dict_of_actions = dict(zip(func_action_names, func_action_values))
 
     iso8601 = time.strftime("%Y-%m-%d %H:%M:%S")
