@@ -63,7 +63,7 @@ class myURLopener(urllib.FancyURLopener):
     """urllib 401 error handling workaround from
     http://cis.poly.edu/cs912/urlopen.txt""" 
     def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
-        print "BASIC AUTH FOUND"
+        print "BASIC AUTH FOUND -> run with -r to see the protected resource"
 
 url_opener = myURLopener()
 
