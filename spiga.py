@@ -68,6 +68,7 @@ class myURLopener(urllib.FancyURLopener):
 url_opener = myURLopener()
 
 def useragent(target_dir):
+    """Fetch the resource"""
     try:
         ua = url_opener.open(target_dir)
     except IOError:
@@ -78,6 +79,7 @@ def useragent(target_dir):
     return(code, response)
 
 def check_url(url_arg):
+    """Verify that the target domain is valid"""
     url = urlparse.urlparse(url_arg)
     if url.scheme == 'http' or url.scheme == 'https':
         if url.netloc != '':
@@ -157,9 +159,11 @@ if __name__ == '__main__':
                 continue
             func_call_dirs.append(line)
 
+    # Create function and action dictionaries from lists
     dict_of_funcs   = dict(zip(main_func_calls, main_func_dirs))
     dict_of_actions = dict(zip(func_action_names, func_action_values))
 
+    # Timestamp and opening message
     iso8601 = time.strftime("%Y-%m-%d %H:%M:%S")
     print "\nStarting spiga.py ( https://github.com/getdual ) at %s with %s threads" % (iso8601, NO_OF_THREADS)
 
@@ -185,4 +189,5 @@ if __name__ == '__main__':
     # Wait on the queue until everything has been processed
     queue.join()
 
+    # Closing message
     print "\nspiga.py done: %s scanned in %s seconds" % (target, (time.time() - start))
