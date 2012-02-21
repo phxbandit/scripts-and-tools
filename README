@@ -18,7 +18,6 @@ iso8601                 - ISO 8601 standard date and time functions
 mild.sh                 - Subdomain brute forcer inspired by fierce.pl
 netbiowned.pl           - Simplifies windows share enumeration
 passwords.txt           - Password list
-spiga-0.3.py            - Configurable web resource scanner with random scanning
 spiga.conf              - Conf file for spiga.py
 spiga.py                - Configurable web resource scanner with threading
 sshscan.py              - Horizontal SSH scanner
