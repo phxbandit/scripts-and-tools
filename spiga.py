@@ -5,7 +5,7 @@
 #
 # Please read spiga.conf and spiga.py -h for instructions.
 
-import argparse, Queue, re, sys, threading, time, urllib, urlparse
+import argparse, os, Queue, re, sys, threading, time, urllib, urlparse
 
 # Define the number of threads to use here
 NO_OF_THREADS = 5
@@ -73,7 +73,7 @@ def useragent(target_dir):
         ua = url_opener.open(target_dir)
     except IOError:
         print "FAIL -> domain does not exist or is not responding"
-        sys.exit()
+        os._exit(os.EX_NOHOST)
     code = ua.getcode()
     response = ua.read()
     return(code, response)
@@ -165,6 +165,7 @@ if __name__ == '__main__':
 
     # Timestamp and opening message
     iso8601 = time.strftime("%Y-%m-%d %H:%M:%S")
+    start   = time.time()
     print "\nStarting spiga.py ( https://github.com/getdual ) at %s with %s threads" % (iso8601, NO_OF_THREADS)
 
     # Spawn a pool of threads and pass them queue instance 
@@ -172,8 +173,6 @@ if __name__ == '__main__':
         t = ThreadScan(queue)
         t.setDaemon(True)
         t.start()
-
-    start = time.time()
 
     # Main loop
     print "\nScanning %s..." % (target)
