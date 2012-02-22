@@ -9,11 +9,7 @@
 # range(1,5001)
 # file = urllib.urlopen("http://www.charliedanielssoapbox.com/view_user.php?id=" + str(i))
 
-import httplib
-import random
-import re
-import time
-import urllib
+import httplib, random, re, time, urllib
 
 # POST function
 def post(USERNAME):

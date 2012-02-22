@@ -19,6 +19,6 @@ mild.sh                 - Subdomain brute forcer inspired by fierce.pl
 netbiowned.pl           - Simplifies windows share enumeration
 passwords.txt           - Password list
 spiga.conf              - Conf file for spiga.py
-spiga.py                - Configurable web resource scanner with threading
+spiga.py                - Configurable, threaded web resource scanner
 sshscan.py              - Horizontal SSH scanner
 users.txt               - Concise user list

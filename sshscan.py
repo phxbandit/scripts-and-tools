@@ -19,14 +19,7 @@
 # SSH with pexpect example:
 # http://linux.byexamples.com/archives/346/python-how-to-access-ssh-with-pexpect/
 
-import datetime
-import netaddr
-import os
-import pexpect
-import random
-import re
-import socket
-import sys
+import datetime, netaddr, os, pexpect, random, re, socket, sys
 
 # DEFINE CNNX STRING, USER AND PASS
 CNNX = 'Are you sure you want to continue connecting'
