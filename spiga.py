@@ -37,8 +37,7 @@ class ThreadScan(threading.Thread):
                     target_dir = target + "/" + i
                     (code, response) = useragent(target_dir)
                     if args.SLEEP:
-                        sleep_time = random.randint(1,TIME_TO_SLEEP)
-                        time.sleep(sleep_time)
+                        time.sleep(random.randint(1,TIME_TO_SLEEP))
                     if args.REQUESTS:
                         print target_dir
                     if str(code) == action_value:
@@ -57,8 +56,7 @@ class ThreadScan(threading.Thread):
                     target_dir = target + "/" + i
                     (code, response) = useragent(target_dir)
                     if args.SLEEP:
-                        sleep_time = random.randint(1,TIME_TO_SLEEP)
-                        time.sleep(sleep_time)
+                        time.sleep(random.randint(1,TIME_TO_SLEEP))
                     if args.REQUESTS:
                         print target_dir
                     search_str = re.search(action_value, response)
