@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 
-# spiga.py v0.6 - Configurable web resource scanner
+# spiga.py v0.7 - Configurable web resource scanner
 # by dual
 #
 # Please read spiga.conf and spiga.py -h for instructions.
 
-import argparse, os, Queue, re, sys, threading, time, urllib, urlparse
+import argparse, os, Queue, random, re, sys, threading, time, urllib, urlparse
 
 # Define the number of threads to use here
 NO_OF_THREADS = 5
+
+# Define the random number of seconds to sleep
+TIME_TO_SLEEP = 5
 
 # Create queue for threads
 queue = Queue.Queue()
@@ -33,6 +36,9 @@ class ThreadScan(threading.Thread):
                 for i in func_call_dirs:
                     target_dir = target + "/" + i
                     (code, response) = useragent(target_dir)
+                    if args.SLEEP:
+                        sleep_time = random.randint(1,TIME_TO_SLEEP)
+                        time.sleep(sleep_time)
                     if args.REQUESTS:
                         print target_dir
                     if str(code) == action_value:
@@ -50,6 +56,9 @@ class ThreadScan(threading.Thread):
                 for i in func_call_dirs:
                     target_dir = target + "/" + i
                     (code, response) = useragent(target_dir)
+                    if args.SLEEP:
+                        sleep_time = random.randint(1,TIME_TO_SLEEP)
+                        time.sleep(sleep_time)
                     if args.REQUESTS:
                         print target_dir
                     search_str = re.search(action_value, response)
@@ -96,6 +105,7 @@ if __name__ == '__main__':
     func_action_names  = []
     func_action_values = []
     func_check = 0
+    SLEEP      = 0
 
     # Parse arguments
     parser = argparse.ArgumentParser(description='spiga.py - Configurable web resource scanner')
@@ -103,7 +113,8 @@ if __name__ == '__main__':
     parser.add_argument(action='store', dest='TARGET', help='scan target domain like http(s)://www.example.com')
     parser.add_argument('-c', '--conf', action='store', dest='CONF', default='spiga.conf', help='choose conf file location')
     parser.add_argument('-r', '--requests', action='store_true', dest='REQUESTS', default=False, help='show all requests')
-    parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.6', help='show version number and exit')
+    parser.add_argument('-s', '--sleep', action='store_true', dest='SLEEP', default=False, help='sleep a random number of seconds between requests')
+    parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.7', help='show version number and exit')
 
     args = parser.parse_args()
 
