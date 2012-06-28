@@ -103,6 +103,7 @@ if __name__ == '__main__':
     func_action_names  = []
     func_action_values = []
     func_check = 0
+    comm_check = 0
     SLEEP      = 0
 
     # Parse arguments
@@ -121,6 +122,8 @@ if __name__ == '__main__':
 
     # spiga.conf parsing regexes
     conf_comment  = re.compile('^#')
+    conf_beg_comm = re.compile('^\/\*$')
+    conf_end_comm = re.compile('^\*\/$')
     conf_beg_func = re.compile('^\(\)(.*?)\s*{$')
     conf_action   = re.compile('^;(.*?)=(.*)$')
     conf_end_func = re.compile('^}$')
@@ -136,6 +139,21 @@ if __name__ == '__main__':
     # Parse spiga.conf
     for tmp_line in conf_lines:
         line = tmp_line.strip()
+
+        beg_comm = re.search(conf_beg_comm, line)
+        if beg_comm:
+            comm_check = 1
+            continue
+
+        end_comm = re.search(conf_end_comm, line)
+
+        if comm_check:
+            if end_comm:
+                comm_check = 0
+                continue
+
+        if comm_check and not end_comm:
+            continue
 
         beg_func = re.search(conf_beg_func, line)
         if beg_func:
