@@ -14,7 +14,7 @@
 # http://geolite.maxmind.com/download/geoip/database/GeoIPCountryCSV.zip
 #
 # checkServer function by Brad Peters - brad (at) endperform (dot) org
-# iprange function from http://cmikavac.net/2011/09/11/how-to-generate-an-ip-range-list-in-python/
+# ipRange function from http://cmikavac.net/2011/09/11/how-to-generate-an-ip-range-list-in-python/
 #
 # SSH with pexpect example:
 # http://linux.byexamples.com/archives/346/python-how-to-access-ssh-with-pexpect/
