@@ -5,28 +5,67 @@
 #
 # sshscan.py is a horizontal SSH scanner, made to scan large
 # swaths of IP space for a single SSH user and pass. It uses
-# ip_list.txt as the input for IP addresses in the form of
-# X.X.X.X or X.X.X.X/XX.
+# iplist.txt as the input of IP addresses in the form of
+# X.X.X.X, X.X.X.X/XX, or X.X.X.X-X with X-X in any octect.
 #
 # Usage: python -u sshscan.py
 #
 # IP country database:
 # http://geolite.maxmind.com/download/geoip/database/GeoIPCountryCSV.zip
 #
-# checkServer code by Brad Peters:
-# brad (at) endperform (dot) org
+# checkServer function by Brad Peters - brad (at) endperform (dot) org
+# iprange function from http://cmikavac.net/2011/09/11/how-to-generate-an-ip-range-list-in-python/
 #
 # SSH with pexpect example:
 # http://linux.byexamples.com/archives/346/python-how-to-access-ssh-with-pexpect/
 
 import datetime, netaddr, os, pexpect, random, re, socket, sys
 
-# DEFINE CNNX STRING, USER AND PASS
+# Define connection string, user, and pass
 CNNX = 'Are you sure you want to continue connecting'
 USER = 'root'
 PASS = 'root'
+
+# Convert an IP range into start and end IPs
+def rangeStr(testip):
+    start_ip = []
+    end_ip   = []
+
+    matchAll = re.search('(\d{1,3}\-\d{1,3}|\d{1,3})\.(\d{1,3}\-\d{1,3}|\d{1,3})\.(\d{1,3}\-\d{1,3}|\d{1,3})\.(\d{1,3}\-\d{1,3}|\d{1,3})', testip)
+
+    for i in range(1, 5):
+        matchRange = re.search('(\d{1,3})\-(\d{1,3})', matchAll.group(i))
+        if matchRange:
+            start_ip.append(matchRange.group(1))
+            end_ip.append(matchRange.group(2))
+        else:
+            start_ip.append(matchAll.group(i))
+            end_ip.append(matchAll.group(i))
+
+    start_ip_str = ".".join(map(str, start_ip))
+    end_ip_str = ".".join(map(str, end_ip))
+
+    return start_ip_str, end_ip_str
+
+# Generate an IP list given the first and last IPs
+def ipRange(start_ip, end_ip):
+    start = list(map(int, start_ip.split(".")))
+    end = list(map(int, end_ip.split(".")))
+    temp = start
+    ip_range = []
     
-# This code actually attempts to check the SSH port
+    ip_range.append(start_ip)
+    while temp != end:
+        start[3] += 1
+        for i in (3, 2, 1):
+            if temp[i] == 256:
+                temp[i] = 0
+                temp[i-1] += 1
+        ip_range.append(".".join(map(str, temp)))
+       
+    return ip_range
+    
+# Checks the SSH port
 def checkServer(ip_from_list):
     serverSocket = socket.socket()
     serverSocket.settimeout(0.5)
@@ -35,7 +74,7 @@ def checkServer(ip_from_list):
     except socket.error:
         return 1
 
-# SSH connection function
+# Attempt to connect to SSH
 def cnnxAttempt(target):
     child = pexpect.spawn('ssh %s@%s uname -a' % (USER, target))
 
@@ -63,9 +102,9 @@ def cnnxAttempt(target):
 # Get date for output file 
 today = datetime.datetime.now()
 date = today.strftime("%Y%m%dT%H%M")
-output_filename = 'sshscan_output-' + date + '.txt'
+output_filename = 'sshscan-output-' + date + '.txt'
 
-input  = open('ip_list.txt', 'r')
+input  = open('iplist.txt', 'r')
 output = open(output_filename, 'w')
 
 # Randomize lines in input file
@@ -113,6 +152,34 @@ for line in rand_lines:
 
             # Don't scan network and broadcast addresses
             match_badip = re.search('\.(0|255)$', str(ip))
+            if match_badip:
+                continue
+            # If status is defined, we know the connection failed
+            status = checkServer(str(ip))
+            if status:
+                print "%d/%d (%d/%d) \tHost: %s \tPort: 22/closed" % (count_lines, total_lines, count_ips, total_ips, str(ip))
+            else:
+                print "%d/%d (%d/%d) \tHost: %s \tPort: 22/open" % (count_lines, total_lines, count_ips, total_ips, str(ip))
+                output.write('Host: ' + str(ip) + '\tPort: 22/open\n')
+                cnnxAttempt(str(ip))
+
+    match_dash = re.search('\d-\d', newline)
+    if match_dash:
+        first_ip, last_ip = rangeStr(newline)
+	ip_list = ipRange(first_ip, last_ip)
+
+        rand_ip_list = list(ip_list)
+        random.shuffle(rand_ip_list)
+
+        # Get total number of IPs
+        total_ips = len(rand_ip_list)
+        count_ips = 0
+
+        for ip in rand_ip_list:
+            count_ips += 1
+
+            # Don't scan network and broadcast addresses
+            match_badip = re.search('\.0|255$', str(ip))
             if match_badip:
                 continue
             # If status is defined, we know the connection failed
