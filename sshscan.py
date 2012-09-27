@@ -6,12 +6,19 @@
 # sshscan.py is a horizontal SSH scanner, made to scan large
 # swaths of IP space for a single SSH user and pass. It uses
 # iplist.txt as the input of IP addresses in the form of
-# X.X.X.X, X.X.X.X/XX, or X.X.X.X-X with X-X in any octect.
+# X.X.X.X, X.X.X.X/XX, X.X.X.X-X.X.X.X, or X.X.X.X-X with
+# X-X in any octect.
 #
 # Usage: python -u sshscan.py
 #
 # IP country database:
 # http://geolite.maxmind.com/download/geoip/database/GeoIPCountryCSV.zip
+#
+# #!/bin/bash
+# grep -i $1 GeoIPCountryWhois.csv > 1
+# awk -F, '{print $1"-"$2}' 1 > 2
+# sed -e 's/"//g' 2 > 3
+# mv 3 ${1} && rm [1,2]
 #
 # checkServer function by Brad Peters - brad (at) endperform (dot) org
 # ipRange function from http://cmikavac.net/2011/09/11/how-to-generate-an-ip-range-list-in-python/
@@ -165,30 +172,58 @@ for line in rand_lines:
 
     match_dash = re.search('\d-\d', newline)
     if match_dash:
-        first_ip, last_ip = rangeStr(newline)
-	ip_list = ipRange(first_ip, last_ip)
+        match_whole = re.search('(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})-(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})', newline)
+        if match_whole:
+            ip_list = ipRange(match_whole.group(1), match_whole.group(2))
 
-        rand_ip_list = list(ip_list)
-        random.shuffle(rand_ip_list)
+            rand_ip_list = list(ip_list)
+            random.shuffle(rand_ip_list)
 
-        # Get total number of IPs
-        total_ips = len(rand_ip_list)
-        count_ips = 0
+            # Get total number of IPs
+            total_ips = len(rand_ip_list)
+            count_ips = 0
 
-        for ip in rand_ip_list:
-            count_ips += 1
+            for ip in rand_ip_list:
+                count_ips += 1
 
-            # Don't scan network and broadcast addresses
-            match_badip = re.search('\.0|255$', str(ip))
-            if match_badip:
-                continue
-            # If status is defined, we know the connection failed
-            status = checkServer(str(ip))
-            if status:
-                print "%d/%d (%d/%d) \tHost: %s \tPort: 22/closed" % (count_lines, total_lines, count_ips, total_ips, str(ip))
-            else:
-                print "%d/%d (%d/%d) \tHost: %s \tPort: 22/open" % (count_lines, total_lines, count_ips, total_ips, str(ip))
-                output.write('Host: ' + str(ip) + '\tPort: 22/open\n')
-                cnnxAttempt(str(ip))
+                # Don't scan network and broadcast addresses
+                match_badip = re.search('\.0|255$', str(ip))
+                if match_badip:
+                    continue
+                # If status is defined, we know the connection failed
+                status = checkServer(str(ip))
+                if status:
+                    print "%d/%d (%d/%d) \tHost: %s \tPort: 22/closed" % (count_lines, total_lines, count_ips, total_ips, str(ip))
+                else:
+                    print "%d/%d (%d/%d) \tHost: %s \tPort: 22/open" % (count_lines, total_lines, count_ips, total_ips, str(ip))
+                    output.write('Host: ' + str(ip) + '\tPort: 22/open\n')
+                    cnnxAttempt(str(ip))
+
+        else:
+            first_ip, last_ip = rangeStr(newline)
+            ip_list = ipRange(first_ip, last_ip)
+
+            rand_ip_list = list(ip_list)
+            random.shuffle(rand_ip_list)
+
+            # Get total number of IPs
+            total_ips = len(rand_ip_list)
+            count_ips = 0
+
+            for ip in rand_ip_list:
+                count_ips += 1
+
+                # Don't scan network and broadcast addresses
+                match_badip = re.search('\.0|255$', str(ip))
+                if match_badip:
+                    continue
+                # If status is defined, we know the connection failed
+                status = checkServer(str(ip))
+                if status:
+                    print "%d/%d (%d/%d) \tHost: %s \tPort: 22/closed" % (count_lines, total_lines, count_ips, total_ips, str(ip))
+                else:
+                    print "%d/%d (%d/%d) \tHost: %s \tPort: 22/open" % (count_lines, total_lines, count_ips, total_ips, str(ip))
+                    output.write('Host: ' + str(ip) + '\tPort: 22/open\n')
+                    cnnxAttempt(str(ip))
 
 output.close()
