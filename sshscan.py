@@ -15,10 +15,7 @@
 # http://geolite.maxmind.com/download/geoip/database/GeoIPCountryCSV.zip
 #
 # #!/bin/bash
-# grep -i $1 GeoIPCountryWhois.csv > 1
-# awk -F, '{print $1"-"$2}' 1 > 2
-# sed -e 's/"//g' 2 > 3
-# mv 3 iplist.txt && rm [1,2]
+# grep -i "$1" GeoIPCountryWhois.csv | awk -F, '{print $1"-"$2}' | sed -e 's/"//g' > iplist.txt
 #
 # checkServer function by Brad Peters - brad (at) endperform (dot) org
 # ipRange function from http://cmikavac.net/2011/09/11/how-to-generate-an-ip-range-list-in-python/
