@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# spiga.py v0.7 - Configurable web resource scanner
+# spiga.py v0.75 - Configurable web resource scanner
 # by dual
 #
 # Please read spiga.conf and spiga.py -h for instructions.
@@ -113,7 +113,7 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--conf', action='store', dest='CONF', default='spiga.conf', help='choose conf file location')
     parser.add_argument('-r', '--requests', action='store_true', dest='REQUESTS', default=False, help='show all requests')
     parser.add_argument('-s', '--sleep', action='store_true', dest='SLEEP', default=False, help='sleep a random number of seconds between requests')
-    parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.7', help='show version number and exit')
+    parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.75', help='show version number and exit')
 
     args = parser.parse_args()
 
@@ -127,6 +127,7 @@ if __name__ == '__main__':
     conf_beg_func = re.compile('^\(\)(.*?)\s*{$')
     conf_action   = re.compile('^;(.*?)=(.*)$')
     conf_end_func = re.compile('^}$')
+    ext_expansion = re.compile('^(.+?)\.(\(.+?\))$')
 
     # Open and read spiga.conf
     try:
@@ -184,7 +185,14 @@ if __name__ == '__main__':
                 func_check = 0
                 main_func_dirs.append(func_call_dirs)
                 continue
-            func_call_dirs.append(line)
+            ext_check = re.search(ext_expansion, line)
+            if ext_check:
+                exts = ext_check.group(2).translate(None, '()')
+                ext_list = list(exts.split('|'))
+                for i in ext_list:
+                    func_call_dirs.append(ext_check.group(1) + "." + i)
+            else:
+                func_call_dirs.append(line)
 
     # Create function and action dictionaries from lists
     dict_of_funcs   = dict(zip(main_func_calls, main_func_dirs))
