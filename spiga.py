@@ -66,11 +66,25 @@ class ThreadScan(threading.Thread):
             # Signals to queue job is done
             self.queue.task_done()
 
+def spoofUA():
+    UAstrings = [ 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6',
+        'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:15.0) Gecko/20100101 Firefox/15.0.1',
+        'Mozilla/4.0 (compatible; MSIE 6.1; Windows XP)',
+        'Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)',
+        'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; InfoPath.2)',
+        'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.2; Win64; x64; Trident/4.0)',
+        'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; SV1; .NET CLR 2.0.50727; InfoPath.2)',
+        'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; NP06)',
+        'Opera/9.80 (Windows NT 6.1; WOW64; U; en) Presto/2.10.289 Version/12.02' ]
+    UAstring = random.choice(UAstrings)
+    return UAstring
+
 class myURLopener(urllib.FancyURLopener):
     """urllib 401 error handling workaround from
-    http://cis.poly.edu/cs912/urlopen.txt""" 
+    http://cis.poly.edu/cs912/urlopen.txt"""
     def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
         print "BASIC AUTH FOUND -> run with -r to see the protected resource"
+    version = spoofUA()
 
 url_opener = myURLopener()
 
