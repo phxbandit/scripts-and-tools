@@ -25,11 +25,11 @@ class ThreadScan(threading.Thread):
     def run(self):
         while True:
             # Grab resources from queue
-            items          = self.queue.get()
+            items = self.queue.get()
             func_call_dirs = items[0]
-            target         = items[1]
-            func_action    = items[2]
-            action_value   = items[3]
+            target = items[1]
+            func_action = items[2]
+            action_value = items[3]
 
             # Scanner function
             if func_action == 'code':
@@ -67,6 +67,7 @@ class ThreadScan(threading.Thread):
             self.queue.task_done()
 
 def spoofUA():
+    """Function to spoof user agent"""
     UAstrings = [ 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6',
         'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:15.0) Gecko/20100101 Firefox/15.0.1',
         'Mozilla/4.0 (compatible; MSIE 6.1; Windows XP)',
@@ -112,13 +113,13 @@ def check_url(url_arg):
 
 if __name__ == '__main__':
     # Initialize
-    main_func_calls    = []
-    main_func_dirs     = []
-    func_action_names  = []
+    main_func_calls = []
+    main_func_dirs = []
+    func_action_names = []
     func_action_values = []
     func_check = 0
     comm_check = 0
-    SLEEP      = 0
+    SLEEP = 0
 
     # Parse arguments
     parser = argparse.ArgumentParser(description='spiga.py - Configurable web resource scanner')
@@ -135,11 +136,11 @@ if __name__ == '__main__':
     target = check_url(args.TARGET)
 
     # spiga.conf parsing regexes
-    conf_comment  = re.compile('^#')
+    conf_comment = re.compile('^#')
     conf_beg_comm = re.compile('^\/\*$')
     conf_end_comm = re.compile('^\*\/$')
     conf_beg_func = re.compile('^\(\)(.*?)\s*{$')
-    conf_action   = re.compile('^;(.*?)=(.*)$')
+    conf_action = re.compile('^;(.*?)=(.*)$')
     conf_end_func = re.compile('^}$')
     ext_expansion = re.compile('^(.+?)\.(\(.+?\))$')
 
@@ -209,12 +210,12 @@ if __name__ == '__main__':
                 func_call_dirs.append(line)
 
     # Create function and action dictionaries from lists
-    dict_of_funcs   = dict(zip(main_func_calls, main_func_dirs))
+    dict_of_funcs = dict(zip(main_func_calls, main_func_dirs))
     dict_of_actions = dict(zip(func_action_names, func_action_values))
 
     # Timestamp and opening message
     iso8601 = time.strftime("%Y-%m-%d %H:%M:%S")
-    start   = time.time()
+    start = time.time()
     print "\nStarting spiga.py ( https://github.com/getdual ) at %s with %s threads" % (iso8601, NO_OF_THREADS)
 
     # Spawn a pool of threads and pass them queue instance 
