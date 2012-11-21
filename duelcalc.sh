@@ -42,15 +42,20 @@ fi
 while (:); do
 	read -p "Player 1 DAMAGE: " DMG1
 	read -p "Player 2 DAMAGE: " DMG2
-	echo
 	LP1=$(($LP1+$DMG1))
 	LP2=$(($LP2+$DMG2))
 	if [ $CHK ]; then
 		echo >> $LOG
 		echo "$TIME" >> $LOG
+		read -p "Comment? (y or n) " YON
+		if [ "$YON" == "y" ]; then
+			read -p "Please enter comment: " COM
+			echo "$COM" >> $LOG
+		fi
 		echo "P1: $LP1" >> $LOG
 		echo "P2: $LP2" >> $LOG
 	fi
+	echo
 	echo "Player 1 LP: $LP1"
 	echo "Player 2 LP: $LP2"
 	echo
