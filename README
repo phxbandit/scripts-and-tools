@@ -14,7 +14,6 @@ charlie_pwniels_band.py - Horizontal brute force tool
 convertstr.pl           - Converts a string into various formats
 dnsx.pl                 - Automates zone file transfers
 duelcalc.sh		- Command line duel calculator
-gallery-downloaders     - Scrape sites
 hosts.txt               - hosts.txt for mild.sh
 iso8601                 - ISO 8601 standard date and time functions
 mild.sh                 - Subdomain brute forcer inspired by fierce.pl
