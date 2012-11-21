@@ -35,11 +35,11 @@ elif [ "$1" == "-n" ]; then
 	CHK=0
 else
 	CHK=1
-	echo "duelcalc.sh log - Duel begins at $TIME" >> $LOG
+	echo "duelcalc.sh log - Duel began at $TIME" >> $LOG
 fi
 
 # Do work
-while (:); do
+while :; do
 	read -p "Player 1 DAMAGE: " DMG1
 	read -p "Player 2 DAMAGE: " DMG2
 	LP1=$(($LP1+$DMG1))
@@ -56,8 +56,16 @@ while (:); do
 		echo "P2: $LP2" >> $LOG
 	fi
 	echo
-	echo "Player 1 LP: $LP1"
-	echo "Player 2 LP: $LP2"
+	if [ "$LP1" -lt "$LP2" ]; then
+		echo -e "Player 1 LP: $(tput setaf 1)$LP1$(tput sgr0)"
+		echo -e "Player 2 LP: $(tput setaf 2)$LP2$(tput sgr0)"
+	elif [ "$LP1" -gt "$LP2" ]; then
+		echo -e "Player 1 LP: $(tput setaf 2)$LP1$(tput sgr0)"
+		echo -e "Player 2 LP: $(tput setaf 1)$LP2$(tput sgr0)"
+	else
+		echo -e "Player 1 LP: $(tput setaf 6)$LP1$(tput sgr0)"
+		echo -e "Player 2 LP: $(tput setaf 6)$LP2$(tput sgr0)"
+	fi
 	echo
 
 	if [ "$LP1" -le 0 ]; then
