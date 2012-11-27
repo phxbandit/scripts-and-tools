@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# sshscan.py v0.9 - Horizontal SSH scanner
+# sshscan.py 0.9 - Horizontal SSH scanner
 # by dual (whenry)
 #
 # sshscan.py is a horizontal SSH scanner that scans large

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# spiga.py v0.7.5 - Configurable web resource scanner
+# spiga.py 0.7.5 - Configurable web resource scanner
 # by dual (whenry)
 #
 # Please read spiga.conf and spiga.py -h for instructions.
