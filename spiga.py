@@ -1,9 +1,16 @@
 #!/usr/bin/env python
 
 # spiga.py v0.75 - Configurable web resource scanner
-# by dual
+# by dual (whenry)
 #
 # Please read spiga.conf and spiga.py -h for instructions.
+#
+# ----------------------------------------------------------------------------
+# "THE BEER-WARE LICENSE" (Revision 42):
+# dual (@getdual) wrote gallerycgi. As long as you retain this notice you
+# can do whatever you want with this stuff. If we meet some day, and you think
+# this stuff is worth it, you can buy me a beer in return. dual
+# ----------------------------------------------------------------------------
 
 import argparse, os, Queue, random, re, sys, threading, time, urllib, urlparse
 
@@ -69,7 +76,7 @@ class ThreadScan(threading.Thread):
 def spoofUA():
     """Function to spoof user agent"""
     UAstrings = [ 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6',
-        'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:15.0) Gecko/20100101 Firefox/15.0.1',
+        'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:17.0) Gecko/17.0 Firefox/17.0',
         'Mozilla/4.0 (compatible; MSIE 6.1; Windows XP)',
         'Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)',
         'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; InfoPath.2)',

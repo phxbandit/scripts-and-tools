@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # sshscan.py - Horizontal SSH scanner
-# by dual
+# by dual (whenry)
 #
 # sshscan.py is a horizontal SSH scanner, made to scan large
 # swaths of IP space for a single SSH user and pass. It uses
@@ -22,6 +22,13 @@
 #
 # SSH with pexpect example:
 # http://linux.byexamples.com/archives/346/python-how-to-access-ssh-with-pexpect/
+#
+# ----------------------------------------------------------------------------
+# "THE BEER-WARE LICENSE" (Revision 42):
+# dual (@getdual) wrote gallerycgi. As long as you retain this notice you
+# can do whatever you want with this stuff. If we meet some day, and you think
+# this stuff is worth it, you can buy me a beer in return. dual
+# ----------------------------------------------------------------------------
 
 import datetime, netaddr, os, pexpect, random, re, socket, sys
 
