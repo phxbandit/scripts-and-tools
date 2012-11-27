@@ -4,9 +4,9 @@
 # by dual (whenry)
 #
 # sshscan.py is a horizontal SSH scanner that scans large
-# swaths of IP space for a single SSH user and pass. It uses
-# iplist.txt as the input of IP addresses in the form of
-# X.X.X.X, X.X.X.X/XX, X.X.X.X-X.X.X.X, or X.X.X.X-X with
+# swaths of IPv4 space for a single SSH user and pass. It
+# uses iplist.txt as the input of IP addresses in the form
+# of X.X.X.X, X.X.X.X/XX, X.X.X.X-X.X.X.X, or X.X.X.X-X with
 # X-X in any octect.
 #
 # Usage: python -u sshscan.py
