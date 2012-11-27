@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# spiga.py v0.75 - Configurable web resource scanner
+# spiga.py v0.7.5 - Configurable web resource scanner
 # by dual (whenry)
 #
 # Please read spiga.conf and spiga.py -h for instructions.
@@ -135,7 +135,7 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--conf', action='store', dest='CONF', default='spiga.conf', help='choose conf file location')
     parser.add_argument('-r', '--requests', action='store_true', dest='REQUESTS', default=False, help='show all requests')
     parser.add_argument('-s', '--sleep', action='store_true', dest='SLEEP', default=False, help='sleep a random number of seconds between requests')
-    parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.75', help='show version number and exit')
+    parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.7.5', help='show version number and exit')
 
     args = parser.parse_args()
 
