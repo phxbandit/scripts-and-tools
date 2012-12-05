@@ -206,6 +206,7 @@ bna
 bnc
 bo
 bob
+bobafett
 bof
 bois
 boise
@@ -711,6 +712,7 @@ fax
 fbx
 feedback
 feeds
+fett
 fi
 fibertel
 field
@@ -983,9 +985,11 @@ it
 italy
 ix
 j
+jabba
 jan
 japan
 java
+jawa
 jax
 je
 jedi
