@@ -6,10 +6,10 @@
 # Usage: ./mild.sh <-s X> DOMAIN NAMESERVER
 # -s = Sleep X number of seconds
 #
-# hosts-plus.txt based on hosts.txt from:
+# hosts-plus.txt based on hosts.txt from
 # http://ha.ckers.org/fierce/hosts.txt
 
-# Include time and data functions
+# Include time and date functions
 . iso8601
 
 # Main query function
