@@ -1,9 +1,11 @@
 #!/bin/bash
 
-# mild.sh 0.5 - Subdomain brute forcer inspired by fierce.pl
+# mild.sh 0.7 - Subdomain brute forcer inspired by fierce.pl
 # by dual (whenry)
 #
-# Usage: ./mild.sh <-s X> DOMAIN NAMESERVER
+# Usage: ./mild.sh -d DOMAIN <-n NAMESERVER> <-s X>
+# -d = Set target DOMAIN
+# -n = Use NAMESERVER
 # -s = Sleep X number of seconds
 #
 # hosts-plus.txt based on hosts.txt from
@@ -19,6 +21,16 @@
 # Include time and date functions
 . iso8601
 
+# Help function
+help() {
+	echo "mild.sh - Subdomain brute forcer"
+	echo "Usage: $0 -d DOMAIN <-n NAMESERVER> <-s X>"
+	echo "-d = Set target DOMAIN"
+	echo "-n = Use NAMESERVER"
+	echo "-s = Sleep X number of seconds"
+	exit;
+}
+
 # Main query function
 query() {
 	# Log output
@@ -27,39 +39,52 @@ query() {
 	# Perform dig query
 	for i in $(cat rand-hosts.txt); do
 		dig +noall +answer $i.$DOM @$NAM
-		if [ $CHECK ]; then sleep $SLEEP; fi
+		if [ $CHK -eq 1 ]; then sleep $SLEEP; fi
 	done
 }
 
-# Check for minimum arguments
+# Handle arguments
 if [ $# -ne 2 ]; then
 	if [ $# -ne 4 ]; then
-		echo "mild.sh - Subdomain brute forcer"
-		echo "Usage: $0 <-s X> DOMAIN NAMESERVER"
-		echo "-s = Sleep X number of seconds"
-		exit;
+		if [ $# -ne 6 ]; then
+			help
+		fi
 	fi
+fi
+
+while getopts d:n:s: option; do
+	case "${option}"
+	in
+		d) DOM=${OPTARG};;
+		n) NAM=${OPTARG};;
+		s) SLEEP=${OPTARG};;
+	esac
+done
+
+# Check for target domain
+if [ ! $DOM ]; then
+	help
+fi
+
+# Check for name server
+if [ ! $NAM ]; then
+	NAM=$(dig +short NS $DOM | tail -1 | sed 's/\.$//')
 fi
 
 # Output banner
 echo "Starting mild.sh ( https://github.com/getdual ) at $TIME"
 
 # Check for sleep
-if [ "$1" == "-s" ]; then
-	if [ $2 -eq $2 ]; then
-		echo "  Sleeping $2 seconds between queries."
-		CHECK=1
-		SLEEP=$2
-		DOM=$3
-		NAM=$4
+if [ $SLEEP ]; then
+	if [ $SLEEP -eq $SLEEP ]; then
+		echo "  Sleeping $SLEEP seconds between queries."
+		CHK=1
 	else
-		echo "  Sleep value must be integer."
-		exit;
+		help
 	fi
 else
 	echo "  No sleep. That's not very nice."
-	DOM=$1
-	NAM=$2
+	CHK=0
 fi
 
 # Check for dig
@@ -90,7 +115,7 @@ else
 	sort -R hosts-plus.txt > rand-hosts.txt
 fi
 
-echo "  Brute forcing subdomains of $DOM using nameserver, $NAM."
+echo "  Brute forcing subdomains of $DOM using name server, $NAM."
 echo
 
 # Call main function
