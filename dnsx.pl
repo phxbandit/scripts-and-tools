@@ -1,4 +1,4 @@
-#!/usr/bin/env perl -w
+#!/usr/bin/perl -w
 
 # dnsx.pl - Automates zone file transfers
 # by dual
