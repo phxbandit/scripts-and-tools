@@ -39,11 +39,6 @@ query() {
 	# Perform dig query
 	for i in $(cat rand-hosts.txt); do
 		dig +noall +answer $i.$DOM @$NAM
-		if [ $? -ne 0 ]; then
-			echo "  Name server seems bad."
-			echo "  Try a new server with -n."
-			exit;
-		 fi
 		if [ $CHK -eq 1 ]; then sleep $SLEEP; fi
 	done
 }
@@ -71,9 +66,16 @@ if [ ! $DOM ]; then
 	help
 fi
 
-# Check for name server
+# Check for and verify name server
 if [ ! $NAM ]; then
 	NAM=$(dig +short NS $DOM | tail -1 | sed 's/\.$//')
+fi
+
+dig +noall +answer www.$DOM @$NAM > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+	echo "  Name server seems bad."
+	echo "  Try a new server with -n."
+	exit;
 fi
 
 # Output banner
