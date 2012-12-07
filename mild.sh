@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# mild.sh 0.7 - Subdomain brute forcer inspired by fierce.pl
+# mild.sh 0.7.1 - Subdomain brute forcer inspired by fierce.pl
 # by dual (whenry)
 #
 # Usage: ./mild.sh -d DOMAIN <-n NAMESERVER> <-s X>
@@ -39,6 +39,11 @@ query() {
 	# Perform dig query
 	for i in $(cat rand-hosts.txt); do
 		dig +noall +answer $i.$DOM @$NAM
+		if [ $? -ne 0 ]; then
+			echo "  Name server seems bad."
+			echo "  Try a new server with -n."
+			exit;
+		 fi
 		if [ $CHK -eq 1 ]; then sleep $SLEEP; fi
 	done
 }
