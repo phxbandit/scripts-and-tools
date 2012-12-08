@@ -61,6 +61,9 @@ while getopts d:n:s: option; do
 	esac
 done
 
+# Output banner
+echo "Starting mild.sh ( https://github.com/getdual ) at $TIME"
+
 # Check for target domain
 if [ ! $DOM ]; then
 	help
@@ -77,9 +80,6 @@ if [ $? -ne 0 ]; then
 	echo "  Try a new server with -n."
 	exit;
 fi
-
-# Output banner
-echo "Starting mild.sh ( https://github.com/getdual ) at $TIME"
 
 # Check for sleep
 if [ $SLEEP ]; then
