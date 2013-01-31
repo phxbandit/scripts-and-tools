@@ -1,8 +1,7 @@
-#!/usr/bin/env perl -w
+#!/usr/bin/perl -w
 
-# convertstr.pl - Reverses and converts a string
-# to base64, binary, hex, and rot13 and provides
-# the md5, sha1 and sha256 hashes 
+# convertstr.pl - Reverses and converts a string to:
+# Base64, binary, hex, ROT13, MD5, SHA1, and SHA256 
 #
 # by dual
 
@@ -11,67 +10,64 @@ use MIME::Base64;
 use Digest::MD5;
 use Digest::SHA qw(sha1_hex sha256_hex);
 
-my $usage = "convertstr.pl - Reverses and converts a string
-to base64, binary, hex and rot13, and provides
-the md5, sha1 and sha256 hashes
-Usasge: perl convertstr.pl <string>
+my $usage = "convertstr.pl - Reverses and converts a string to:
+  Base64, binary, hex, ROT13, MD5, SHA1, and SHA256
+Usasge: $0 <string>
 ";
 
 # Get and check args
 print $usage and exit unless my $string = shift;
 chomp($string);
 
-# Print header
 print "Converting \'$string\'...\n\n";
 
 # Reverse
-print "REVERSED:\n";
+print "REVERSED:";
 my $reversed = reverse($string);
-print $reversed . "\n\n";
+print $reversed . "\n";
 
 # Base64
-print "BASE64:\n";
+print "BASE64:";
 my $base64 = encode_base64($string);
 chomp($base64);
-print $base64 . "\n\n";
+print $base64 . "\n";
 
 # Binary
-print "BINARY:\n";
+print "BINARY:";
 my $binary = unpack('B*', $string);
-print $binary . "\n\n";
+print $binary . "\n";
 
 # Hex
-print "HEX:\n";
+print "HEX:";
 my $hex = unpack('H*', $string);
-print $hex . "\n\n";
+print $hex . "\n";
 
-# Rot13
-print "ROT13:\n";
+# ROT13
+print "ROT13:";
 if ($string =~ /[^A-Za-z\s]/) {
-  print ">>> String must be alphabetic\n\n";
+  print "String must be alphabetic\n";
 }
 else {
   my $rot13 = $string;
   $rot13 =~ tr/A-Za-z/N-ZA-Mn-za-m/;
-  print $rot13 . "\n\n";
+  print $rot13 . "\n";
 }
 
 # MD5
-print "MD5:\n";
+print "MD5:";
 my $md5 = Digest::MD5->new;
 $md5->add($string);
 my $md5hex = $md5->hexdigest;
-print $md5hex . "\n\n";
+print $md5hex . "\n";
 
 # SHA1
-print "SHA1:\n";
+print "SHA1:";
 my $sha1hex = sha1_hex($string);
-print $sha1hex . "\n\n";
+print $sha1hex . "\n";
 
 # SHA256
-print "SHA256:\n";
+print "SHA256:";
 my $sha256hex = sha256_hex($string);
-print $sha256hex . "\n\n";
+print $sha256hex . "\n";
 
-# Close out
-print "Done.\n"
+print "\nDone.\n"
