@@ -1,11 +1,8 @@
 README for scripts-n-tools
 
-I tweeted a couple of little scripts that I use at coffee shops, and ntheory
-suggested that I make a github repository of those scripts and tools. This is
-that repository.
-
-It includes Perl, Python and Bash scripts that are great for quick recon and,
-with a couple of other tools, could probalby be enough to own a small company.
+I tweeted a couple of scripts that I use, and ntheory suggested that I make a
+github repository of those scripts and tools. This is that repo. It includes
+perl, python, and bash scripts that are good for quick recon and simple vulns.
 
 - dual
 
