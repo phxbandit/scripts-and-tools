@@ -9,6 +9,7 @@ with a couple of other tools, could probalby be enough to own a small company.
 
 - dual
 
+bangrab.sh		- Simple HTTP banner grabber
 base64pl.pl             - Encodes/decodes string(s) using base64
 charlie_pwniels_band.py - Horizontal brute force tool
 convertstr.pl           - Converts a string into various formats
