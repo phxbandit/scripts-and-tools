@@ -97,7 +97,7 @@ fi
 # Check for dig
 echo "  Checking for dig:"
 type dig || {
-	echo "  No dig. Maybe run aptitude install dnsutils?"
+	echo "  No dig. Maybe run apt-get install dnsutils?"
 	exit;
 }
 
