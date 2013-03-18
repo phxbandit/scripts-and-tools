@@ -28,7 +28,7 @@ help() {
 	echo "-d = Set target DOMAIN"
 	echo "-n = Use NAMESERVER"
 	echo "-s = Sleep X number of seconds"
-	exit;
+	exit
 }
 
 # Main query function
@@ -78,7 +78,7 @@ dig +noall +answer www.$DOM @$NAM > /dev/null 2>&1
 if [ $? -ne 0 ]; then
 	echo "  Name server seems bad."
 	echo "  Try a new server with -n."
-	exit;
+	exit
 fi
 
 # Check for sleep
@@ -98,7 +98,7 @@ fi
 echo "  Checking for dig:"
 type dig || {
 	echo "  No dig. Maybe run apt-get install dnsutils?"
-	exit;
+	exit
 }
 
 # Check for subdomains list
@@ -109,7 +109,7 @@ else
 	echo "  Checking for wget:"
 	type wget || {
 		echo "  No wget. Forget it."
-		exit;
+		exit
 	}
 	wget https://raw.github.com/getdual/scripts-n-tools/master/hosts-plus.txt
 fi
