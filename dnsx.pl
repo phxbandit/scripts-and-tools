@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
 # dnsx.pl - Automates zone file transfers
-# by dual
+# by dual (whenry)
 
 use strict;
 
