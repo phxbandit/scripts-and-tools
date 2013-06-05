@@ -1,10 +1,10 @@
-README for scripts-n-tools
+**README for scripts-n-tools**
 
 I tweeted a couple of scripts that I use, and ntheory suggested that I make a
 github repository of those scripts and tools. This is that repo. It includes
 perl, python, and bash scripts that are good for quick recon and simple vulns.
 
-- dual
+**- dual**
 
 bangrab.sh		- Simple HTTP banner grabber
 base64pl.pl             - Encodes/decodes string(s) using base64
