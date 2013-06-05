@@ -1,6 +1,6 @@
 **README for scripts-n-tools**
 
-I tweeted a couple of scripts that I use, and [ntheory](https://github.com/ntheory) suggested that I make a
+I tweeted a couple of scripts that I use, and [ntheory](https://github.com/ntheory) suggested I make a
 GitHub repository of those scripts and tools. This is that repository. It includes
 Python, Perl, and Bash scripts that are good for quick recon and simple vulns.
 
