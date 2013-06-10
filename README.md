@@ -4,7 +4,7 @@ I tweeted a couple of scripts that I use, and [ntheory](https://github.com/ntheo
 GitHub repository of those scripts and tools. This is that repository. It includes
 Python, Perl, and Bash scripts that are good for quick recon and simple vulns.
 
-- dual
+**- dual**
 
 - bangrab.sh -- Simple HTTP banner grabber
 - base64pl.pl -- Encodes/decodes string(s) using base64
