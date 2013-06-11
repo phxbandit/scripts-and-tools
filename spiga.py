@@ -93,7 +93,7 @@ class myURLopener(urllib.FancyURLopener):
     """urllib 401 error handling workaround from
     http://cis.poly.edu/cs912/urlopen.txt"""
     def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
-        print "BASIC AUTH FOUND -> run with -r to see the protected resource below this"
+        print "BASIC AUTH FOUND -> Run with -r to see the protected resource below this"
     version = spoofUA()
 
 url_opener = myURLopener()
@@ -103,7 +103,7 @@ def useragent(target_dir):
     try:
         ua = url_opener.open(target_dir)
     except IOError:
-        print "FAIL -> domain does not exist or is not responding"
+        print "FAIL -> Domain does not exist or is not responding"
         os._exit(os.EX_NOHOST)
     code = ua.getcode()
     response = ua.read()
@@ -117,7 +117,7 @@ def check_url(url_arg):
             target = url.scheme + "://" + url.netloc + url.path
             target = target.rstrip('/')
     else:
-        print "Please use target domain like http(s)://www.example.com... exiting"
+        print "ERROR: Please use target domain like http(s)://www.example.com... exiting"
         sys.exit()
     return target
 
@@ -158,7 +158,7 @@ if __name__ == '__main__':
     try:
         conf = open(args.CONF, 'r')
     except:
-        print "No spiga.conf file present... exiting"
+        print "ERROR: No spiga.conf file present... exiting"
         sys.exit()
     conf_lines = conf.readlines()
 
