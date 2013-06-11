@@ -20,4 +20,5 @@ Python, Perl, and Bash scripts that are good for quick recon and simple vulns.
 - spiga.conf -- Conf file for spiga.py
 - spiga.py -- Configurable, threaded web resource scanner
 - sshscan.py -- Horizontal SSH scanner
+- uas.txt -- User agent strings
 - users.txt -- Concise user list

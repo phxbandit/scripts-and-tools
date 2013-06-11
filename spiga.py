@@ -1,18 +1,20 @@
 #!/usr/bin/env python
 
-# spiga.py 0.7.5 - Configurable web resource scanner
+# spiga.py 0.7.6 - Configurable web resource scanner
 # by dual (whenry)
 #
 # Please read spiga.conf and spiga.py -h for instructions.
-#
-# ----------------------------------------------------------------------------
-# "THE BEER-WARE LICENSE" (Revision 42):
-# dual (@getdual) wrote spiga.py. As long as you retain this notice you
-# can do whatever you want with this stuff. If we meet some day, and you think
-# this stuff is worth it, you can buy me a beer in return. dual
-# ----------------------------------------------------------------------------
 
-import argparse, os, Queue, random, re, sys, threading, time, urllib, urlparse
+import argparse
+import os
+import Queue
+import random
+import re
+import sys
+import threading
+import time
+import urllib
+import urlparse
 
 # Define the number of threads to use here
 NO_OF_THREADS = 5
@@ -75,15 +77,15 @@ class ThreadScan(threading.Thread):
 
 def spoofUA():
     """Function to spoof user agent"""
-    UAstrings = [ 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6',
-        'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:17.0) Gecko/17.0 Firefox/17.0',
-        'Mozilla/4.0 (compatible; MSIE 6.1; Windows XP)',
-        'Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)',
-        'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; InfoPath.2)',
-        'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.2; Win64; x64; Trident/4.0)',
-        'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; SV1; .NET CLR 2.0.50727; InfoPath.2)',
-        'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; NP06)',
-        'Opera/9.80 (Windows NT 6.1; WOW64; U; en) Presto/2.10.289 Version/12.02' ]
+    # Open and read uas.txt
+    try:
+        uas = open('uas.txt', 'r')
+    except:
+        print "WARN: User agent strings file, uas.txt, not present"
+        print "WARN: Sending spiga.py version as user agent"
+        UAstring = 'spiga.py 0.7.6'
+        return UAstring
+    UAstrings = uas.readlines()
     UAstring = random.choice(UAstrings)
     return UAstring
 
@@ -112,7 +114,8 @@ def check_url(url_arg):
     url = urlparse.urlparse(url_arg)
     if url.scheme == 'http' or url.scheme == 'https':
         if url.netloc != '':
-            target = url.scheme + "://" + url.netloc
+            target = url.scheme + "://" + url.netloc + url.path
+            target = target.rstrip('/')
     else:
         print "Please use target domain like http(s)://www.example.com... exiting"
         sys.exit()
@@ -135,7 +138,7 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--conf', action='store', dest='CONF', default='spiga.conf', help='choose conf file location')
     parser.add_argument('-r', '--requests', action='store_true', dest='REQUESTS', default=False, help='show all requests')
     parser.add_argument('-s', '--sleep', action='store_true', dest='SLEEP', default=False, help='sleep a random number of seconds between requests')
-    parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.7.5', help='show version number and exit')
+    parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.7.6', help='show version number and exit')
 
     args = parser.parse_args()
 
