@@ -8,7 +8,9 @@ use strict;
 my $count;
 
 # Help
-my $usage = "$0 <string>\n";
+my $usage = "toCharCode.pl - Creates decimal string for JavaScript's fromCharCode
+Usage: $0 <string>
+";
 
 # Get and check args
 print $usage and exit unless my $string = shift;
