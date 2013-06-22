@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
 # convertstr.pl - Reverses and converts a string to:
-# Base64, binary, hex, ROT13, MD5, SHA1, and SHA256 
+# Base64, binary, decimal, hex, ROT13, MD5, SHA1, and SHA256 
 #
 # by dual
 
@@ -11,7 +11,7 @@ use Digest::MD5;
 use Digest::SHA qw(sha1_hex sha256_hex);
 
 my $usage = "convertstr.pl - Reverses and converts a string to:
-  Base64, binary, hex, ROT13, MD5, SHA1, and SHA256
+  Base64, binary, decimal, hex, ROT13, MD5, SHA1, and SHA256
 Usasge: $0 <string>
 ";
 
@@ -36,6 +36,14 @@ print $base64 . "\n";
 print "BINARY:";
 my $binary = unpack('B*', $string);
 print $binary . "\n";
+
+# Decimal
+print "DECIMAL:";
+my @decimal = unpack('C*', $string);
+foreach (@decimal) {
+  print $_;
+}
+print "\n";
 
 # Hex
 print "HEX:";
