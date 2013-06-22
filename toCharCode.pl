@@ -9,7 +9,7 @@ my $count;
 
 # Help
 my $usage = "toCharCode.pl - Creates decimal string for JavaScript's fromCharCode
-Usage: $0 <string>
+Usage: perl toCharCode.pl <string>
 ";
 
 # Get and check args
