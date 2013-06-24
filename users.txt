@@ -47,8 +47,10 @@ admin6
 admin7
 admin8
 admin9
+admina
 administar
 administrator
+Administrator
 admins
 admissions
 adolf
@@ -174,10 +176,12 @@ arthur
 artificial
 as
 as400
+asdf
 asepyme
 ashley
 ashton
 asia
+asterisk
 astrid
 at
 attila
@@ -267,6 +271,7 @@ bnc
 board
 bob
 bobby
+bobw
 bogdan
 bogus
 boon
@@ -309,6 +314,7 @@ buster
 butthead
 bytes
 cable
+cactiuser
 caine
 caitlen
 cal
@@ -325,6 +331,7 @@ carina
 carl
 carla
 carlos
+carlp
 carlton
 carmella
 carmen
@@ -443,6 +450,7 @@ cornelia
 cornelius
 corrie
 corrina
+cory
 courtney
 cpanel
 craig
@@ -762,6 +770,7 @@ flora
 florian
 fluffy
 fnet
+foo
 foot
 footer
 force
@@ -863,6 +872,7 @@ groups
 gsync
 guard
 guest
+Guest
 guest1
 guest10
 guest123
@@ -1040,6 +1050,7 @@ janine
 jasmin
 jasmine
 jason
+jaxin
 jean
 jeff
 jefferson
@@ -1063,6 +1074,7 @@ jimmy
 joachim
 jobs
 jochen
+joe
 joeflores
 joel
 joey
@@ -1070,6 +1082,7 @@ johann
 johanna
 johannes
 john
+johnny
 jojo
 jonas
 jones
@@ -1099,6 +1112,7 @@ jurca
 jurgen
 justin
 Justin
+justine
 jutta
 kaethe
 kai
@@ -1267,6 +1281,7 @@ maja
 majordomo
 maker
 mal
+malroy
 mama
 man
 manager
@@ -1449,6 +1464,7 @@ Nicole
 niklas
 niko
 nikolaus
+niky
 nina
 nine
 nivea
@@ -1474,6 +1490,7 @@ object
 ocapate
 oconnor
 office
+offsec
 often
 ogazon
 ok
@@ -1530,6 +1547,7 @@ pc-user
 pe
 peaches
 pebekka
+pedro
 peewee
 pegasus
 penelope
@@ -1556,6 +1574,7 @@ pia
 pick
 ping
 pink
+pippo
 pisica
 pix
 play
@@ -1692,6 +1711,8 @@ rushprint
 russ
 ruth
 ryan
+ryu
+ryujin
 sa
 sabina
 sabine
