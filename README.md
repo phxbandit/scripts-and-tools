@@ -23,3 +23,4 @@ Python, Perl, and Bash scripts that are good for quick recon and simple vulns.
 - toCharCode.pl -- Creates decimal string for JavaScript's fromCharCode
 - uas.txt -- User agent strings
 - users.txt -- Concise user list
+- yumi.sh -- Checks YUMI and tool versions
