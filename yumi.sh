@@ -4,7 +4,7 @@
 # by dual
 
 yver=.yumi.ver
-tools=(Yumi Clonezilla Dban Deft GParted ophcrack7 ophcrackXP)
+tools=(Yumi Clonezilla Dban Deft GParted OfflineNT ophcrack7 ophcrackXP)
 
 echo "yumi.sh - Checks YUMI and tool versions"
 echo
@@ -22,12 +22,16 @@ Dban=$(curl -s -S http://sourceforge.net/api/file/index/project-id/61951/mtime/d
 DbanDL="http://www.dban.org/download"
 
 # DEFT Linux Computer Forensics Live CD (latest stable version)
-Deft=$(curl -s -S http://linuxfreedom.com/deft/md5.txt | grep -v beta | grep deft | tail -1 | awk '{print $1}')
+Deft=$(curl -s -S http://na.mirror.garr.it/mirrors/deft/md5.txt | grep -v beta | grep deft | tail -1 | awk '{print $1}')
 DeftDL="http://www.deftlinux.net/download/"
 
 # GParted i486
 GParted=$(curl -s -S http://free.nchc.org.tw/gparted-live/stable/CHECKSUMS.TXT | head -3 | tail -1 | awk '{print $1}')
 GPartedDL="http://gparted.sourceforge.net/download.php"
+
+# Offline NT Password & Registry Editor
+OfflineNT=$(curl -s -S http://pogostick.net/~pnh/ntpasswd/main.html | grep "Latest release is" | awk '{print $4}')
+OfflineNTDL="http://pogostick.net/~pnh/ntpasswd/bootdisk.html"
 
 # ophcrack 7 LiveCD: cracks NT hashes (Windows Vista and 7)
 ophcrack7=$(curl -s -S http://ophcrack.sourceforge.net/download.php?type=livecd | grep md5sum | head -2 | tail -1 | awk -F: '{print $2}' | sed 's/^ //' | cut -c 1-32)
