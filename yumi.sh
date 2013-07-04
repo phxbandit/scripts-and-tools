@@ -63,7 +63,7 @@ else
 			dload="DL"
 			dload="$i$dload"
 			eval echo \${$dload}
-			read -p "Would you like to update the $i version in .yumi.ver? " yon
+			read -p "Would you like to update the $i version in .yumi.ver? (y or n)" yon
 			if [[ "$yon" = 'y' || "$yon" = 'Y' ]]; then
 				echo "Updating $i's version in .yumi.ver..."
 				sed -i "s/$old/$new/" $yver
