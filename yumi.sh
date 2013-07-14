@@ -52,6 +52,7 @@ if [ ! -e $yver ]; then
 	echo "Done."
 else
 	echo "Comparing versions..."
+	echo
 	for i in "${tools[@]}"; do
 		new=$(echo "$(eval echo \$$i)")
 		old=$(grep $i $yver | awk -F: '{print $2}')
@@ -63,11 +64,12 @@ else
 			dload="DL"
 			dload="$i$dload"
 			eval echo \${$dload}
-			read -p "Would you like to update the $i version in .yumi.ver? (y or n)" yon
+			read -p "Would you like to update the $i version in .yumi.ver? (y or n) " yon
 			if [[ "$yon" = 'y' || "$yon" = 'Y' ]]; then
 				echo "Updating $i's version in .yumi.ver..."
 				sed -i "s/$old/$new/" $yver
 			fi
+			echo
 		fi
 	done
 	echo "Done."
