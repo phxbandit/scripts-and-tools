@@ -21,6 +21,8 @@ Python, Perl, and Bash scripts that are good for quick recon and simple vulns.
 - spiga.py -- Configurable, threaded web resource scanner
 - sshscan.py -- Horizontal SSH scanner
 - toCharCode.pl -- Creates decimal string for JavaScript's fromCharCode
+- u1decrypt.sh -- Decrypts file or directory from Ubuntu One cloud
+- u1encrypt.sh -- Encrypts file or directory for Ubuntu One cloud sync
 - uas.txt -- User agent strings
 - users.txt -- Concise user list
 - yumi.sh -- Checks YUMI and tool versions
