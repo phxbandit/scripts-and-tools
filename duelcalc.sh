@@ -5,11 +5,11 @@
 
 # https://github.com/getdual/scripts-n-tools/blob/master/iso8601
 . iso8601
-LOG=duel-$SH_TIME.log
+log=duel-$shTime.log
 
 # Initialize life points
-LP1=8000
-LP2=8000
+lp1=8000
+lp2=8000
 
 # Opening message
 echo
@@ -32,47 +32,47 @@ help() {
 if [ "$1" == "-h" ]; then
 	help
 elif [ "$1" == "-n" ]; then
-	CHK=0
+	chk=0
 else
-	CHK=1
-	echo "duelcalc.sh log - Duel began at $TIME" >> $LOG
+	chk=1
+	echo "duelcalc.sh log - Duel began at $isoTime" >> $log
 fi
 
 # Do work
 while :; do
-	read -p "Player 1 DAMAGE: " DMG1
-	read -p "Player 2 DAMAGE: " DMG2
-	LP1=$(($LP1+$DMG1))
-	LP2=$(($LP2+$DMG2))
-	if [ $CHK ]; then
-		echo >> $LOG
-		echo "$TIME" >> $LOG
-		read -p "Comment? (y or n) " YON
-		if [ "$YON" == "y" ]; then
-			read -p "Please enter comment: " COM
-			echo "$COM" >> $LOG
+	read -p "Player 1 DAMAGE: " dmg1
+	read -p "Player 2 DAMAGE: " dmg2
+	lp1=$(($lp1+$dmg1))
+	lp2=$(($lp2+$dmg2))
+	if [ $chk ]; then
+		echo >> $log
+		echo "$isoTime" >> $log
+		read -p "Comment? (y or n) " yon
+		if [[ "$yon" = "y" || "$yon" = "Y" ]]; then
+			read -p "Please enter comment: " com
+			echo "$com" >> $log
 		fi
-		echo "P1: $LP1" >> $LOG
-		echo "P2: $LP2" >> $LOG
+		echo "P1: $lp1" >> $log
+		echo "P2: $lp2" >> $log
 	fi
 	echo
-	if [ "$LP1" -lt "$LP2" ]; then
-		echo -e "Player 1 LP: $(tput setaf 1)$LP1$(tput sgr0)"
-		echo -e "Player 2 LP: $(tput setaf 2)$LP2$(tput sgr0)"
-	elif [ "$LP1" -gt "$LP2" ]; then
-		echo -e "Player 1 LP: $(tput setaf 2)$LP1$(tput sgr0)"
-		echo -e "Player 2 LP: $(tput setaf 1)$LP2$(tput sgr0)"
+	if [ "$lp1" -lt "$lp2" ]; then
+		echo -e "Player 1 LP: $(tput setaf 1)$lp1$(tput sgr0)"
+		echo -e "Player 2 LP: $(tput setaf 2)$lp2$(tput sgr0)"
+	elif [ "$lp1" -gt "$lp2" ]; then
+		echo -e "Player 1 LP: $(tput setaf 2)$lp1$(tput sgr0)"
+		echo -e "Player 2 LP: $(tput setaf 1)$lp2$(tput sgr0)"
 	else
-		echo -e "Player 1 LP: $(tput setaf 6)$LP1$(tput sgr0)"
-		echo -e "Player 2 LP: $(tput setaf 6)$LP2$(tput sgr0)"
+		echo -e "Player 1 LP: $(tput setaf 6)$lp1$(tput sgr0)"
+		echo -e "Player 2 LP: $(tput setaf 6)$lp2$(tput sgr0)"
 	fi
 	echo
 
-	if [ "$LP1" -le 0 ]; then
+	if [ "$lp1" -le 0 ]; then
 		echo "  == Player 2 WINS! =="
 		echo
 		break
-	elif [ "$LP2" -le 0 ]; then
+	elif [ "$lp2" -le 0 ]; then
 		echo "  == Player 1 WINS! =="
 		echo
 		break

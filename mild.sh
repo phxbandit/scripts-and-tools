@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# mild.sh 0.7.1 - Subdomain brute forcer inspired by fierce.pl
+# mild.sh 0.7.2 - Subdomain brute forcer inspired by fierce.pl
 # by dual (whenry)
 #
 # Usage: ./mild.sh -d DOMAIN <-n NAMESERVER> <-s X>
@@ -10,13 +10,6 @@
 #
 # hosts-plus.txt based on hosts.txt from
 # http://ha.ckers.org/fierce/hosts.txt
-#
-# ----------------------------------------------------------------------------
-# "THE BEER-WARE LICENSE" (Revision 42):
-# dual (@getdual) wrote mild.sh. As long as you retain this notice you
-# can do whatever you want with this stuff. If we meet some day, and you think
-# this stuff is worth it, you can buy me a beer in return. dual
-# ----------------------------------------------------------------------------
 
 # Include time and date functions
 . iso8601
@@ -34,12 +27,12 @@ help() {
 # Main query function
 query() {
 	# Log output
-	exec > >(tee $DOM-$SH_TIME.log)
+	exec > >(tee $dom-$shTime.log)
 
 	# Perform dig query
 	for i in $(cat rand-hosts.txt); do
-		dig +noall +answer $i.$DOM @$NAM
-		if [ $CHK -eq 1 ]; then sleep $SLEEP; fi
+		dig +noall +answer $i.$dom @$nam
+		if [ $chk -eq 1 ]; then sleep $sleep; fi
 	done
 }
 
@@ -55,26 +48,26 @@ fi
 while getopts d:n:s: option; do
 	case "${option}"
 	in
-		d) DOM=${OPTARG};;
-		n) NAM=${OPTARG};;
-		s) SLEEP=${OPTARG};;
+		d) dom=${OPTARG};;
+		n) nam=${OPTARG};;
+		s) sleep=${OPTARG};;
 	esac
 done
 
 # Output banner
-echo "Starting mild.sh ( https://github.com/getdual ) at $TIME"
+echo "Starting mild.sh ( https://github.com/getdual ) at $isoTime"
 
 # Check for target domain
-if [ ! $DOM ]; then
+if [ ! $dom ]; then
 	help
 fi
 
 # Check for and verify name server
-if [ ! $NAM ]; then
-	NAM=$(dig +short NS $DOM | tail -1 | sed 's/\.$//')
+if [ ! $nam ]; then
+	nam=$(dig +short NS $dom | tail -1 | sed 's/\.$//')
 fi
 
-dig +noall +answer www.$DOM @$NAM > /dev/null 2>&1
+dig +noall +answer www.$dom @$nam > /dev/null 2>&1
 if [ $? -ne 0 ]; then
 	echo "  Name server seems bad."
 	echo "  Try a new server with -n."
@@ -82,16 +75,16 @@ if [ $? -ne 0 ]; then
 fi
 
 # Check for sleep
-if [ $SLEEP ]; then
-	if [ $SLEEP -eq $SLEEP ]; then
-		echo "  Sleeping $SLEEP seconds between queries."
-		CHK=1
+if [ $sleep ]; then
+	if [ $sleep -eq $sleep ]; then
+		echo "  Sleeping $sleep seconds between queries."
+		chk=1
 	else
 		help
 	fi
 else
 	echo "  No sleep. That's not very nice."
-	CHK=0
+	chk=0
 fi
 
 # Check for dig
@@ -122,7 +115,7 @@ else
 	sort -R hosts-plus.txt > rand-hosts.txt
 fi
 
-echo "  Brute forcing subdomains of $DOM using name server, $NAM."
+echo "  Brute forcing subdomains of $DOM using name server, $nam."
 echo
 
 # Call main function

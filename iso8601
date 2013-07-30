@@ -3,20 +3,20 @@
 
 # Normal/long date:
 # 2012-12-05
-DATE=$(date +'%Y-%m-%d')
+isoDate=$(date +'%Y-%m-%d')
 
 # Short date:
 # 20121205
-SH_DATE=$(date +'%Y%m%d')
+shDate=$(date +'%Y%m%d')
 
 # Year and month:
 # 2012-12
-MONTH=$(date +'%Y-%m')
+yrMon=$(date +'%Y-%m')
 
 # Date with time:
 # 2012-12-05T12:34:56
-TIME=$(date +'%Y-%m-%dT%H:%M:%S')
+isoTime=$(date +'%Y-%m-%dT%H:%M:%S')
 
 # Short time:
 # 20121205T123456
-SH_TIME=$(date +'%Y%m%dT%H%M%S')
+shTime=$(date +'%Y%m%dT%H%M%S')
