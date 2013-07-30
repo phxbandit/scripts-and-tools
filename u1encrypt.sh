@@ -11,7 +11,7 @@ echo
 
 # Check for argument
 if [ $# -ne 1 ]; then
-	echo "$0 needs a file or directory as an argument. Exiting."
+	echo "u1encrypt.sh needs a file or directory as an argument... exiting"
 	exit 1
 else
 	target="$1"
@@ -21,13 +21,13 @@ fi
 ubuntu1="$HOME/Ubuntu One"
 
 if [ ! -d "$ubuntu1" ]; then
-	echo "$ubuntu1 directory not found. Exiting."
+	echo "$ubuntu1 directory not found... exiting"
 	exit 2
 fi
 
 # Verify openssl is installed
 if [ "$(which openssl)" = '' ]; then
-	echo "openssl not found. Exiting."
+	echo "openssl not found... exiting"
 	exit 3
 fi
 
@@ -37,13 +37,13 @@ while [[ "$match" = "" ]]; do
 	read -p "Please enter the encryption passphrase:   " pass
 	read -p "Please confirm the encryption passphrase: " pass_conf
 	if [[ "$pass" = "" ]]; then
-		echo "Passphrase is empty. Exiting."
+		echo "Passphrase is empty... exiting"
 		exit 4
 	elif [[ "$pass" = "$pass_conf" ]]; then
 		match='1'
 		continue
 	else
-		echo "Passphrases did not match."
+		echo "Passphrases did not match"
 	fi
 done
 
@@ -63,4 +63,4 @@ else
 fi
 
 echo
-echo "Done."
+echo "Done"

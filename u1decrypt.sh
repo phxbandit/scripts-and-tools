@@ -11,7 +11,7 @@ echo
 
 # Check for argument
 if [ $# -ne 1 ]; then
-        echo "$0 needs an encrypted file as an argument. Exiting."
+        echo "u1decrypt.sh needs an encrypted file as an argument... exiting"
         exit 1
 else
         target="$1"
@@ -21,13 +21,13 @@ fi
 ubuntu1="$HOME/Ubuntu One"
 
 if [ ! -d "$ubuntu1" ]; then
-        echo "$ubuntu1 directory not found. Exiting."
+        echo "$ubuntu1 directory not found... exiting"
         exit 2
 fi
 
 # Verify openssl is installed
 if [ "$(which openssl)" = '' ]; then
-        echo "openssl not found. Exiting."
+        echo "openssl not found... exiting"
         exit 3
 fi
 
@@ -35,7 +35,7 @@ fi
 echo
 read -p "Enter the decryption passphrase: " pass
 if [[ "$pass" = "" ]]; then
-	echo "A passphrase is required to decrypt data. Exiting..."
+	echo "A passphrase is required to decrypt data... exiting"
 	exit 4
 fi
 
@@ -48,14 +48,14 @@ if [[ "$target" =~ \.tar\.gz\.des3 ]]; then
 	openssl des3 -d -salt -pass pass:$pass -in $target -out $HOME/$filename
 	if [ -e $dirname ]; then
 		echo
-		echo "Directory $dirname exists."
-		read -p "Do you want to overwrite $dirname? (y or n) " yon
-		if [[ "$yon" = 'y' || "$yon" = 'Y' ]]; then
+		echo "Directory $dirname exists"
+		read -p "Do you want to overwrite $dirname [y/n]? " yorn
+		if [[ "$yorn" = 'y' || "$yorn" = 'Y' ]]; then
 			tar xzf $HOME/$filename
 			rm $HOME/$filename
 		else
 			echo
-			echo "Exiting so as to not overwrite $dirname."
+			echo "Exiting so as to not overwrite $dirname"
 			rm $HOME/$filename
 			exit 5
 		fi
@@ -74,9 +74,9 @@ elif [[ "$target" =~ \.des3 ]]; then
 	fi
 else
 	echo
-	echo "$target is not encrypted file. Exiting."
+	echo "$target is not encrypted file... exiting"
 	exit 6
 fi
 
 echo
-echo "Done."
+echo "Done"
