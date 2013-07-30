@@ -26,11 +26,10 @@ if [ ! -d "$ubuntu1" ]; then
 fi
 
 # Verify openssl is installed
-echo "Checking for openssl..."
-type openssl || {
+if [ "$(which openssl)" = '' ]; then
 	echo "openssl not found. Exiting."
 	exit 3
-}
+fi
 
 # Get and confirm encryption passphrase
 echo
