@@ -7,7 +7,6 @@
 # http://gnome-look.org/content/show.php/Ubuntu+One+Encrypt+Decrypt?content=142064
 
 echo "u1encrypt.sh - Encrypts file or directory for Ubuntu One cloud"
-echo
 
 # Check for argument
 if [ $# -ne 1 ]; then
@@ -49,17 +48,17 @@ done
 
 # Encrypt file or dir
 if [ -d "$target" ]; then
-	dirname=$(echo $target | sed 's/\/$//g;s/.*\///g')
+	dirname=$(basename "$target")
 	echo
 	echo "Encrypting $dirname..."
-	tar czf $(basename $target).tar.gz $(basename $target)
-	openssl des3 -salt -pass pass:$pass -in $(basename $target).tar.gz -out $ubuntu1/$(basename $target).tar.gz.des3
-	rm $dirname.tar.gz
+	tar czf "$dirname.tar.gz" "$dirname"
+	openssl des3 -salt -pass pass:"$pass" -in "$dirname.tar.gz" -out "$ubuntu1/$dirname.tar.gz.des3"
+	rm "$dirname.tar.gz"
 else
-	filename=$(echo $target | sed 's/.*\///g')
+	filename=$(echo "$target" | sed 's/.*\///g')
 	echo
 	echo "Encrypting $filename..."
-	openssl des3 -salt -pass pass:$pass -in $target -out $ubuntu1/$target.des3
+	openssl des3 -salt -pass pass:"$pass" -in "$target" -out "$ubuntu1/$target.des3"
 fi
 
 echo

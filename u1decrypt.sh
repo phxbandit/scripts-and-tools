@@ -7,7 +7,6 @@
 # http://gnome-look.org/content/show.php/Ubuntu+One+Encrypt+Decrypt?content=142064
 
 echo "u1decrypt.sh - Decrypts encrypted file from Ubuntu One cloud to home directory"
-echo
 
 # Check for argument
 if [ $# -ne 1 ]; then
@@ -43,34 +42,34 @@ fi
 if [[ "$target" =~ \.tar\.gz\.des3 ]]; then
 	echo
 	echo "Decrypting $target..."
-	filename=$(basename $target | sed -r 's/\.des3$//')
-	dirname=$(echo $filename | sed -r 's/\.tar\.gz$//')
-	openssl des3 -d -salt -pass pass:$pass -in $target -out $HOME/$filename
-	if [ -e $dirname ]; then
+	filename=$(basename "$target" .des3)
+	dirname=$(basename "$filename" .tar.gz)
+	openssl des3 -d -salt -pass pass:"$pass" -in "$target" -out "$HOME/$filename"
+	if [ -e "$dirname" ]; then
 		echo
 		echo "Directory $dirname exists"
 		read -p "Do you want to overwrite $dirname [y/n]? " yorn
 		if [[ "$yorn" = 'y' || "$yorn" = 'Y' ]]; then
-			tar xzf $HOME/$filename
-			rm $HOME/$filename
+			tar xzf "$HOME/$filename"
+			rm "$HOME/$filename"
 		else
 			echo
 			echo "Exiting so as to not overwrite $dirname"
-			rm $HOME/$filename
+			rm "$HOME/$filename"
 			exit 5
 		fi
 	else
-		tar xzf $HOME/$filename
-		rm $HOME/$filename
+		tar xzf "$HOME/$filename"
+		rm "$HOME/$filename"
 	fi
 elif [[ "$target" =~ \.des3 ]]; then
 	echo
 	echo "Decrypting $target..."
-	filename=$(basename $target | sed -r 's/\.des3$//')
+	filename=$(basename "$target" .des3)
 	if [ -e "$HOME/$filename" ]; then
-		openssl des3 -d -salt -pass pass:$pass -in $target -out $HOME/$filename-1
+		openssl des3 -d -salt -pass pass:"$pass" -in "$target" -out "$HOME/$filename-1"
 	else
-		openssl des3 -d -salt -pass pass:$pass -in $target -out $HOME/$filename
+		openssl des3 -d -salt -pass pass:"$pass" -in "$target" -out "$HOME/$filename"
 	fi
 else
 	echo
