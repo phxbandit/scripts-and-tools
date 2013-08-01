@@ -12,6 +12,7 @@
 # http://ha.ckers.org/fierce/hosts.txt
 
 # Include time and date functions
+# https://github.com/getdual/scripts-n-tools/blob/master/iso8601
 . iso8601
 
 # Help function
