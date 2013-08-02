@@ -1927,7 +1927,6 @@ sun01
 sun02
 sun1
 sun2
-super
 superman
 supplier
 suppliers
