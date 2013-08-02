@@ -22,15 +22,15 @@
 #
 # SSH with pexpect example:
 # http://linux.byexamples.com/archives/346/python-how-to-access-ssh-with-pexpect/
-#
-# ----------------------------------------------------------------------------
-# "THE BEER-WARE LICENSE" (Revision 42):
-# dual (@getdual) wrote sshscan.py. As long as you retain this notice you
-# can do whatever you want with this stuff. If we meet some day, and you think
-# this stuff is worth it, you can buy me a beer in return. dual
-# ----------------------------------------------------------------------------
 
-import datetime, netaddr, os, pexpect, random, re, socket, sys
+import datetime
+import netaddr
+import os
+import pexpect
+import random
+import re
+import socket
+import sys
 
 # Define connection string, user, and pass
 CNNX = 'Are you sure you want to continue connecting'
