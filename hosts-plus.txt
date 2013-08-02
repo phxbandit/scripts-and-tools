@@ -261,6 +261,7 @@ cable
 cache
 cae
 cafe
+caffeine
 calendar
 california
 call
@@ -334,6 +335,7 @@ co
 cocoa
 code
 codetel
+coffee
 coldfusion
 colombus
 colorado
@@ -632,6 +634,7 @@ downloads
 downtown
 dragon
 drupal
+drwho
 dsl
 dsl-w
 dt
@@ -1149,6 +1152,7 @@ map
 mapas
 maps
 marge
+market
 marketing
 marketplace
 mars
@@ -1922,6 +1926,7 @@ sun01
 sun02
 sun1
 sun2
+super
 superman
 supplier
 suppliers
@@ -1950,6 +1955,7 @@ taiwan
 talk
 tampa
 tango
+tardis
 tau
 tbcn
 tc
