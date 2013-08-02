@@ -116,6 +116,7 @@ else
 fi
 
 echo "Brute forcing subdomains of $dom using name server, $nam"
+echo "Logging to $dom-$shTime.log"
 echo
 
 # Call main function
