@@ -32,7 +32,6 @@ if [ "$(which openssl)" = '' ]; then
 fi
 
 # Get decryption passphrase
-echo
 read -p "Enter the decryption passphrase: " pass
 if [[ "$pass" = "" ]]; then
 	echo "A passphrase is required to decrypt data... exiting"
