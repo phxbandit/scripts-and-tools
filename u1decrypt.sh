@@ -7,6 +7,7 @@
 # http://gnome-look.org/content/show.php/Ubuntu+One+Encrypt+Decrypt?content=142064
 
 echo "u1decrypt.sh - Decrypts encrypted file from Ubuntu One cloud to home directory"
+echo
 
 # Check for argument
 if [ $# -ne 1 ]; then
@@ -40,20 +41,17 @@ fi
 
 # Copy and decrypt
 if [[ "$target" =~ \.tar\.gz\.des3 ]]; then
-	echo
 	echo "Decrypting $target..."
 	filename=$(basename "$target" .des3)
 	dirname=$(basename "$filename" .tar.gz)
 	openssl des3 -d -salt -pass pass:"$pass" -in "$target" -out "$HOME/$filename"
 	if [ -e "$dirname" ]; then
-		echo
 		echo "Directory $dirname exists"
 		read -p "Do you want to overwrite $dirname [y/n]? " yorn
 		if [[ "$yorn" = 'y' || "$yorn" = 'Y' ]]; then
 			tar xzf "$HOME/$filename"
 			rm "$HOME/$filename"
 		else
-			echo
 			echo "Exiting so as to not overwrite $dirname"
 			rm "$HOME/$filename"
 			exit 5
@@ -63,7 +61,6 @@ if [[ "$target" =~ \.tar\.gz\.des3 ]]; then
 		rm "$HOME/$filename"
 	fi
 elif [[ "$target" =~ \.des3 ]]; then
-	echo
 	echo "Decrypting $target..."
 	filename=$(basename "$target" .des3)
 	if [ -e "$HOME/$filename" ]; then
@@ -72,7 +69,6 @@ elif [[ "$target" =~ \.des3 ]]; then
 		openssl des3 -d -salt -pass pass:"$pass" -in "$target" -out "$HOME/$filename"
 	fi
 else
-	echo
 	echo "$target is not encrypted file... exiting"
 	exit 6
 fi
