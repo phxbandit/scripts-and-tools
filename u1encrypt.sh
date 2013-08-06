@@ -26,7 +26,7 @@ if [ ! -d "$ubuntu1" ]; then
 fi
 
 # Verify openssl is installed
-if [ "$(which openssl)" = '' ]; then
+if [ "$(which openssl)" = "" ]; then
 	echo "openssl not found... exiting"
 	exit 3
 fi
