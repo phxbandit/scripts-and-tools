@@ -49,7 +49,7 @@ if [ ! -e $yver ]; then
 		fi
 		echo "$i:$ver" >> $yver
 	done
-	echo "Done."
+	echo "Done"
 else
 	echo "Comparing versions..."
 	echo
@@ -72,5 +72,5 @@ else
 			echo
 		fi
 	done
-	echo "Done."
+	echo "Done"
 fi
