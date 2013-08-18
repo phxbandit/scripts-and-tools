@@ -11,8 +11,12 @@
 # hosts-plus.txt based on hosts.txt from
 # http://ha.ckers.org/fierce/hosts.txt
 
-# Include time and date functions
-# https://github.com/getdual/scripts-n-tools/blob/master/iso8601
+# Source time and date functions
+[ -e iso8601 ] || {
+	echo "iso8601 not found"
+	echo "Download at https://raw.github.com/getdual/scripts-n-tools/master/iso8601"
+	exit 1
+}
 . iso8601
 
 # Help function
@@ -46,8 +50,8 @@ if [ $# -ne 2 ]; then
 	fi
 fi
 
-while getopts d:n:s: option; do
-	case "${option}"
+while getopts :d:n:s: opt; do
+	case $opt
 	in
 		d) dom=${OPTARG};;
 		n) nam=${OPTARG};;
@@ -79,7 +83,7 @@ fi
 # Check for sleep
 if [ $sleep ]; then
 	if [ $sleep -eq $sleep ]; then
-		echo "Sleeping $sleep seconds between queries"
+		echo "Sleeping $sleep second(s) between queries"
 		chk=1
 	else
 		help
@@ -92,7 +96,7 @@ fi
 # Check for dig
 if [ "$(which dig)" = '' ]; then
 	echo "dig not found... exiting"
-	exit 2
+	exit 1
 fi
 
 # Check for subdomains list
@@ -102,7 +106,7 @@ else
 	echo "No subdomain list found... fetching"
 	if [ "$(which wget)" = '' ]; then
 		echo "No wget... exiting"
-		exit 3
+		exit 1
 	fi
 	wget https://raw.github.com/getdual/scripts-n-tools/master/hosts-plus.txt
 fi
