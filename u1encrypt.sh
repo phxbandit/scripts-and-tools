@@ -22,13 +22,13 @@ ubuntu1="$HOME/Ubuntu One"
 
 if [ ! -d "$ubuntu1" ]; then
 	echo "$ubuntu1 directory not found... exiting"
-	exit 2
+	exit 1
 fi
 
 # Verify openssl is installed
 if [ "$(which openssl)" = "" ]; then
 	echo "openssl not found... exiting"
-	exit 3
+	exit 1
 fi
 
 # Get and confirm encryption passphrase
@@ -37,7 +37,7 @@ while [[ "$match" = "" ]]; do
 	read -p "Please confirm the encryption passphrase: " pass_conf
 	if [[ "$pass" = "" ]]; then
 		echo "Passphrase is empty... exiting"
-		exit 4
+		exit 1
 	elif [[ "$pass" = "$pass_conf" ]]; then
 		match='1'
 		continue

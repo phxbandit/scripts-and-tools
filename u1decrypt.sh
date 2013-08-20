@@ -22,20 +22,20 @@ ubuntu1="$HOME/Ubuntu One"
 
 if [ ! -d "$ubuntu1" ]; then
         echo "$ubuntu1 directory not found... exiting"
-        exit 2
+        exit 1
 fi
 
 # Verify openssl is installed
 if [ "$(which openssl)" = "" ]; then
         echo "openssl not found... exiting"
-        exit 3
+        exit 1
 fi
 
 # Get decryption passphrase
 read -p "Enter the decryption passphrase: " pass
 if [[ "$pass" = "" ]]; then
 	echo "A passphrase is required to decrypt data... exiting"
-	exit 4
+	exit 1
 fi
 
 # Copy and decrypt
@@ -53,7 +53,7 @@ if [[ "$target" =~ \.tar\.gz\.des3 ]]; then
 		else
 			echo "Exiting so as to not overwrite $dirname"
 			rm "$HOME/$filename"
-			exit 5
+			exit 1
 		fi
 	else
 		tar xzf "$HOME/$filename"
@@ -69,7 +69,7 @@ elif [[ "$target" =~ \.des3 ]]; then
 	fi
 else
 	echo "$target is not encrypted file... exiting"
-	exit 6
+	exit 1
 fi
 
 echo
