@@ -74,4 +74,4 @@ else
 fi
 
 echo
-echo "Done"
+echo "Done."
