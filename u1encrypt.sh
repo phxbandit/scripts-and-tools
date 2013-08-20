@@ -6,28 +6,29 @@
 # Original script from:
 # http://gnome-look.org/content/show.php/Ubuntu+One+Encrypt+Decrypt?content=142064
 
+# DEFINE SYNC DIRECTORY
+ubuntu1="$HOME/Ubuntu One"
+
 echo "u1encrypt.sh - Encrypts file or directory for Ubuntu One cloud"
 echo
 
 # Check for argument
 if [ $# -ne 1 ]; then
-	echo "u1encrypt.sh needs a file or directory as an argument... exiting"
+	echo "u1encrypt.sh needs a file or directory as an argument... exiting."
 	exit 1
 else
 	target="$1"
 fi
 
-# Define and verify sync dir
-ubuntu1="$HOME/Ubuntu One"
-
-if [ ! -d "$ubuntu1" ]; then
-	echo "$ubuntu1 directory not found... exiting"
+# Verify sync dir
+[ -d "$ubuntu1" ] || {
+	echo "$ubuntu1 directory not found... exiting."
 	exit 1
-fi
+}
 
 # Verify openssl is installed
 if [ "$(which openssl)" = "" ]; then
-	echo "openssl not found... exiting"
+	echo "openssl not found... exiting."
 	exit 1
 fi
 
@@ -36,13 +37,13 @@ while [[ "$match" = "" ]]; do
 	read -p "Please enter the encryption passphrase:   " pass
 	read -p "Please confirm the encryption passphrase: " pass_conf
 	if [[ "$pass" = "" ]]; then
-		echo "Passphrase is empty... exiting"
+		echo "Passphrase is empty... exiting."
 		exit 1
 	elif [[ "$pass" = "$pass_conf" ]]; then
 		match='1'
 		continue
 	else
-		echo "Passphrases did not match"
+		echo "Passphrases did not match."
 	fi
 done
 
@@ -60,4 +61,4 @@ else
 fi
 
 echo
-echo "Done"
+echo "Done."
