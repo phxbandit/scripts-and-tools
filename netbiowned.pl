@@ -18,27 +18,27 @@ usage() unless ($1 < 255 && $2 < 255 && $3 < 255 && $4 < 255);
 
 # Provide assistance
 sub usage {
-	print "netbiowned.pl - Simplifies windows share enumeration\n";
-	print "Usage: perl netbiowned.pl <ip address>\n";
-	exit;
+    print "netbiowned.pl - Simplifies windows share enumeration\n";
+    print "Usage: perl netbiowned.pl <ip address>\n";
+    exit;
 }
 
 # Perform initial lookup
-print ">>> netbiowned.pl -
->>> Performing initial lookup...";
+print "netbiowned.pl -
+Performing initial lookup...";
 
 my @lookup = `nmblookup -A $ip_addr`;
 
 foreach my $line (@lookup) {
-	if ($line =~ /No reply/i) {
-		print "\nWindows shares not vulnerable... exiting.\n";
-		exit;
-	}
-	else {
-		if ($line =~ /\s*([\w\-]*)\s*<00>/ && $line !~ /GROUP/) {
-			$comp_name = $1;
-		}
-	}
+    if ($line =~ /No reply/i) {
+        print "\nWindows shares not vulnerable... exiting.\n";
+        exit;
+    }
+    else {
+        if ($line =~ /\s*([\w\-]*)\s*<00>/ && $line !~ /GROUP/) {
+            $comp_name = $1;
+        }
+    }
 }
 
 print " Done.\n";
