@@ -53,7 +53,7 @@ print $hex . "\n";
 # ROT13
 print "ROT13:";
 if ($string =~ /[^A-Za-z\s]/) {
-    print "String must be alphabetic\n";
+    print "String must be alphabetic.\n";
 }
 else {
     my $rot13 = $string;
