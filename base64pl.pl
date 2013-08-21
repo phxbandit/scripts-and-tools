@@ -18,28 +18,28 @@ print $usage and exit unless (defined($opt = shift) && $opt =~ /^(-e|-d)$/);
 print $usage and exit unless ($#ARGV > -1);
 
 if ($opt =~ /e/) {
-  my $enc_ref = \&encode;
-  for my $enc_str (@ARGV) {
-    $enc_ref->($enc_str);
-  }
+    my $enc_ref = \&encode;
+    for my $enc_str (@ARGV) {
+        $enc_ref->($enc_str);
+    }
 }
 else {
-  my $dec_ref = \&decode;
-  for my $dec_str (@ARGV) {
-    $dec_ref->($dec_str);
-  }
+    my $dec_ref = \&decode;
+    for my $dec_str (@ARGV) {
+        $dec_ref->($dec_str);
+    }
 }	
 
 sub encode {
-  my $string = $_[0];
-  my $encoded = encode_base64($string);
-  chomp($encoded);
-  print "$string: $encoded\n";
+    my $string = $_[0];
+    my $encoded = encode_base64($string);
+    chomp($encoded);
+    print "$string: $encoded\n";
 }
 
 sub decode {
-  my $string = $_[0];
-  my $decoded = decode_base64($string);
-  chomp($decoded);
-  print "$string: $decoded\n";
+    my $string = $_[0];
+    my $decoded = decode_base64($string);
+    chomp($decoded);
+    print "$string: $decoded\n";
 }
