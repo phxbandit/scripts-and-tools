@@ -3,7 +3,7 @@
 # yumi.sh - Checks YUMI and tool versions
 # by dual
 
-yver=.yumi.ver
+yver="$HOME/.yumi.ver"
 tools=(Yumi Clonezilla Dban Deft GParted OfflineNT ophcrack7 ophcrackXP)
 
 echo "yumi.sh - Checks YUMI and tool versions"
