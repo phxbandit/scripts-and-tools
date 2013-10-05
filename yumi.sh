@@ -40,7 +40,7 @@ ophcrack7=$(curl -s -S http://ophcrack.sourceforge.net/download.php?type=livecd 
 ophcrackXP=$(curl -s -S http://ophcrack.sourceforge.net/download.php?type=livecd | grep md5sum | head -1 | awk -F: '{print $2}' | sed 's/^ //' | cut -c 1-32)
 ophcrackDL="http://ophcrack.sourceforge.net/download.php"
 
-if [ ! -e $yver ]; then
+if [ ! -e "$yver" ]; then
     echo "$yver not found. Creating..."
     echo
     for i in "${tools[@]}"; do
@@ -48,7 +48,7 @@ if [ ! -e $yver ]; then
         if [ "$ver" = '' ]; then
             echo "WARN: Cannot retrieve version for $i."
         fi
-        echo "$i:$ver" >> $yver
+        echo "$i:$ver" >> "$yver"
     done
     echo "Done."
 else
@@ -56,7 +56,7 @@ else
     echo
     for i in "${tools[@]}"; do
         new=$(echo "$(eval echo \$$i)")
-        old=$(grep $i $yver | awk -F: '{print $2}')
+        old=$(grep "$i" "$yver" | awk -F: '{print $2}')
         if [ "$new" = '' ]; then
             echo "WARN: Cannot retrieve version for $i."
             continue
@@ -65,10 +65,10 @@ else
             dload="DL"
             dload="$i$dload"
             eval echo \${$dload}
-            read -p "Would you like to update the $i version in .yumi.ver [y/n]? " yorn
-            if [[ "$yorn" = 'y' || "$yorn" = 'Y' ]]; then
+            read -p "Would you like to update the $i version in .yumi.ver [y/n]? " yon
+            if [[ "$yon" = 'y' || "$yon" = 'Y' ]]; then
                 echo "Updating $i's version in .yumi.ver..."
-                sed -i "s/$old/$new/" $yver
+                sed -i "s/$old/$new/" "$yver"
             fi
             echo
         fi
