@@ -41,7 +41,8 @@ ophcrackXP=$(curl -s -S http://ophcrack.sourceforge.net/download.php?type=livecd
 ophcrackDL="http://ophcrack.sourceforge.net/download.php"
 
 if [ ! -e $yver ]; then
-    echo ".yumi.ver not found. Creating..."
+    echo "$yver not found. Creating..."
+    echo
     for i in "${tools[@]}"; do
         ver=$(eval echo \$$i)
         if [ "$ver" = '' ]; then
