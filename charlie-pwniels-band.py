@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# charlie_pwniels_band.py
+# charlie-pwniels-band.py
 # by dual
 #
 # http://www.charliedanielssoapbox.com/view_user.php?id=XXXX
