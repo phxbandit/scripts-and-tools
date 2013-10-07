@@ -8,6 +8,7 @@ recon and simple vulns.
 
 - bangrab.sh -- Simple HTTP banner grabber
 - base64pl.pl -- Encodes/decodes string(s) using base64
+- blog-spam-templates.txt -- Blog spam content
 - charlie_pwniels_band.py -- Horizontal brute force tool
 - convertstr.pl -- Converts a string into various formats
 - dnsx.pl -- Automates zone file transfers
@@ -17,6 +18,7 @@ recon and simple vulns.
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
 - netbiowned.pl -- Simplifies windows share enumeration
 - passwords.txt -- Password list
+- rcptTousers.py -- Enumerates email addresses via rcpt to
 - spiga.conf -- Conf file for spiga.py
 - spiga.py -- Configurable, threaded web resource scanner
 - sshscan.py -- Horizontal SSH scanner
