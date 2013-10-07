@@ -8,7 +8,7 @@ recon and simple vulns.
 
 - bangrab.sh -- Simple HTTP banner grabber
 - base64pl.pl -- Encodes/decodes string(s) using base64
-- blog-spam-templates.txt -- Blog spam content
+- blog-spam-template.txt -- Blog spam bot content
 - charlie_pwniels_band.py -- Horizontal brute force tool
 - convertstr.pl -- Converts a string into various formats
 - dnsx.pl -- Automates zone file transfers
