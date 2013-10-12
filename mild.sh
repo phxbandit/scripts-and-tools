@@ -12,12 +12,13 @@
 # http://ha.ckers.org/fierce/hosts.txt
 
 # Source time and date functions
-[ -e iso8601 ] || {
+[ -e "$HOME/.iso8601" ] || {
     echo "iso8601 not found."
-    echo "Download at: https://raw.github.com/getdual/scripts-n-tools/master/iso8601"
+    echo "wget https://raw.github.com/getdual/scripts-n-tools/master/iso8601"
+    echo "mv iso8601 $HOME/.iso8601"
     exit 1
 }
-. iso8601
+. "$HOME/.iso8601"
 
 # Help function
 help() {
