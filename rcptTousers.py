@@ -21,12 +21,12 @@ banner=s.recv(1024)
 #print banner
 
 # Send HELO
-s.send('HELO apachesands.com\r\n')
+s.send('HELO example.com\r\n')
 helo = s.recv(1024)
 #print helo
 
 # MAIL FROM
-s.send('MAIL FROM:administrator@apachesands.com\r\n')
+s.send('MAIL FROM:administrator@example.com\r\n')
 mailFrom = s.recv(1024)
 #print mailFrom
 
