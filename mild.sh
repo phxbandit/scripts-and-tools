@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# mild.sh 0.7.3 - Subdomain brute forcer inspired by fierce.pl
+# mild.sh 0.7.4 - Subdomain brute forcer inspired by fierce.pl
 # by dual (whenry)
 #
 # Usage: ./mild.sh -d DOMAIN <-n NAMESERVER> <-s X>
@@ -10,15 +10,6 @@
 #
 # hosts-plus.txt based on hosts.txt from
 # http://ha.ckers.org/fierce/hosts.txt
-
-# Source time and date functions
-[ -e "$HOME/.iso8601" ] || {
-    echo "iso8601 not found."
-    echo "wget https://raw.github.com/getdual/scripts-n-tools/master/iso8601"
-    echo "mv iso8601 $HOME/.iso8601"
-    exit 1
-}
-. "$HOME/.iso8601"
 
 # Help function
 help() {
@@ -64,6 +55,13 @@ while getopts :d:n:s: opt; do
         s) sleep=${OPTARG};;
     esac
 done
+
+# Source time and date functions
+[ -e "$HOME/.iso8601" ] || {
+    wget -q https://raw.github.com/getdual/scripts-n-tools/master/iso8601
+    mv iso8601 $HOME/.iso8601
+}
+. "$HOME/.iso8601"
 
 # Output banner
 echo "Starting mild.sh ( https://github.com/getdual ) at $isoTime"
@@ -114,7 +112,7 @@ else
         echo "No wget... exiting."
         exit 1
     fi
-    wget https://raw.github.com/getdual/scripts-n-tools/master/hosts-plus.txt
+    wget -q https://raw.github.com/getdual/scripts-n-tools/master/hosts-plus.txt
 fi
 
 # Randomize subdomains
