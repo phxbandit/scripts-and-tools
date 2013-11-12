@@ -59,6 +59,7 @@ else
         old=$(grep "$i" "$yver" | awk -F: '{print $2}')
         if [ "$new" = '' ]; then
             echo "WARN: Cannot retrieve version for $i."
+            echo
             continue
         elif [ "$new" != "$old" ]; then
             echo "INFO: $i has a new version, which you can download at:"
