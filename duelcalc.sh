@@ -3,8 +3,13 @@
 # duelcalc.sh - Command line duel calculator
 # by dual
 
-# https://github.com/getdual/scripts-n-tools/blob/master/iso8601
-. iso8601
+# Source time and date functions
+[ -e "$HOME/.iso8601" ] || {
+    wget -q https://raw.github.com/getdual/scripts-n-tools/master/iso8601
+    mv iso8601 $HOME/.iso8601
+}
+. "$HOME/.iso8601"
+
 log=duel-$shTime.log
 
 # Initialize life points
