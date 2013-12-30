@@ -1,0 +1,11 @@
+Shopify
+SUCCESS -> http://www.example.com/admin/
+SUCCESS -> http://www.example.com/admin.asp
+SUCCESS -> http://www.example.com/admin.aspx
+SUCCESS -> http://www.example.com/admin.htm
+SUCCESS -> http://www.example.com/admin.html
+SUCCESS -> http://www.example.com/admin.php
+
+WordPress
+SUCCESS -> http://www.example.com/admin/
+SUCCESS -> http://www.example.com/login
