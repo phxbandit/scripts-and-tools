@@ -1,3 +1,11 @@
+Joomla
+SUCCESS -> http://www.example.com/administrator/
+SUCCESS -> http://www.example.com/login
+SUCCESS -> http://www.example.com/login.html
+SUCCESS -> http://www.example.com/includes/
+SUCCESS -> http://www.example.com/logs/
+SUCCESS -> http://www.example.com/tmp/
+
 Shopify
 SUCCESS -> http://www.example.com/admin/
 SUCCESS -> http://www.example.com/admin.asp
