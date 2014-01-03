@@ -1,3 +1,15 @@
+Drupal
+SUCCESS -> http://www.example.com/admin/
+SUCCESS -> http://www.example.com/includes/
+SUCCESS -> http://www.example.com/misc/
+SUCCESS -> http://www.example.com/modules/
+SUCCESS -> http://www.example.com/profiles/
+SUCCESS -> http://www.example.com/scripts/
+SUCCESS -> http://www.example.com/themes/
+SUCCESS -> http://www.example.com/user/login/
+SUCCESS -> http://www.example.com/user/password/
+SUCCESS -> http://www.example.com/user/register/
+
 Joomla
 SUCCESS -> http://www.example.com/administrator/
 SUCCESS -> http://www.example.com/login
