@@ -22,5 +22,5 @@ scripts-n-tools
 - u1decrypt.sh -- Decrypts file or directory from Ubuntu One cloud
 - u1encrypt.sh -- Encrypts file or directory for Ubuntu One cloud sync
 - uas.txt -- User agent strings
-- users.txt -- Concise user list
+- users.txt -- Concise system user list
 - yumi.sh -- Checks YUMI and tool versions
