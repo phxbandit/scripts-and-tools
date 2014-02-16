@@ -78,4 +78,4 @@ print "SHA256:";
 my $sha256hex = sha256_hex($string);
 print $sha256hex . "\n";
 
-print "\nDone.\n"
+print "\nComplete\n"
