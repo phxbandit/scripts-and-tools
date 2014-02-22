@@ -52,14 +52,9 @@ print $hex . "\n";
 
 # ROT13
 print "ROT13:";
-if ($string =~ /[^A-Za-z\s]/) {
-    print "String must be alphabetic.\n";
-}
-else {
-    my $rot13 = $string;
-    $rot13 =~ tr/A-Za-z/N-ZA-Mn-za-m/;
-    print $rot13 . "\n";
-}
+my $rot13 = $string;
+$rot13 =~ tr/A-Za-z/N-ZA-Mn-za-m/;
+print $rot13 . "\n";
 
 # MD5
 print "MD5:";
