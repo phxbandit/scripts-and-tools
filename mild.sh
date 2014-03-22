@@ -116,7 +116,7 @@ else
 fi
 
 # Randomize subdomains
-echo "Randomizing subdomains..."
+echo "Randomizing subdomains"
 if [ $(uname) = "Darwin" ]; then
     for i in $(cat hosts-plus.txt); do echo "$RANDOM $i"; done | sort | sed -E 's/^[0-9]+ //' > rand-hosts.txt
 else
