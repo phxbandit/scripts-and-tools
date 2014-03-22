@@ -15,7 +15,7 @@
 help() {
     cat <<EndHelp
 mild.sh - Subdomain brute forcer
-Usage: mild.sh -d DOMAIN <-n NAMESERVER> <-s X>
+Usage: mild.sh -d DOMAIN [-n NAMESERVER] [-s X]
   -d
       Set target DOMAIN
   -n
@@ -79,52 +79,52 @@ fi
 
 dig +noall +answer www.$dom @$nam > /dev/null 2>&1
 if [ $? -ne 0 ]; then
-    echo "Name server seems bad."
-    echo "Try a new server with -n."
+    echo "Name server seems bad"
+    echo "Try a new server with -n"
     exit 1
 fi
 
 # Check for sleep
 if [ $sleep ]; then
     if [ $sleep -eq $sleep ]; then
-        echo "Sleeping $sleep second(s) between queries."
+        echo "Sleeping $sleep second(s) between queries"
         chk=1
     else
         help
     fi
 else
-    echo "Not sleeping between queries."
+    echo "Not sleeping between queries"
     chk=0
 fi
 
 # Check for dig
 if [ "$(which dig)" = '' ]; then
-    echo "dig not found... exiting."
+    echo "dig not found... exiting"
     exit 1
 fi
 
 # Check for subdomains list
 if [ -f hosts-plus.txt ]; then
-    echo "Subdomain list found."
+    echo "Subdomain list found"
 else
-    echo "No subdomain list found... fetching."
+    echo "No subdomain list found... fetching"
     if [ "$(which wget)" = '' ]; then
-        echo "No wget... exiting."
+        echo "No wget... exiting"
         exit 1
     fi
     wget -q https://raw.github.com/getdual/scripts-n-tools/master/hosts-plus.txt
 fi
 
 # Randomize subdomains
-echo "Randomizing subdomains."
+echo "Randomizing subdomains..."
 if [ $(uname) = "Darwin" ]; then
     for i in $(cat hosts-plus.txt); do echo "$RANDOM $i"; done | sort | sed -E 's/^[0-9]+ //' > rand-hosts.txt
 else
     sort -R hosts-plus.txt > rand-hosts.txt
 fi
 
-echo "Brute forcing subdomains of $dom using name server, $nam."
-echo "Logging to $dom-$shTime.log."
+echo "Brute forcing subdomains of $dom using name server, $nam"
+echo "Logging to $dom-$shTime.log"
 echo
 
 # Call main function
