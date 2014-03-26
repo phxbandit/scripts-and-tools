@@ -191,6 +191,8 @@ bhm
 bi
 bigpond
 billing
+bit
+bitcoin
 biz
 biztalk
 bj
@@ -278,6 +280,7 @@ ccgg
 cd
 cdburner
 cdn
+centos
 cert
 certificates
 certify
@@ -716,6 +719,7 @@ farm
 faststats
 fax
 fbx
+fedora
 feedback
 feeds
 fett
@@ -754,6 +758,7 @@ fotos
 foundry
 fox
 foxtrot
+fps
 fr
 france
 frank
@@ -794,7 +799,9 @@ galerias
 galleries
 gallery
 galway
+game
 games
+gaming
 gamma
 gandalf
 gate
@@ -1056,6 +1063,7 @@ laptop
 laserjet
 lasvegas
 launch
+lax
 lb
 lc
 ldap
@@ -1081,6 +1089,7 @@ lista
 lists
 listserv
 listserver
+litecoin
 live
 livnmi
 lk
@@ -1174,6 +1183,7 @@ mc
 mccoy
 mci
 mco
+mcp
 md
 mdaemon
 me
@@ -1204,6 +1214,9 @@ midwest
 mike
 milwaukee
 milwwi
+mine
+minecraft
+miner
 minneapolis
 minnesota
 mirror
@@ -1283,6 +1296,7 @@ neo
 neptune
 net
 netapp
+netbsd
 netdata
 netgear
 netmeeting
@@ -2042,6 +2056,7 @@ training
 transfers
 trinidad
 trinity
+tron
 ts
 ts1
 ts31
@@ -2060,6 +2075,7 @@ txr
 tz
 u
 ua
+ubuntu
 ucom
 uddi
 ug
@@ -2300,6 +2316,7 @@ xml
 xp
 xr
 x-ray
+xserve
 y
 y12
 yankee
