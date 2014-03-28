@@ -1087,6 +1087,7 @@ linux02
 linux1
 linux2
 lisa
+list
 lista
 lists
 listserv
