@@ -2,6 +2,7 @@ scripts-n-tools
 ---------------
 
 - 950k-usernames.txt.gz -- Pushing a million user names
+- adig.sh -- Queries authoritative name servers for A, www, and TXT records
 - bangrab.sh -- Simple HTTP banner grabber
 - base64pl.pl -- Encodes/decodes string(s) using base64
 - blog-spam-template.txt -- Blog spam bot content
