@@ -10,16 +10,20 @@ use MIME::Base64;
 use Digest::MD5;
 use Digest::SHA qw(sha1_hex sha256_hex);
 
-my $usage = "convertstr.pl - Reverses and converts a string to:
+my $usage = "
+convertstr - Reverses and converts a string to:
+
     Base64, binary, decimal, hex, ROT13, MD5, SHA1, and SHA256
-Usasge: perl convertstr.pl <string>
+
+Usasge: convertstr <string>
+
 ";
 
 # Get and check args
 print $usage and exit unless my $string = shift;
 chomp($string);
 
-print "Converting \'$string\'...\n\n";
+print "\nConverting \'$string\'...\n\n";
 
 # Reverse
 print "REVERSED:";
@@ -73,4 +77,4 @@ print "SHA256:";
 my $sha256hex = sha256_hex($string);
 print $sha256hex . "\n";
 
-print "\nComplete\n"
+print "\nComplete.\n\n"
