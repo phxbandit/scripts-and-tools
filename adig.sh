@@ -18,7 +18,7 @@ for i in $(dig ns $1 +short | sed -e 's/\.$//'); do
         echo "@ A $j"
     done
     www=$(dig "$cname" @"$i" +short | head -1)
-    echo "www CNAME $www"
+    echo "www $www"
     for k in $(dig "$1" @"$i" txt +short); do
         echo "@ TXT $k"
     done
