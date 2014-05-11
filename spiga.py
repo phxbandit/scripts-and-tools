@@ -48,7 +48,7 @@ class ThreadScan(threading.Thread):
                     if args.SLEEP:
                         time.sleep(random.randint(1,TIME_TO_SLEEP))
                     if args.REQUESTS:
-                        print target_dir
+                        print "Requesting " + target_dir + "..."
                     if str(code) == action_value:
                         print "SUCCESS -> %s" % (target_dir)
             elif func_action == 'dump':
