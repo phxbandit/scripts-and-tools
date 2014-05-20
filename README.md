@@ -19,8 +19,7 @@ scripts-n-tools
 - spiga.conf -- Conf file for spiga.py
 - spiga.py -- Configurable, threaded web resource scanner
 - sshscan.py -- Horizontal SSH scanner
-- states-two-letter.txt -- List of US state codes
-- states.txt -- List of US states
+- states-codes.txt -- List of US states and two-letter codes
 - toCharCode.pl -- Creates decimal string for JavaScript's fromCharCode
 - u1decrypt.sh -- Decrypts file or directory from Ubuntu One cloud
 - u1encrypt.sh -- Encrypts file or directory for Ubuntu One cloud sync
