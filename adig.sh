@@ -4,10 +4,10 @@
 
 IFS=$'\n'
 
-if [ $# -ne 1 ]; then
+[ $# -eq 1 ] || {
     echo "usage: adig example.com"
     exit 1
-fi
+}
 
 cname="www.$1"
 
