@@ -26,7 +26,7 @@ grep open .bangrabtemp1 | awk '{print $2}' > .bangrabtemp2
 # Grab headers
 for i in $(cat .bangrabtemp2); do
     echo $i >> $log
-    echo "HEAD / HTTP/1.0\n" | nc $i 80 2>&1 >> $log
+    echo "HEAD / HTTP/1.0\r\n\r\n" | nc -i 1 $i 80 2>&1 >> $log
     echo >> $log
 done
 
