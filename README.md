@@ -9,7 +9,6 @@ scripts-n-tools
 - charlie-pwniels-band.py -- Horizontal brute force tool
 - convertstr.pl -- Converts a string into various formats
 - country-codes.txt -- ISO 3166 country codes
-- duelcalc.sh -- Command line duel calculator
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
 - iso8601 -- ISO 8601 standard date and time functions
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
