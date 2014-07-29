@@ -19,15 +19,15 @@ if [ $# -ne 1 ]; then
 fi
 
 # Check for 80
-nmap -n -p80 -oG .bangrabtemp1 $1
+nmap -n -p80 -oG .bangrabtmp1 $1
 
-grep open .bangrabtemp1 | awk '{print $2}' > .bangrabtemp2
+grep open .bangrabtmp1 | awk '{print $2}' > .bangrabtmp2
 
 # Grab headers
-for i in $(cat .bangrabtemp2); do
+for i in $(cat .bangrabtmp2); do
     echo $i >> $log
     echo "HEAD / HTTP/1.0\r\n\r\n" | nc -i 1 $i 80 2>&1 >> $log
     echo >> $log
 done
 
-rm -f .bangrabtemp*
+rm -f .bangrabtmp*
