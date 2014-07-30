@@ -1,6 +1,7 @@
 scripts-n-tools
 ---------------
 
+- 500-worst-passwords.txt -- 500 worst passwords from SkullSecurity
 - 950k-usernames.txt.gz -- Pushing a million user names
 - adig.sh -- Queries authoritative name servers for A, www, and TXT records
 - bangrab.sh -- Simple HTTP banner grabber
