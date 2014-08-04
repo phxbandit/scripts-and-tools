@@ -14,7 +14,7 @@ Yumi=$(curl -s -S http://www.pendrivelinux.com/yumi-multiboot-usb-creator/ | gre
 YumiDL="http://www.pendrivelinux.com/yumi-multiboot-usb-creator/"
 
 # Clonezilla alternative stable (Ubuntu based)
-Clonezilla=$(curl -s -S http://clonezilla.org/downloads/alternative/checksums.php | grep -E "clonezilla-live-.+-saucy-amd64.iso" | head -1 | awk '{print $1}')
+Clonezilla=$(curl -s -S http://clonezilla.org/downloads/alternative/checksums.php | grep -E "clonezilla-live-.+-trusty-amd64.iso" | head -1 | awk '{print $1}')
 ClonezillaDL="http://clonezilla.org/downloads.php"
 
 # Darik's Boot And Nuke
