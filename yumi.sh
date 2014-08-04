@@ -4,7 +4,7 @@
 # by dual
 
 yver="$HOME/.yumi.ver"
-tools=(Yumi Clonezilla Dban Deft GParted OfflineNT ophcrack7 ophcrackXP)
+tools=(Yumi Clonezilla Dban GParted OfflineNT ophcrack7 ophcrackXP)
 
 echo "yumi.sh - Checks YUMI and tool versions"
 echo
@@ -17,15 +17,11 @@ YumiDL="http://www.pendrivelinux.com/yumi-multiboot-usb-creator/"
 Clonezilla=$(curl -s -S http://clonezilla.org/downloads/alternative/checksums.php | grep -E "clonezilla-live-.+-saucy-amd64.iso" | head -1 | awk '{print $1}')
 ClonezillaDL="http://clonezilla.org/downloads.php"
 
-# Darik's Boot And Nuke Beta
-Dban=$(curl -s -S http://sourceforge.net/api/file/index/project-id/61951/mtime/desc/limit/20/rss | grep -E "CDATA\[\/dban\/dban-" | head -1 | awk -F"-" '{print $2}' | cut -c 1-5)
+# Darik's Boot And Nuke
+Dban=$(curl -s -S http://sourceforge.net/projects/dban/files/dban/ | grep 'Download dban' | awk '{print $2}')
 DbanDL="http://www.dban.org/download"
 
-# DEFT Linux Computer Forensics Live CD (latest stable version)
-Deft=$(curl -s -S http://na.mirror.garr.it/mirrors/deft/md5.txt | grep -v beta | grep deft | tail -1 | awk '{print $1}')
-DeftDL="http://www.deftlinux.net/download/"
-
-# GParted i486
+# GParted
 GParted=$(curl -s -S http://free.nchc.org.tw/gparted-live/stable/CHECKSUMS.TXT | head -3 | tail -1 | awk '{print $1}')
 GPartedDL="http://gparted.sourceforge.net/download.php"
 
