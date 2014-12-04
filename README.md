@@ -25,5 +25,7 @@ scripts-n-tools
 - u1encrypt.sh -- Encrypts file or directory for Ubuntu One cloud sync
 - uas.txt -- User agent strings
 - users.txt -- Concise system user list
+- wordpress-md5s.txt -- MD5s for WP core files from 3.8 to 4.0.1
+- wpmd5.sh -- Checks integrity of WordPress core files
 - yumi.sh -- Checks YUMI and tool versions
 - zonetrans.sh -- Attempts full zone transfer from each authoritative name server
