@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # wpmd5.sh - Compares wordpress.org md5s to installed wp md5s
-# @WSTNPHX
+#
+# One-liner to generate MD5s
+# for i in $(ls); do find "$i" -type f -not -path "*wp-content*" | xargs md5sum; done
 
 IFS=$'\n'
 
