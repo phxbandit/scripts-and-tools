@@ -12,7 +12,9 @@ wpmd5s='wordpress-md5s.txt'
 
 # Help
 usage() {
+    echo
     echo "Usage: ./wpmd5.sh /absolute/path/to/wordpress"
+    echo
     exit 1
 }
 
