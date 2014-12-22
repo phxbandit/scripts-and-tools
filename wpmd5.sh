@@ -8,7 +8,7 @@
 IFS=$'\n'
 
 # Define md5 file
-wpmd5s='wordpress-md5s.txt'
+wpmd5s='wordpress-md5s.gz'
 
 # Help
 usage() {
@@ -34,9 +34,13 @@ wp_path=$(echo $wp_path_tmp | sed -e 's#/$##')
 
 # Find wp version
 installed_ver=$(grep 'wp_version =' "$wp_path/wp-includes/version.php" | awk -F"= '" '{print $2}' | sed -e "s/';$//")
+echo
+echo "Found WordPress version $installed_ver at $wp_path"
+echo
+
 
 # Compare md5s
-for i in $(grep "$installed_ver/" "$wpmd5s"); do
+for i in $(zgrep "$installed_ver/" "$wpmd5s"); do
     master_md5=$(echo "$i" | awk '{print $1}')
     master_file=$(echo "$i" | awk '{print $2}' | sed -e "s#$installed_ver/##")
 
