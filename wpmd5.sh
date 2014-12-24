@@ -40,7 +40,7 @@ echo
 
 
 # Compare md5s
-for i in $(zgrep "$installed_ver/" "$wpmd5s"); do
+for i in $(zgrep " $installed_ver/" "$wpmd5s"); do
     master_md5=$(echo "$i" | awk '{print $1}')
     master_file=$(echo "$i" | awk '{print $2}' | sed -e "s#$installed_ver/##")
 
