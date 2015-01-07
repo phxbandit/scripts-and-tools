@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
 # base64pl.pl - Encodes/decodes string(s) using base64
-# by dual
+# WSTN
 
 use strict;
 use MIME::Base64;

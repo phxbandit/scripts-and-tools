@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # u1encrypt.sh - Encrypts file or directory for Ubuntu One cloud sync
-# by dual
+# WSTN
 #
 # Original script from:
 # http://gnome-look.org/content/show.php/Ubuntu+One+Encrypt+Decrypt?content=142064

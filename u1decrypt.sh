@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # u1decrypt.sh - Decrypts file or directory from Ubuntu One cloud
-# by dual
+# WSTN
 #
 # Original script from:
 # http://gnome-look.org/content/show.php/Ubuntu+One+Encrypt+Decrypt?content=142064

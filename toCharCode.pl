@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
 # toCharCode.pl - Creates decimal string for JavaScript's fromCharCode
-# by dual
+# WSTN
 
 use strict;
 

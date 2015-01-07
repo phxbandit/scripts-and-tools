@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # mild.sh 0.7.4 - Subdomain brute forcer inspired by fierce.pl
-# by dual (whenry)
+# WSTN
 #
 # Usage: ./mild.sh -d DOMAIN <-n NAMESERVER> <-s X>
 # -d = Set target DOMAIN

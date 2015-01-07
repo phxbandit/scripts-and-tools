@@ -1,7 +1,7 @@
 #!/usr/bin/env perl -w
 
 # netbiowned.pl - Simplifies windows share enumeration
-# by dual
+# WSTN
 #
 # Usage: perl netbiowned.pl <ip addresss>
 
