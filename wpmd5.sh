@@ -35,9 +35,9 @@ wp_path=$(echo $wp_path_tmp | sed -e 's#/$##')
 
 # Find wp version
 if [ -f "$wp_path/wp-includes/version.php" ]; then
-    installed_ver=$(sudo grep 'wp_version =' "$wp_path/wp-includes/version.php" | awk -F"= '" '{print $2}' | sed -e "s/';$//")
+    installed_ver=$(grep 'wp_version =' "$wp_path/wp-includes/version.php" | awk -F"= '" '{print $2}' | sed -e "s/';$//")
 elif [ -f "$wp_path/readme.html" ]; then
-    installed_ver=$(sudo grep 'Version ' "$wp_path/readme.html" | awk '{print $4}')
+    installed_ver=$(grep 'Version ' "$wp_path/readme.html" | awk '{print $4}')
 else
     echo "ERROR: WordPress version unavailable. Exiting..."
     exit 1
