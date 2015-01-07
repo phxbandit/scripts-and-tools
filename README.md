@@ -13,6 +13,7 @@ scripts-n-tools
 - country-codes.txt -- ISO 3166 country codes
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
 - iso8601 -- ISO 8601 standard date and time functions
+- malicious-email-addresses.txt -- Email addresses collected from malware
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
 - netbiowned.pl -- Simplifies windows share enumeration
 - passwords.txt -- Password list
