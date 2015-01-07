@@ -17,6 +17,7 @@ scripts-n-tools
 - malicious-email-addresses.txt -- Email addresses collected from malware
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
 - netbiowned.pl -- Simplifies windows share enumeration
+- nounlist.txt -- Common English nouns
 - passwords.txt -- Password list
 - rcptTousers.py -- Enumerates email addresses via rcpt to
 - spiga.conf -- Conf file for spiga.py
