@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # wpmd5.sh - Compares wordpress.org md5s to installed wp md5s
+# WSTN
 #
 # One-liner to generate MD5s
 # for i in $(ls); do find "$i" -type f -not -path "*wp-content*" | xargs md5sum; done
@@ -33,11 +34,17 @@ wp_path=$(echo $wp_path_tmp | sed -e 's#/$##')
 [ -f "$wp_path/wp-config.php" ] || usage
 
 # Find wp version
-installed_ver=$(grep 'wp_version =' "$wp_path/wp-includes/version.php" | awk -F"= '" '{print $2}' | sed -e "s/';$//")
+if [ -f "$wp_path/wp-includes/version.php" ]; then
+    installed_ver=$(sudo grep 'wp_version =' "$wp_path/wp-includes/version.php" | awk -F"= '" '{print $2}' | sed -e "s/';$//")
+elif [ -f "$wp_path/readme.html" ]; then
+    installed_ver=$(sudo grep 'Version ' "$wp_path/readme.html" | awk '{print $4}')
+else
+    echo "ERROR: WordPress version unavailable. Exiting..."
+    exit 1
+fi
 echo
 echo "Found WordPress version $installed_ver at $wp_path"
 echo
-
 
 # Compare md5s
 for i in $(zgrep " $installed_ver/" "$wpmd5s"); do
