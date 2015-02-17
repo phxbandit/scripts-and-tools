@@ -8,28 +8,41 @@
 
 IFS=$'\n'
 
-# Define md5 file
-wpmd5s='wordpress-md5s.gz'
-
 # Help
 usage() {
     echo
-    echo "Usage: ./wpmd5.sh /absolute/path/to/wordpress"
+    echo "Usage: ./wpmd5.sh [-v] /absolute/path/to/wordpress"
+    echo "   -v: Verbose output"
     echo
     exit 1
 }
 
-# Get and check arg
-[ $# = 1 ] || usage
+# Handle arguments
+if [ $# -ne 1 ]; then
+    if [ $# -ne 2 ]; then
+        usage
+    fi
+fi
+
+verbose=0
+
+if [ "$1" = '-v' ]; then
+    verbose=1
+    wp_path_tmp="$2"
+else
+    wp_path_tmp="$1"
+fi
+
+# Define md5 file
+wpmd5s='wordpress-md5s.gz'
 
 # Check for md5sum
 if [ "$(which md5sum)" = '' ]; then
-    echo "ERROR: md5sum not found... exiting"
+    echo "ERROR: md5sum command not found... exiting"
     exit 1
 fi
 
 # Verify wp exists
-wp_path_tmp="$1"
 wp_path=$(echo $wp_path_tmp | sed -e 's#/$##')
 [ -f "$wp_path/wp-config.php" ] || usage
 
@@ -39,7 +52,7 @@ if [ -f "$wp_path/wp-includes/version.php" ]; then
 elif [ -f "$wp_path/readme.html" ]; then
     installed_ver=$(grep 'Version ' "$wp_path/readme.html" | awk '{print $4}')
 else
-    echo "ERROR: WordPress version unavailable. Exiting..."
+    echo "ERROR: WordPress version unavailable... exiting"
     exit 1
 fi
 echo
@@ -53,7 +66,9 @@ for i in $(zgrep " $installed_ver/" "$wpmd5s"); do
 
     installed_md5=$(md5sum "$wp_path/$master_file" | awk '{print $1}')
 
-    echo "Checking $wp_path/$master_file..."
+    if [ "$verbose" -eq 1 ]; then
+        echo "Checking $wp_path/$master_file"
+    fi
 
     if [ "$master_md5" != "$installed_md5" ]; then
         echo
@@ -63,3 +78,7 @@ for i in $(zgrep " $installed_ver/" "$wpmd5s"); do
         echo
     fi
 done
+
+echo
+echo "Complete"
+echo
