@@ -20,6 +20,7 @@ scripts-n-tools
 - nounlist.txt -- Common English nouns
 - passwords.txt -- Password list
 - rcptTousers.py -- Enumerates email addresses via rcpt to
+- scourge.sh -- Scrapes popular plugins from wordpress.org
 - spiga.conf -- Conf file for spiga.py
 - spiga.py -- Configurable, threaded web resource scanner
 - sshscan.py -- Horizontal SSH scanner
