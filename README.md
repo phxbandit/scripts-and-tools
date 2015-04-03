@@ -9,7 +9,6 @@ scripts-n-tools
 - base64pl.pl -- Encodes/decodes string(s) using base64
 - blog-spam-template.txt -- Blog spam bot content
 - charlie-pwniels-band.py -- Horizontal brute force tool
-- confspy.pl -- 'confspy.pl v1.1 for /home/$user/public_html'
 - convertstr.pl -- Converts a string into various formats
 - country-codes.txt -- ISO 3166 country codes
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
