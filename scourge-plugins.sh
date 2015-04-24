@@ -1,24 +1,24 @@
 #!/bin/bash
 
-# scourge.sh - Scrapes popular plugins from wordpress.org
-# WSTN
+# scourge-plugins.sh - Scrapes popular plugins from wordpress.org
+# Version 2015-04-24
 
 IFS=$'\n'
 
 # Define variables
-no_of_plugins='2' # Number of plugins equals $no_of_plugins * 30
+no_of_plugins='1' # Number of plugins equals $no_of_plugins * 30
 log_time=$(date +'%Y-%m-%d-%H%M')
-scourge_log="scourge-$log_time.log"
+scourge_plugins_log="scourge-plugins-$log_time.log"
 get_old=''
-plugin_dir="$HOME/database/files/CMS/wordpress-plugins"
+plugin_dir="$HOME/dropzone/wordpress-plugins"
 tmp_dir="/tmp/$(echo $RANDOM | md5sum | awk '{print $1}')"
 
 # Help
 usage() {
     echo
-    echo "scourge.sh - Scrapes popular plugins from wordpress.org"
+    echo "scourge-plugins.sh - Scrapes popular plugins from wordpress.org"
     echo
-    echo "Usage: ./scourge.sh [-ho]"
+    echo "Usage: ./scourge-plugins.sh [-ho]"
     echo "   -h: Show this help"
     echo "   -o: Download old versions of plugins"
     echo
@@ -44,12 +44,12 @@ page1() {
 
         # Create unzip dir, download and unzip
         unzip_dir1="$plugin_dir/$base_name1/$ver_name1"
-        [ -d "$unzip_dir1" ] || (
+        [[ -d "$unzip_dir1" || -f "${unzip_dir1}.tar.gz" ]] || (
             echo "Downloading $base_name1 $ver_name1"
             mkdir -p "$unzip_dir1"
             wget -q --no-check-certificate --no-clobber -O "$tmp_dir/$zip_name1" "$download1_link"
             unzip -q -d "$unzip_dir1" "$tmp_dir/$zip_name1" && rm "$tmp_dir/$zip_name1"
-            echo "$base_name1,$ver_name1,$download1_link" >> "$scourge_log"
+            echo "$base_name1,$ver_name1,$download1_link" >> "$scourge_plugins_log"
         )
 
         # Check to download old versions
@@ -75,12 +75,12 @@ pages() {
 
             # Create unzip dir, download and unzip
             unzip_dir="$plugin_dir/$base_name/$ver_name"
-            [ -d "$unzip_dir" ] || (
+            [[ -d "$unzip_dir" || -f "${unzip_dir}.tar.gz" ]] || (
                 echo "Downloading $base_name $ver_name"
                 mkdir -p "$unzip_dir"
                 wget -q --no-check-certificate --no-clobber -O "$tmp_dir/$zip_name" "$downloads_link"
                 unzip -q -d "$unzip_dir" "$tmp_dir/$zip_name" && rm "$tmp_dir/$zip_name"
-                echo "$base_name,$ver_name,$downloads_link" >> "$scourge_log"
+                echo "$base_name,$ver_name,$downloads_link" >> "$scourge_plugins_log"
             )
 
             # Check to download old versions
@@ -107,7 +107,7 @@ old_vers() {
             mkdir -p "$unzip_dir_old"
             wget -q --no-check-certificate --no-clobber -O "$tmp_dir/$zip_name_old" "$download_old"
             unzip -q -d "$unzip_dir_old" "$tmp_dir/$zip_name_old" && rm "$tmp_dir/$zip_name_old"
-            echo "$base_name_old,$ver_name_old,$download_old" >> "$scourge_log"
+            echo "$base_name_old,$ver_name_old,$download_old" >> "$scourge_plugins_log"
         )
 
         sleep 1
@@ -131,9 +131,11 @@ echo
 
 checkDirs
 page1
-#pages
+if [ "$no_of_plugins" -ge 2 ]; then
+    pages
+fi
 
-rm -rf "$tmp_dir"
+rmdir "$tmp_dir"
 echo
 echo "Complete"
 echo
