@@ -25,8 +25,6 @@ scripts-n-tools
 - sshscan.py -- Horizontal SSH scanner
 - states-codes.txt -- List of US states and two-letter codes
 - toCharCode.pl -- Creates decimal string for JavaScript's fromCharCode
-- u1decrypt.sh -- Decrypts file or directory from Ubuntu One cloud
-- u1encrypt.sh -- Encrypts file or directory for Ubuntu One cloud sync
 - uas.txt -- User agent strings
 - users.txt -- Concise system user list
 - wordpress-md5s.gz -- MD5s for WP core files from 3.0 to 4.1
