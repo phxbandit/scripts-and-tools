@@ -226,7 +226,7 @@ if __name__ == '__main__':
     # Timestamp and opening message
     iso8601 = time.strftime("%Y-%m-%d %H:%M:%S")
     start = time.time()
-    print "\nStarting spiga.py ( https://github.com/getdual ) at %s with %s threads" % (iso8601, NO_OF_THREADS)
+    print "\nStarting spiga.py ( https://github.com/WSTNPHX ) at %s with %s threads" % (iso8601, NO_OF_THREADS)
 
     # Spawn a pool of threads and pass them queue instance 
     for i in range(NO_OF_THREADS):

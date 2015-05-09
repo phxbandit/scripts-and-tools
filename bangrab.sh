@@ -5,7 +5,7 @@
 
 # Source time and date functions
 [ -e "$HOME/.iso8601" ] || {
-    wget -q https://raw.github.com/getdual/scripts-n-tools/master/iso8601
+    wget -q https://raw.github.com/WSTNPHX/scripts-n-tools/master/iso8601
     mv iso8601 $HOME/.iso8601
 }
 . "$HOME/.iso8601"
