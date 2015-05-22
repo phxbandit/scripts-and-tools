@@ -27,7 +27,7 @@ scripts-n-tools
 - toCharCode.pl -- Creates decimal string for JavaScript's fromCharCode
 - uas.txt -- User agent strings
 - users.txt -- Concise system user list
-- wordpress-md5s.gz -- MD5s for WP core files from 3.0 to 4.1
+- wordpress-md5s.gz -- MD5s for WP core files from 3.0 forward
 - wpmd5.sh -- Checks integrity of WordPress core files
 - yumi.sh -- Checks YUMI and tool versions
 - zonetrans.sh -- Attempts full zone transfer from each authoritative name server
