@@ -14,11 +14,11 @@ Yumi=$(curl -s -S http://www.pendrivelinux.com/yumi-multiboot-usb-creator/ | gre
 YumiDL="http://www.pendrivelinux.com/yumi-multiboot-usb-creator/"
 
 # Clonezilla alternative stable (Ubuntu based)
-Clonezilla=$(curl -s -S http://clonezilla.org/downloads/alternative/checksums.php | grep -E "clonezilla-live-.+-trusty-amd64.iso" | head -1 | awk '{print $1}')
+Clonezilla=$(curl -s -S http://clonezilla.org/downloads/alternative/checksums.php | grep -E "clonezilla-live-.+-amd64.iso" | head -1 | awk '{print $1}')
 ClonezillaDL="http://clonezilla.org/downloads.php"
 
 # Darik's Boot And Nuke
-Dban=$(curl -s -S http://sourceforge.net/projects/dban/files/dban/ | grep 'Download dban' | awk '{print $2}')
+Dban=$(curl -s http://sourceforge.net/projects/dban/files/dban/ | grep '<a href="/projects/dban/files/dban/' | head -1 | awk -F"/" '{print $6}')
 DbanDL="http://www.dban.org/download"
 
 # GParted
@@ -46,7 +46,7 @@ if [ ! -e "$yver" ]; then
         fi
         echo "$i:$ver" >> "$yver"
     done
-    echo "Done."
+    echo "Done"
 else
     echo "Comparing versions..."
     echo
@@ -70,5 +70,5 @@ else
             echo
         fi
     done
-    echo "Done."
+    echo "Done"
 fi
