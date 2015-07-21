@@ -11,15 +11,19 @@ scripts-n-tools
 - convertstr.pl -- Converts a string into various formats
 - country-codes.txt -- ISO 3166 country codes
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
+- indian-names.txt -- Popular Indian names list
 - iso8601 -- ISO 8601 standard date and time functions
+- js-1-3.js -- JavaScript decoding example
 - malware-email-addresses.txt -- Email addresses collected from malware
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
+- mobile-shell-1-2.php -- PHP decoding example
 - netbiowned.pl -- Simplifies windows share enumeration
 - nounlist.txt -- Common English nouns
 - passwords.txt -- Password list
 - rcptTousers.py -- Enumerates email addresses via rcpt to
-- scourge-plugins.sh -- Scrapes popular plugins from wordpress.org
-- scourge-themes.sh -- Scrapes popular themes from wordpress.org
+- rdp-scanner-users.txt -- Users used in malware RDP scanner
+- rdp-scanner-words.txt -- (Pass)words used in malware RDP scanner
+- shellfun.php -- Playing with PHP shell
 - spiga.conf -- Conf file for spiga.py
 - spiga.py -- Configurable, threaded web resource scanner
 - sshscan.py -- Horizontal SSH scanner
