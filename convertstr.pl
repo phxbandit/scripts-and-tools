@@ -13,7 +13,7 @@ use Digest::SHA qw(sha1_hex sha256_hex);
 my $usage = "
 convertstr - Reverses and converts a string to:
 
-    Base64, binary, decimal, hex, ROT13, MD5, SHA1, and SHA256
+    Base64, binary, decimal, hex, octal, ROT13, MD5, SHA1, and SHA256
 
 Usasge: convertstr <string>
 
