@@ -7,7 +7,6 @@ scripts-n-tools
 - bangrab.sh -- Simple HTTP banner grabber
 - base64pl.pl -- Encodes/decodes string(s) using base64
 - blog-spam-template.txt -- Blog spam bot content
-- charlie-pwniels-band.py -- Horizontal brute force tool
 - common-user-agents.txt -- Common user agents from techblog.willshouse.com
 - convertstr.pl -- Converts a string into various formats
 - country-codes.txt -- ISO 3166 country codes
