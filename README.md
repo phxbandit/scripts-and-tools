@@ -11,7 +11,6 @@ scripts-n-tools
 - convertstr.pl -- Converts a string into various formats
 - country-codes.txt -- ISO 3166 country codes
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
-- indian-names.txt -- Popular Indian names list
 - isitdown.sh -- Checks site at downforeveryoneorjustme.com
 - iso8601 -- ISO 8601 standard date and time functions
 - js-1-3.js -- JavaScript decoding example
