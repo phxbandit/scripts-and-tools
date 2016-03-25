@@ -7,9 +7,11 @@ scripts-n-tools
 - bangrab.sh -- Simple HTTP banner grabber
 - base64pl.pl -- Encodes/decodes string(s) using base64
 - blog-spam-template.txt -- Blog spam bot content
+- chinese-shell-*.php -- PHP malware decoding example
 - common-user-agents.txt -- Common user agents from techblog.willshouse.com
 - convertstr.pl -- Converts a string into various formats
 - country-codes.txt -- ISO 3166 country codes
+- getdata.php -- Gets data stored with putdata.php from selfdestruct.pw
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
 - isitdown.sh -- Checks site at downforeveryoneorjustme.com
 - iso8601 -- ISO 8601 standard date and time functions
@@ -20,6 +22,7 @@ scripts-n-tools
 - netbiowned.pl -- Simplifies windows share enumeration
 - nounlist.txt -- Common English nouns
 - passwords.txt -- Password list
+- putdata.php -- Stores data in selfdestruct.pw hashes
 - rcptTousers.py -- Enumerates email addresses via rcpt to
 - rdp-scanner-users.txt -- Users used in malware RDP scanner
 - rdp-scanner-words.txt -- (Pass)words used in malware RDP scanner
