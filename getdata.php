@@ -1,6 +1,7 @@
 <?php
 
 // getdata.php - Retrieves file from selfdestruct.pw hashes
+// WSTN
 
 // Check the environment
 if ( ! function_exists('curl_init') ) {
