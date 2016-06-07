@@ -7,7 +7,6 @@ scripts-n-tools
 - bangrab.sh -- Simple HTTP banner grabber
 - base64pl.pl -- Encodes/decodes string(s) using base64
 - blog-spam-template.txt -- Blog spam bot content
-- chinese-shell-*.php -- PHP malware decoding example
 - common-user-agents.txt -- Common user agents from techblog.willshouse.com
 - convertstr.pl -- Converts a string into various formats
 - country-codes.txt -- ISO 3166 country codes
@@ -15,10 +14,8 @@ scripts-n-tools
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
 - isitdown.sh -- Checks site at downforeveryoneorjustme.com
 - iso8601 -- ISO 8601 standard date and time functions
-- js-1-3.js -- JavaScript decoding example
 - malware-email-addresses.txt -- Email addresses collected from malware
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
-- mobile-shell-1-2.php -- PHP decoding example
 - netbiowned.pl -- Simplifies windows share enumeration
 - nounlist.txt -- Common English nouns
 - passwords.txt -- Password list
@@ -34,7 +31,6 @@ scripts-n-tools
 - toCharCode.pl -- Creates decimal string for JavaScript's fromCharCode
 - uas.txt -- User agent strings
 - users.txt -- Concise system user list
-- woothemewp-com-decode-*.php -- Woothemewp.com malware decoding example
 - wordpress-md5s.gz -- MD5s for WP core files from 3.0 forward
 - wpmd5.sh -- Checks integrity of WordPress core files
 - yumi.sh -- Checks YUMI and tool versions
