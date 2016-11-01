@@ -10,6 +10,7 @@ scripts-n-tools
 - common-user-agents.txt -- Common user agents from techblog.willshouse.com
 - convertstr.pl -- Converts a string into various formats
 - country-codes.txt -- ISO 3166 country codes
+- escape.pl -- Automatically escapes regular expressions
 - getdata.php -- Gets data stored with putdata.php from selfdestruct.pw
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
 - isitdown.sh -- Checks site at downforeveryoneorjustme.com
