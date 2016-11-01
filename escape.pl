@@ -1,4 +1,4 @@
-#!/opt/bin/perl -w
+#!/usr/bin/perl -w
 
 # escape.pl - Automatically escapes regular expressions
 
