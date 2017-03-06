@@ -4,6 +4,7 @@ scripts-n-tools
 - 500-worst-passwords.txt -- 500 worst passwords from SkullSecurity
 - 950k-usernames.txt.gz -- Pushing a million user names
 - adig.sh -- Queries authoritative name servers for A, www, and TXT records
+- ascii-*.txt -- Cool ASCII art from malware and defacements
 - bangrab.sh -- Simple HTTP banner grabber
 - base64pl.pl -- Encodes/decodes string(s) using base64
 - blog-spam-template.txt -- Blog spam bot content
