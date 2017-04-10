@@ -1,7 +1,7 @@
 <?php
 
 // shellfun.php
-// WSTNPHX
+// VVestron Phoronix
 
 @error_reporting(0);
 
