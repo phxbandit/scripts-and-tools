@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # yumi.sh - Checks YUMI and tool versions
-# WSTN
+# VVestron Phoronix
 
 yver="$HOME/.yumi.ver"
 tools=(Yumi Clonezilla Dban GParted OfflineNT ophcrack7 ophcrackXP)

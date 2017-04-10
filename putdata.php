@@ -1,7 +1,7 @@
 <?php
 
 // putdata.php - Stores arbitrary files in selfdestruct.pw
-// WSTN
+// VVestron Phoronix
 
 // Check the environment
 if ( ! function_exists('curl_init') ) {
