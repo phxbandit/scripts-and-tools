@@ -1,6 +1,7 @@
 scripts-n-tools
 ---------------
 
+- 30backups.sh -- Creates and keeps the latest 30 web and SQL backups
 - 500-worst-passwords.txt -- 500 worst passwords from SkullSecurity
 - 950k-usernames.txt.gz -- Pushing a million user names
 - adig.sh -- Queries authoritative name servers for A, www, and TXT records
