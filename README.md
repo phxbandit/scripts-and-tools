@@ -12,8 +12,9 @@ scripts-n-tools
 - common-user-agents.txt -- Common user agents from techblog.willshouse.com
 - convertstr.pl -- Converts a string into various formats
 - country-codes.txt -- ISO 3166 country codes
+- dataget.php -- Gets data stored with putdata.php from selfdestruct.pw
+- dataput.php -- Stores data in selfdestruct.pw hashes
 - escape.pl -- Automatically escapes regular expressions
-- getdata.php -- Gets data stored with putdata.php from selfdestruct.pw
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
 - isitdown.sh -- Checks site at downforeveryoneorjustme.com
 - iso8601 -- ISO 8601 standard date and time functions
@@ -24,7 +25,6 @@ scripts-n-tools
 - netbiowned.pl -- Simplifies windows share enumeration
 - nounlist.txt -- Common English nouns
 - passwords.txt -- Password list
-- putdata.php -- Stores data in selfdestruct.pw hashes
 - rcptTousers.py -- Enumerates email addresses via rcpt to
 - rdp-scanner-users.txt -- Users used in malware RDP scanner
 - rdp-scanner-words.txt -- (Pass)words used in malware RDP scanner
@@ -38,5 +38,4 @@ scripts-n-tools
 - users.txt -- Concise system user list
 - wordpress-md5s.gz -- MD5s for WP core files from 3.0 forward
 - wpmd5.sh -- Checks integrity of WordPress core files
-- yumi.sh -- Checks YUMI and tool versions
 - zonetrans.sh -- Attempts full zone transfer from each authoritative name server
