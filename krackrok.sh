@@ -1,4 +1,5 @@
 #!/bin/bash
+# VVestron Phoronix
 kernpack=()
 curkern=$(uname -r | awk -F'-generic' '{print $1}')
 for i in $(dpkg -l | grep 'linux-' | awk '{print $2}' | egrep '[[:digit:]]\.[[:digit:]]\.[[:digit:]]' | grep -v "$curkern"); do
