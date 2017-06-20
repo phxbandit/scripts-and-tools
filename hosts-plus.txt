@@ -737,6 +737,7 @@ filter
 find
 finger
 fios
+firefly
 firewall
 fix
 fixes
@@ -1015,6 +1016,7 @@ jm
 jo
 jobs
 john
+joomla
 jp
 jrun
 jsc
@@ -1145,6 +1147,7 @@ mac5
 mach
 macintosh
 madrid
+magento
 maggie
 mail
 mail2
@@ -1858,7 +1861,7 @@ sj
 sk
 skywalker
 sl
-slackware
+slack
 slkc
 slmail
 sm
