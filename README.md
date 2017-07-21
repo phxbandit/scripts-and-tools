@@ -15,6 +15,7 @@ scripts-n-tools
 - dataget.php -- Gets data stored with putdata.php from selfdestruct.pw
 - dataput.php -- Stores data in selfdestruct.pw hashes
 - escape.pl -- Automatically escapes regular expressions
+- grepapache.sh -- Greps all apache access logs
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
 - isitdown.sh -- Checks site at downforeveryoneorjustme.com
 - iso8601 -- ISO 8601 standard date and time functions
