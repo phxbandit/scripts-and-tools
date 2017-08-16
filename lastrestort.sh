@@ -2,9 +2,10 @@
 
 # lastresort.sh - Reboot with DNS
 # VVestron Phoronix
-
-# crontab
-# 0 * * * * /path/to/lastresort.sh
+#
+# echo -n '1' > /path/to/.lastresort
+# crontab -e
+# @hourly /path/to/lastresort.sh
 
 file='/path/to/.lastresort'
 bit=$(cat "$file")
@@ -16,14 +17,14 @@ if [ "$bit" -eq 0 ]; then
 fi
 
 if [ "$xran" -eq 0 ]; then
-    xdns="sub1"
+    xdns="ns1"
 else
-    xdns="sub2"
+    xdns="ns2"
 fi
 
 xdig=$(dig -t txt blah.yourdomain.com @"$xdns.$xdom" +short | sed -e 's/"//g')
 
 if [ "$xdig" = "true" ]; then
     echo -n '0' > "$file"
-    shutdown -r now
+    /sbin/reboot
 fi
