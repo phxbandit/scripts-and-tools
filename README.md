@@ -31,6 +31,7 @@ scripts-n-tools
 - states-codes.txt -- List of US states and two-letter codes
 - toCharCode.pl -- Creates decimal string for JavaScript's fromCharCode
 - turkish-escort-spam* -- Write-up of a Turkish escort spam campaign
+- uas.txt -- User agent strings
 - wordpress-md5s.gz -- MD5s for WP core files from 3.0 forward
 - wpmd5.sh -- Checks integrity of WordPress core files
 - zonetrans.sh -- Attempts full zone transfer from each authoritative name server
