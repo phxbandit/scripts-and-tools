@@ -2,9 +2,25 @@
 
 # wpmd5.sh - Compares wordpress.org md5s to installed wp md5s
 # VVestron Phoronix
+
+# Process_zips
+# #!/bin/bash
 #
-# One-liner to generate MD5s
-# for i in $(ls); do find "$i" -type f -not -path "*wp-content*" | xargs md5sum; done
+# for i in *.zip; do
+#     ver=$(echo "$i" | awk -F"-" '{print $2}' | sed -e 's/\.zip$//')
+#     unzip "$i"
+#     mv wordpress "$ver"
+#     rm "$i"
+# done
+
+# Generate MD5s
+# #!/bin/bash
+#
+# # ./create-md5s.sh | tee wordpress-md5s
+#
+# for i in $(ls); do
+#     find "$i" -type f -not -path "*wp-content*" | xargs md5sum
+# done
 
 IFS=$'\n'
 
