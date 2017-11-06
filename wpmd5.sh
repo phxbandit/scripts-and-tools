@@ -3,7 +3,7 @@
 # wpmd5.sh - Compares wordpress.org md5s to installed wp md5s
 # VVestron Phoronix
 
-# Process_zips
+# Process zips
 # #!/bin/bash
 #
 # for i in *.zip; do
