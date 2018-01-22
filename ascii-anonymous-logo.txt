@@ -1,0 +1,73 @@
+                                     `,;+####+;:`
+                                 ,#XXXXXXXXXXXXXXXX#:
+                              :XXXX+,            ,'XXXX;
+                            +XX#,                    ,#XX#`
+                          #XX;                          :XXX`
+                        'XX,                              ,XX#
+                      `XX:                                  :XX:
+                     'X#                                      #X#
+                    XX:                                        :XX
+                   XX`                                           XX`
+                  XX                                              XX.
+                 XX                                                XX.
+                XX                   `..........`                   XX`
+               XX                 `..` `......` `..`                 XX
+              #X         `      ..`  `.` ` `  `.`  `..       `        XX
+             :X`      ,X#     `.`   .`  .  `    `.   `.`     +X:      `X#
+             X'      XXX     ..    .   .   `  `   .    ..     XXX`     ;X.
+            XX    : XXX`    .`    .    `   `       .    ..     XXX`:    XX
+           ,X   `X XXX:   `.`.`  .    .    `   `    . .`  .`   .XXX X,   X'
+           X#   X:,XX;   `.    ..`    .   .X       `..     .    ,XX;.X`  +X
+          :X   #X XX;.   .     ```....`  X ;X+`...`  .`     .   :,XX XX   X#
+          X+   XX X: X  .`     .     .``:X.`XX  .     .      .  #`.X XX`  'X
+         .X  ,.X#..`X: .`     ``     .   X `XX        .`     `` .X.`:'X;;  X'
+         X#  +;X: 'XX  .      .     ``     ,X:   `     .      .  #X# .X+;` #X
+         X. X:'X #XX  . `.   ``     .      X`    .     .`   `. .  #XX X#.X `X.
+        :X  X,+XXX+   .   `.`.      .      .     .     `.`..   .   ;XXX#`X. X#
+        X# ,X:+XX' ; .`      ...``  .      `     `   `...`      . , :XX#.X; +X
+        X, 'X;'X# X  .       `  `.........;;`........`  .`      .  X ;X#,X+ .X`
+       `X  'X';# XX `.      `       .  `` XX````  `     `.      `  XX +#:X#  X:
+       ;X  'X+. XX: .       .      `.     '#      `      .       . `XX`.;X#  X#
+       ## `'X# XXX  .       .      ``      `      .      .       .  #XX 'X#. #X
+       X' X:X##XX   .       .      .`      `      .      .       .   XXX+X'# ;X
+       X: X XXXX ;  .       .      .`     `.      .      .       .  ; XX#X`X ,X
+       X. X XXX, ;  .       `      .`     ,:      .      .       `  ,``XXX X.`X
+      `X``X.'XX X,  .       `      .`  ; ;XXX...  .      .       `  `X #X# X, X
+      .X  X# X,,X`  .................,X.   :   X+.................   X:`X`'X. X
+      ,X  XX X XX   .       `      :#XX   #X   XX#.      .       `   XX X XX  X
+      .X  XX.';XX   .       .  ;XXXXXXX    :.  XXXXX#:`  .       `   XX'' XX  X
+      .X` +X# XX+   .       . 'XXXXXXXX    '   XXXXXXXXX..       .   ;XX +X#  X
+       X. `XX XX`   .       . XXXXXXXXX   ,X   XXXXXXXXX+.       .    XX XX, `X
+       X:  XX:XX ;  .       . XXXXXXXXX   'X   XXXXXXXXX#.       .  , XX.XX  .X
+       X' ..XXX+ X  ``      . XXXXXXXXX   #X   XXXXXXXXXX.      ``  X`;XXX:` ;X
+       ## X +XX,`X   .      `;XXXXXXXXX`  XX` `XXXXXXXXXX`      .   X,`XX# # #X
+       ;X X' XX`:X,  .      .'XXXXXXXXX#  XX. +XXXXXXXXXX       .  `X' XX :X X#
+       `X #X: X.#X:  ``   .` XXXXXXXXXXX  XX, XXXXXXXXXXX...   `   .XX X .XX X;
+        X,`XX.`,XX'   . .    XXXXXXXXXXX# XX,,XXXXXXXXXXX,  `. .   ,XX`.`XX:`X`
+        X# XXX `XX+:  `.     XXXXXXXXXXXX XX:XXXXXXXXXXXX;    .   :;XX  XXX +X
+        ;X `XXX #X#..  .    ,XXXXXXXXXXXXXXXXXXXXXXXXXXXX#    .  `:+XX XXX, X#
+         X. +XXX:XX X   .   'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX   .   X XX'XXX# `X,
+         X# :#XXXXX X+   .  #XXXXXXXXXXXXXXXXXXXXXXXXXXXXX  .   ;X XX#XXX. #X
+         ,X ,`;XXXX #X   `` XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX ``   XX XXXX+ ; X+
+          X+ X.`XXX.:X'   ``XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX `   :X' XXX. X 'X
+          ;X :X' :X+`XX    `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX     XX,:X' :X' X#
+           X# XXX, + XX,;   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   '`XX # .XXX 'X
+           :X  XXXX. +XX X  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX` # XX# .XXXX` X#
+            XX  XXXXX XX,;X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX X+.XX #XXXX` XX
+             X;  'XXXX;XX XX;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XX:XXXX#  :X,
+             ;X` ; 'XXXXX#.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX,'XXXXX' ;  X#
+              XX  X,  :#XX.;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'`XX#:` .X  XX
+               XX `XX+`     .XXXXXXXXXXXXXXXXXXXXXXXXXXXX:     `'XX, XX
+                XX `XXXXXXXXX#XXXXXXXXXXXXXXXXXXXXXXXXXX#XXXXXXXXX. #X.
+                `XX  'XXXXXXXXX+:XXXXXXXXXXXXXXXXXXX#.+XXXXXXXXX+  XX,
+                 `XX   `::,.    'XXXXXXXXXXXXXXXXXXXX,    .,::.   XX:
+                  `XX  X,    ,#XXXXXXXXXXXXXXXXXXXXXXXX#:    ,X  XX,
+                    XX, #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX# ,XX`
+                     #X# `#XXXXXXXXXXXXXXXXXXXXXXXXXX#XXXXXX. #XX
+                      ,XX:   `` XXXXXXXXXXXXXXXXXXXXX  ``   ,XX;
+                        #XX.    XXXXXXXXXXXXXXXXXXXXX     .XXX
+                         `XXX: `XXXXXXXXXXXXXXXXXXXXX   ,XXX,
+                           `XXXXXXXXXXXXXXXXXXXXXXXXX,#XXX,
+                              'XXXXXXXXXXXXXXXXXXXXXXXX#`
+                                `;XXXXXXXXXXXXXXXXXX+.
+                                     ,;##XXXX##':`
