@@ -9,8 +9,6 @@ scripts-n-tools
 - base64pl.pl -- Encodes/decodes string(s) using base64
 - convertstr.pl -- Converts a string into various formats
 - country-codes.txt -- ISO 3166 country codes
-- dataget.php -- Gets data stored with putdata.php from selfdestruct.pw
-- dataput.php -- Stores data in selfdestruct.pw hashes
 - escape.pl -- Automatically escapes regular expressions
 - grepapache.sh -- Greps all apache access logs
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
