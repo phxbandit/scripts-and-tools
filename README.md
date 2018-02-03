@@ -19,6 +19,7 @@ scripts-n-tools
 - malware-email-addresses.txt -- Email addresses collected from malware
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
 - netbiowned.pl -- Simplifies windows share enumeration
+- porn-scraper.sh -- Or manga or whatever
 - rcptTousers.py -- Enumerates email addresses via rcpt to
 - rdp-scanner-users.txt -- Users used in malware RDP scanner
 - rdp-scanner-words.txt -- (Pass)words used in malware RDP scanner

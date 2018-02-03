@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# porn-scraper.sh - Or manga or whatever.
+# porn-scraper.sh - Or manga or whatever
 
 # http://gallery.example.com/1234/01.jpg
 
