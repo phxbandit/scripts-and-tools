@@ -20,3 +20,6 @@ MD5, SHA-1 and SHA-256 hashes
 
 Printable ASCII characters, space to tilde
 [\s-~]
+
+Quotes
+['"]
