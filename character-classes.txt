@@ -18,7 +18,7 @@ MD5, SHA-1 and SHA-256 hashes
 [\da-f]{40}
 [\da-f]{64}
 
-Printable ASCII characters, space to tilde
+Printable ASCII, space to tilde
 [\s-~]
 
 Quotes
