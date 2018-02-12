@@ -7,6 +7,7 @@ scripts-n-tools
 - ascii-*.txt -- ASCII art from malware and defacements
 - bangrab.sh -- Simple HTTP banner grabber
 - base64pl.pl -- Encodes/decodes string(s) using base64
+- character-classes.txt -- Character classes useful for web malware analysis
 - convertstr.pl -- Converts a string into various formats
 - country-codes.txt -- ISO 3166 country codes
 - escape.pl -- Automatically escapes regular expressions
