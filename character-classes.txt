@@ -1,0 +1,22 @@
+Character class for base64_decode, create_function, eval, and gzinflate
+E.g. $oO0="cr"."eat"."e_fun"."cti"."on";$o0O=@$oO0('$x','ev'.'al'.'("?>".gz'.'inf'.'late'.'( bas'.'e64'.'_de'.'co'.'de
+[\s"'.64_abcdefgilnorstuvz]+
+
+Char class for GLOBALS
+E.g. GL\x4fB\x41L\x53
+[123457GLOBAS\\cfx]
+
+Base64
+[+/\dA-Za-z]
+
+Hex and octal
+E.g. \x61\76\40\x61\156\x64\x20\x61\160
+[\da-fx\\]
+
+MD5, SHA-1 and SHA-256 hashes
+[\da-f]{32}
+[\da-f]{40}
+[\da-f]{64}
+
+Printable ASCII characters, space to tilde
+[\s-~]
