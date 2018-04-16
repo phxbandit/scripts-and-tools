@@ -21,7 +21,7 @@ scripts-n-tools
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
 - netbiowned.pl -- Simplifies windows share enumeration
 - porn-scraper.sh -- Or manga or whatever
-- pwndirs.php -- Write file to every dir below \_\_DIR__
+- pwndirs.php -- Write file to every dir below \__DIR__
 - rcptTousers.py -- Enumerates email addresses via rcpt to
 - rdp-scanner-users.txt -- Users used in malware RDP scanner
 - rdp-scanner-words.txt -- (Pass)words used in malware RDP scanner
