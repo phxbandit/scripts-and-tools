@@ -6,7 +6,7 @@
 # Defines
 ##
 
-define('DS','/');
+define('DS', '/');
 
 # Variables
 ##
