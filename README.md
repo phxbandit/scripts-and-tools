@@ -22,7 +22,7 @@ scripts-n-tools
 - netbiowned.pl -- Simplifies windows share enumeration
 - php.nanorc -- Nano PHP syntax highlighting
 - porn-scraper.sh -- Or manga or whatever
-- pwndirs.php -- Mass defacer. What?
+- pwndirs.php -- Mass defacer
 - rcptTousers.py -- Enumerates email addresses via rcpt to
 - rdp-scanner-users.txt -- Users used in malware RDP scanner
 - rdp-scanner-words.txt -- (Pass)words used in malware RDP scanner
