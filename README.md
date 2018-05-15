@@ -8,6 +8,7 @@ scripts-n-tools
 - bangrab.sh -- Simple HTTP banner grabber
 - base64pl.pl -- Encodes/decodes string(s) using base64
 - character-classes.txt -- Character classes useful for web malware analysis
+- check-chef.sh -- Checks for new version of CyberChef
 - convertstr.pl -- Converts a string into various formats
 - country-codes.txt -- ISO 3166 country codes
 - escape.pl -- Automatically escapes regular expressions
