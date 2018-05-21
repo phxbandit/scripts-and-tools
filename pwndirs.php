@@ -54,7 +54,7 @@ if ($old_php) {
         $dirs_path = $dir . DS . $old_file;
         if ( is_dir($dirs_path) ) {
             if ( is_writable($dirs_path) ) {
-                array_push($paths, $dirs_path);
+                $paths[] = $dirs_path;
             }
         }
     }
