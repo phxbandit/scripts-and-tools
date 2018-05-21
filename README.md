@@ -21,6 +21,7 @@ scripts-n-tools
 - malware-email-addresses.txt -- Email addresses collected from malware
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
 - netbiowned.pl -- Simplifies windows share enumeration
+- pluginsmonsters.pdf -- Pluginsmonsters fake plugin write-up
 - php.nanorc -- Nano PHP syntax highlighting
 - porn-scraper.sh -- Or manga or whatever
 - pwndirs.php -- Mass defacer
