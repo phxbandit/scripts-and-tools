@@ -2,6 +2,7 @@
 
 # check-chef.sh - Checks for new version of CyberChef
 
+# Change this to where you store cyberchef.htm
 cur="/dir/to/cyberchef.htm"
 
 if [ "$(which wget)" = '' ]; then
