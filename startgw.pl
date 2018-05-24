@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # startgw.pl - Launches VM through web request
-# VVestron Phoronix
+# VVinston Phelix
 
 use strict;
 use warnings;

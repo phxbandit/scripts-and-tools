@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # spiga.py 0.7.6 - Configurable web resource scanner
-# VVestron Phoronix
+# VVinston Phelix
 #
 # Please read spiga.conf and spiga.py -h for instructions.
 

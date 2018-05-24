@@ -1,7 +1,7 @@
 #!/usr/bin/env perl -w
 
 # netbiowned.pl - Simplifies windows share enumeration
-# VVestron Phoronix
+# VVinston Phelix
 #
 # Usage: perl netbiowned.pl <ip addresss>
 

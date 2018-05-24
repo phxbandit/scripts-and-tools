@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # lastresort.sh - Reboot with DNS
-# VVestron Phoronix
+# VVinston Phelix
 #
 # echo -n '1' > /path/to/.lastresort
 # crontab -e

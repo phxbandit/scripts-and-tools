@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # bangrab.sh - Simple HTTP banner grabber
-# VVestron Phoronix
+# VVinston Phelix
 
 # Source time and date functions
 [ -e "$HOME/.iso8601" ] || {

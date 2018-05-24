@@ -3,7 +3,7 @@
 # convertstr.pl - Reverses and converts a string to:
 # Base64, binary, decimal, hex, octal, ROT13, MD5, SHA1, and SHA256 
 #
-# VVestron Phoronix
+# VVinston Phelix
 
 use strict;
 use MIME::Base64;

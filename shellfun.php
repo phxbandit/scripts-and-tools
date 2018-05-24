@@ -1,7 +1,7 @@
 <?php
 
 // shellfun.php
-// VVestron Phoronix
+// VVinston Phelix
 
 @error_reporting(0);
 
