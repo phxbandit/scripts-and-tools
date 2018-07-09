@@ -4,7 +4,7 @@
 
 help() {
     printf "\nUsage: ./coladd.sh <field number> <file>\n\n"
-    exit
+    exit 1
 }
 
 [ $# -eq 2 ] || help
