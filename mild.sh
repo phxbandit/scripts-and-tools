@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# mild.sh 0.7.4 - Subdomain brute forcer inspired by fierce.pl
-# VVinston Phelix
+# mild.sh - Subdomain brute forcer inspired by fierce.pl
+# https://github.com/WSTNPHX/scripts-n-tools/blob/master/mild.sh
 #
 # Usage: ./mild.sh -d DOMAIN <-n NAMESERVER> <-s X>
 # -d = Set target DOMAIN
@@ -23,7 +23,7 @@ Usage: mild.sh -d DOMAIN [-n NAMESERVER] [-s X]
   -s
       Sleep X number of seconds
 EndHelp
-    exit 0
+    exit 1
 }
 
 # Main query function
