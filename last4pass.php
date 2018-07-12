@@ -18,8 +18,7 @@ function hashit($target) {
         }
         $pass = implode('', $str);
         $four = substr(sha1(md5($pass)), 36);
-        $matchfour = '/' . $four . '/';
-        if ( preg_match($matchfour, $target) ) {
+        if ( preg_match('/'.$four.'/', $target) ) {
             echo "Match: $four == $target ($pass)\n";
             exit();
         } else {
