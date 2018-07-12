@@ -18,7 +18,7 @@ scripts-n-tools
 - isitdown.sh -- Checks site at downforeveryoneorjustme.com
 - iso8601 -- ISO 8601 standard date and time functions
 - krackrok.sh -- Removes old kernels on Ubuntu systems
-- lastresort.sh -- Reboot with DNS
+- last4pass.php -- https://isc.sans.edu/forums/diary/Well+Hello+Again+Peppa/23860/
 - malware-email-addresses.txt -- Email addresses collected from malware
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
 - netbiowned.pl -- Simplifies windows share enumeration
