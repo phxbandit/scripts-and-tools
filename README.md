@@ -3,7 +3,6 @@
 - 30backups.sh -- Creates and keeps the latest 30 web and SQL backups
 - 950k-usernames.txt.gz -- Pushing a million user names
 - adig.sh -- Queries authoritative name servers for A, www, and TXT records
-- ascii-*.txt -- ASCII art from malware and defacements
 - bangrab.sh -- Simple HTTP banner grabber
 - base64pl.pl -- Encodes/decodes string(s) using base64
 - character-classes.txt -- Character classes useful for web malware analysis
