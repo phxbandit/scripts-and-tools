@@ -3,7 +3,6 @@
 - 30backups.sh -- Creates and keeps the latest 30 web and SQL backups
 - 950k-usernames.txt.gz -- Pushing a million user names
 - adig.sh -- Queries authoritative name servers for A, www, and TXT records
-- base64pl.pl -- Encodes/decodes string(s) using base64
 - character-classes.txt -- Character classes useful for web malware analysis
 - check-chef.sh -- Checks for new version of CyberChef
 - coladd.sh -- Sums a column from a file
@@ -17,7 +16,6 @@
 - last4pass.php -- https://isc.sans.edu/forums/diary/Well+Hello+Again+Peppa/23860/
 - malware-email-addresses.txt -- Email addresses collected from malware
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
-- netbiowned.pl -- Simplifies windows share enumeration
 - pluginsmonsters.pdf -- Pluginsmonsters fake plugin write-up
 - php.nanorc -- Nano PHP syntax highlighting
 - porn-scraper.sh -- Or manga or whatever
