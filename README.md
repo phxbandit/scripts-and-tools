@@ -10,7 +10,6 @@
 - country-codes.txt -- ISO 3166 country codes
 - escape.pl -- Automatically escapes regular expressions
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
-- isitdown.sh -- Checks site at downforeveryoneorjustme.com
 - iso8601 -- ISO 8601 standard date and time functions
 - krackrok.sh -- Removes old kernels on Ubuntu systems
 - last4pass.php -- https://isc.sans.edu/forums/diary/Well+Hello+Again+Peppa/23860/
