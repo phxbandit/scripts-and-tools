@@ -11,7 +11,6 @@
 - convertstr.pl -- Converts a string into various formats
 - country-codes.txt -- ISO 3166 country codes
 - escape.pl -- Automatically escapes regular expressions
-- grepapache.sh -- Greps all apache access logs
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
 - isitdown.sh -- Checks site at downforeveryoneorjustme.com
 - iso8601 -- ISO 8601 standard date and time functions
