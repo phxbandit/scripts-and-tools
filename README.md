@@ -15,7 +15,6 @@
 - last4pass.php -- https://isc.sans.edu/forums/diary/Well+Hello+Again+Peppa/23860/
 - malware-email-addresses.txt -- Email addresses collected from malware
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
-- pluginsmonsters.pdf -- Pluginsmonsters fake plugin write-up
 - php.nanorc -- Nano PHP syntax highlighting
 - porn-scraper.sh -- Or manga or whatever
 - pwndirs.php -- Mass defacer
@@ -29,7 +28,6 @@
 - startgw.pl -- Launches VM through web request
 - states-codes.txt -- List of US states and two-letter codes
 - toCharCode.pl -- Creates decimal string for JavaScript's fromCharCode
-- turkish-escort-spam* -- Write-up of a Turkish escort spam campaign
 - uas.txt -- User agent strings
 - wordpress-md5s.gz -- MD5s for WP core files from 3.0 forward
 - wpmd5.sh -- Checks integrity of WordPress core files
