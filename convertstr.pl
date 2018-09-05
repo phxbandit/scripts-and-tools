@@ -71,10 +71,10 @@ $md5->add($string);
 my $md5hex = $md5->hexdigest;
 print "$md5hex\n";
 
-# SHA1
+# SHA-1
 print "SHA-1\t: " . sha1_hex($string) . "\n";
 
-# SHA256
+# SHA-256
 print "SHA-256\t: " . sha256_hex($string) . "\n";
 
 print "\nDone\n\n"
