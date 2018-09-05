@@ -52,9 +52,9 @@ print "Hex\t: " . unpack('H*', $string) . "\n";
 
 # Octal
 print "Octal\t: ";
-foreach my $tmpStr ( split(//, $string) ) {
-    my $tmpOrd = ord($tmpStr);
-    printf "%o", $tmpOrd;
+foreach my $tmp_str ( split(//, $string) ) {
+    my $tmp_ord = ord($tmp_str);
+    printf "%o", $tmp_ord;
 }
 print "\n";
 
