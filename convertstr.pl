@@ -19,7 +19,7 @@ Usasge: convertstr.pl <string>
 print $usage and exit unless my $string = shift;
 chomp($string);
 
-print "\nConverting \'$string\'...\n\n";
+print "\nConverting '$string'...\n\n";
 
 # Upper
 print "Upper\t: " . uc($string) . "\n";
