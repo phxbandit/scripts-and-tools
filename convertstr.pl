@@ -1,9 +1,7 @@
 #!/usr/bin/perl -w
 
-# convertstr.pl - Reverses and converts a string to:
-# Base64, binary, decimal, hex, octal, ROT13, MD5, SHA1, and SHA256 
-#
-# VVinston Phelix
+# convertstr.pl - Converts a string into various formats
+# vvstnphx
 
 use strict;
 use MIME::Base64;
@@ -11,11 +9,9 @@ use Digest::MD5;
 use Digest::SHA qw(sha1_hex sha256_hex);
 
 my $usage = "
-convertstr - Reverses and converts a string to:
+convertstr.pl - Converts a string into various formats
 
-    Base64, binary, decimal, hex, octal, ROT13, MD5, SHA1, and SHA256
-
-Usasge: convertstr <string>
+Usasge: convertstr.pl <string>
 
 ";
 
@@ -25,24 +21,26 @@ chomp($string);
 
 print "\nConverting \'$string\'...\n\n";
 
+# Upper
+print "Upper\t: " . uc($string) . "\n";
+
+# Lower
+print "Lower\t: " . lc($string) . "\n";
+
 # Reverse
-print "REVERSED : ";
-my $reversed = reverse($string);
-print "$reversed\n";
+print "Reverse\t: " . reverse($string) . "\n";
 
 # Base64
-print "BASE64 : ";
+print "Base64\t: ";
 my $base64 = encode_base64($string);
 chomp($base64);
 print "$base64\n";
 
 # Binary
-print "BINARY : ";
-my $binary = unpack('B*', $string);
-print "$binary\n";
+print "Binary\t: " . unpack('B*', $string) . "\n";
 
 # Decimal
-print "DECIMAL : ";
+print "Decimal\t: ";
 my @decimal = unpack('C*', $string);
 foreach (@decimal) {
     print $_;
@@ -50,12 +48,10 @@ foreach (@decimal) {
 print "\n";
 
 # Hex
-print "HEX : ";
-my $hex = unpack('H*', $string);
-print "$hex\n";
+print "Hex\t: " . unpack('H*', $string) . "\n";
 
 # Octal
-print "OCTAL : ";
+print "Octal\t: ";
 foreach my $tmpStr ( split(//, $string) ) {
     my $tmpOrd = ord($tmpStr);
     printf "%o", $tmpOrd;
@@ -63,26 +59,22 @@ foreach my $tmpStr ( split(//, $string) ) {
 print "\n";
 
 # ROT13
-print "ROT13 : ";
+print "ROT13\t: ";
 my $rot13 = $string;
 $rot13 =~ tr/A-Za-z/N-ZA-Mn-za-m/;
 print "$rot13\n";
 
 # MD5
-print "MD5 : ";
+print "MD5\t: ";
 my $md5 = Digest::MD5->new;
 $md5->add($string);
 my $md5hex = $md5->hexdigest;
 print "$md5hex\n";
 
 # SHA1
-print "SHA1 : ";
-my $sha1hex = sha1_hex($string);
-print "$sha1hex\n";
+print "SHA-1\t: " . sha1_hex($string) . "\n";
 
 # SHA256
-print "SHA256 : ";
-my $sha256hex = sha256_hex($string);
-print "$sha256hex\n";
+print "SHA-256\t: " . sha256_hex($string) . "\n";
 
-print "\nComplete\n\n"
+print "\nDone\n\n"
