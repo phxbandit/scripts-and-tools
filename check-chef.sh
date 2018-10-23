@@ -1,25 +1,31 @@
 #!/bin/bash
 
-# check-chef.sh - Checks for new version of CyberChef
+# check-chef.sh - Checks for latest version of CyberChef
 
-# Change this to where you store cyberchef.htm
-cur="/dir/to/cyberchef.htm"
+# Change $dir to where cyberchef.htm is stored
+dir="/dir/to/cyberchef.htm"
 
 if [ "$(which wget)" = '' ]; then
-    echo "wget not in PATH... exiting"
+    echo "wget not in \$PATH... exiting"
     exit 1
 fi
 
-if [ -f "$cur" ]; then
-    wget -q https://gchq.github.io/CyberChef/cyberchef.htm -O "${cur}.new"
-    diff_out=$(diff -q "$cur" "${cur}.new")
+echo "Checking for latest CyberChef..."
+
+if [ -f "$dir" ]; then
+    wget -q https://gchq.github.io/CyberChef/cyberchef.htm -O "${dir}.new"
+    diff_out=$(diff -q "$dir" "${dir}.new")
 
     if [[ "$diff_out" =~ 'differ' ]]; then
-        cp "$cur" "${cur}.bak"
-        mv "${cur}.new" "$cur"
+        echo "Updating CyberChef"
+        cp "$dir" "${dir}.bak"
+        mv "${dir}.new" "$dir"
     else
-        rm "${cur}.new"
+        rm "${dir}.new"
     fi
 else
-    wget -q https://gchq.github.io/CyberChef/cyberchef.htm -O "$cur"
+    echo "Installing CyberChef"
+    wget -q https://gchq.github.io/CyberChef/cyberchef.htm -O "$dir"
 fi
+
+echo "Done"
