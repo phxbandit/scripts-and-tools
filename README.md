@@ -18,6 +18,7 @@
 - php.nanorc -- Nano PHP syntax highlighting
 - porn-scraper.sh -- Or manga or whatever
 - pwndirs.php -- Mass defacer
+- quick-kick.sh -- Quick scan script
 - rcptTousers.py -- Enumerates email addresses via rcpt to
 - rdp-scanner-users.txt -- Users used in malware RDP scanner
 - rdp-scanner-words.txt -- (Pass)words used in malware RDP scanner
