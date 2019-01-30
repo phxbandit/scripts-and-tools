@@ -15,6 +15,7 @@
 - last4pass.php -- https://isc.sans.edu/forums/diary/Well+Hello+Again+Peppa/23860/
 - malware-email-addresses.txt -- Email addresses collected from malware
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
+- oui.sh -- IEEE OUI lookup
 - php.nanorc -- Nano PHP syntax highlighting
 - porn-scraper.sh -- Or manga or whatever
 - pwndirs.php -- Mass defacer
