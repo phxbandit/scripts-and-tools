@@ -22,7 +22,7 @@ else
     help
 fi
 
-if [ ! -e "$txt" ]; then
+if [ ! -f "$txt" ]; then
     echo "Retreiving oui.txt from ieee.org..."
     wget -q "$ieee" -O "$txt"
 else

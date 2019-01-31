@@ -1,31 +1,21 @@
 #!/bin/bash
-
 # check-chef.sh - Checks for latest version of CyberChef
 
-# Change $cur to where cyberchef.htm is stored
-cur="/dir/to/cyberchef.htm"
-
-if [ "$(which wget)" = '' ]; then
-    echo "wget not in \$PATH... exiting"
-    exit 1
-fi
+loc="$HOME/bin/cyberchef.htm"
+rem='https://gchq.github.io/CyberChef/cyberchef.htm'
 
 echo "Checking for latest CyberChef..."
 
-if [ -f "$cur" ]; then
-    wget -q https://gchq.github.io/CyberChef/cyberchef.htm -O "${cur}.new"
-    diff_out=$(diff -q "$cur" "${cur}.new")
-
-    if [[ "$diff_out" =~ 'differ' ]]; then
-        echo "Updating CyberChef"
-        cp "$cur" "${cur}.bak"
-        mv "${cur}.new" "$cur"
-    else
-        rm "${cur}.new"
-    fi
+if [ ! -f "$loc" ]; then
+    echo "Retreiving cyberchef.htm..."
+    wget -q "$rem" -O "$loc"
 else
-    echo "Installing CyberChef"
-    wget -q https://gchq.github.io/CyberChef/cyberchef.htm -O "$cur"
+    loc_size=$(ls -l "$loc" | awk '{print $5}')
+    rem_size=$(curl -sI "$rem" | grep Content-Length | awk -F': ' '{print $2}' | tr -d '\r')
+    if [ "$loc_size" != "$rem_size" ]; then
+        echo "Retreiving cyberchef.htm..."
+        wget -q "$rem" -O "$loc"
+    fi
 fi
 
 echo "Done"
