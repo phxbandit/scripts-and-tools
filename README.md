@@ -27,7 +27,6 @@
 - spiga.conf -- Conf file for spiga.py
 - spiga.py -- Configurable, threaded web resource scanner
 - sshscan.py -- Horizontal SSH scanner
-- startgw.pl -- Launches VM through web request
 - states-codes.txt -- List of US states and two-letter codes
 - toCharCode.pl -- Creates decimal string for JavaScript's fromCharCode
 - uas.txt -- User agent strings

@@ -1,7 +1,7 @@
 <?php
 
 # pwndirs.php - Mass defacer. What?
-# VVinston Phelix
+# wstnphx
 
 # Defines
 ##

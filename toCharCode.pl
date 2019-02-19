@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
 # toCharCode.pl - Creates decimal string for JavaScript's fromCharCode
-# VVinston Phelix
 
 use strict;
 

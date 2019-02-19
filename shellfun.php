@@ -1,7 +1,7 @@
 <?php
 
 // shellfun.php
-// VVinston Phelix
+// wstnphx
 
 @error_reporting(0);
 

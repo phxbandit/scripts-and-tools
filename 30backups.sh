@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 30backups.sh - Creates and keeps the latest 30 web and SQL backups
-# VVinston Phelix
+# wstnphx
 
 # Number of backups
 num=30
