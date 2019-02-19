@@ -1,5 +1,6 @@
 #!/bin/bash
 # oui.sh - IEEE OUI lookup
+# wstnphx
 
 help() {
     echo "Usage: oui.sh <MAC address>"
