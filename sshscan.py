@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # sshscan.py 0.9 - Horizontal SSH scanner
-# wstnphx
+# phxbandit
 #
 # sshscan.py is a horizontal SSH scanner that scans large
 # swaths of IPv4 space for a single SSH user and pass. It

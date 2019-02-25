@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # wpmd5.sh - Compares wordpress.org md5s to installed wp md5s
-# wstnphx
+# phxbadit
 
 # Process zips
 # #!/bin/bash

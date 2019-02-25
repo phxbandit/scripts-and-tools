@@ -1,7 +1,7 @@
 <?php
 
 # pwndirs.php - Mass defacer. What?
-# wstnphx
+# phxbandit
 
 # Defines
 ##

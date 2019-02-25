@@ -1,7 +1,7 @@
 <?php
 
 // shellfun.php
-// wstnphx
+// phxbandit
 
 @error_reporting(0);
 
