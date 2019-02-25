@@ -1,0 +1,17 @@
+/** 
+ * Additional CSS from WP Meta and Date Remover that hides post meta info.
+ * https://wordpress.org/plugins/wp-meta-and-date-remover/
+ **/
+.entry-meta {display:none !important;}
+.home .entry-meta { display: none; }
+.entry-footer {display:none !important;}
+.home .entry-footer { display: none; }
+
+/**
+ * Hook for <theme>/functions.php to hide uncategorized, tag ID 1, posts.
+ **/
+add_action('pre_get_posts', 'hide_uncategorized' );
+function hide_uncategorized( $wp_query ) {
+    set_query_var('category__not_in', '1');
+}
+
