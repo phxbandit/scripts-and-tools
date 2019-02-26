@@ -30,8 +30,4 @@
 - states-codes.txt -- List of US states and two-letter codes
 - toCharCode.pl -- Creates decimal string for JavaScript's fromCharCode
 - uas.txt -- User agent strings
-- vsftpd-for-wp.conf -- FTPS config for WordPress
-- wordpress-md5s.gz -- MD5s for WP core files from 3.0 forward
-- wordpress-snippets.txt -- Miscellaneous WordPress code snippets
-- wpmd5.sh -- Checks integrity of WordPress core files
 - zonetrans.sh -- Attempts full zone transfer from each authoritative name server
