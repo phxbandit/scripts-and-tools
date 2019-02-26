@@ -33,6 +33,5 @@
 - vsftpd-for-wp.conf -- FTPS config for WordPress
 - wordpress-md5s.gz -- MD5s for WP core files from 3.0 forward
 - wordpress-snippets.txt -- Miscellaneous WordPress code snippets
-- wp-config-ftps.php -- FTPS config for wp-config.php
 - wpmd5.sh -- Checks integrity of WordPress core files
 - zonetrans.sh -- Attempts full zone transfer from each authoritative name server
