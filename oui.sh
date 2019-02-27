@@ -13,7 +13,7 @@ fi
 
 tmp_mac="$1"
 ieee='http://standards-oui.ieee.org/oui.txt'
-txt="$HOME/bin/oui.txt"
+txt="$HOME/oui.txt"
 
 if [[ "$tmp_mac" =~ ^([0-9A-Fa-f]{2}(:|-)){5}[0-9A-Fa-f]{2}$ ]]; then
     mac=$(echo "$tmp_mac" | cut -b 1-8 | sed -e 's/\:/-/g' | tr [:lower:] [:upper:])
