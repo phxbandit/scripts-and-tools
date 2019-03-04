@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # pron-scraper.sh - Or manga or whatever
 # http://www.example.com/pics/gallery123/pic_1.jpg
 
