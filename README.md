@@ -17,7 +17,7 @@
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
 - oui.sh -- IEEE OUI lookup
 - php.nanorc -- Nano PHP syntax highlighting
-- porn-scraper.sh -- Or manga or whatever
+- pron-scraper.sh -- Or manga or whatever
 - pwndirs.php -- Mass defacer
 - quick-kick.sh -- Quick scan script
 - rcptTousers.py -- Enumerates email addresses via rcpt to
