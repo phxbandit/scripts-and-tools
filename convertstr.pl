@@ -66,8 +66,7 @@ print "$rot13\n";
 
 # ROT26lol
 print "ROT26\t: ";
-my $rot26 = $string;
-print "$rot26\n";
+print "$string\n";
 
 # MD5
 print "MD5\t: ";
