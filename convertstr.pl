@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
 # convertstr.pl - Converts a string into various formats
-# vvstnphx
+# phxbandit
 
 use strict;
 use MIME::Base64;
@@ -63,6 +63,11 @@ print "ROT13\t: ";
 my $rot13 = $string;
 $rot13 =~ tr/A-Za-z/N-ZA-Mn-za-m/;
 print "$rot13\n";
+
+# ROT26lol
+print "ROT26\t: ";
+my $rot26 = $string;
+print "$rot26\n";
 
 # MD5
 print "MD5\t: ";
