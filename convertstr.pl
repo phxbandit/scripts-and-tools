@@ -6,7 +6,7 @@
 use strict;
 use MIME::Base64;
 use Digest::MD5;
-use Digest::SHA qw(sha1_hex sha256_hex);
+use Digest::SHA qw(sha1_hex sha256_hex sha512_hex);
 
 my $usage = "
 convertstr.pl - Converts a string into various formats
@@ -81,5 +81,8 @@ print "SHA-1\t: " . sha1_hex($string) . "\n";
 
 # SHA-256
 print "SHA-256\t: " . sha256_hex($string) . "\n";
+
+# SHA-512
+print "SHA-512\t: " . sha512_hex($string) . "\n";
 
 print "\nDone\n\n"
