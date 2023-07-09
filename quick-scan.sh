@@ -1,7 +1,7 @@
 #!/bin/bash
-# quick-kick.sh - quick scan script
+# quick-scan.sh - quick scan script
 if [ $# -ne 2 ]; then
-    echo "usage: quick-kick <IPv4 range> <port>"
+    echo "usage: quick-scan <IPv4 range> <port>"
     exit 1
 fi
 ipv4="$1"
