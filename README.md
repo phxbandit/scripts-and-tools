@@ -29,5 +29,4 @@
 - sshscan.py -- Horizontal SSH scanner
 - states-codes.txt -- List of US states and two-letter codes
 - toCharCode.pl -- Creates decimal string for JavaScript's fromCharCode
-- uas.txt -- User agent strings
 - zonetrans.sh -- Attempts full zone transfer from each authoritative name server
