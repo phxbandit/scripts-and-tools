@@ -13,13 +13,13 @@ shDate=$(date +'%Y%m%d')
 ordDate=$(date +'%Y-%j')
 
 # Year and month:
-# 2012-12
+# 2023-07
 yrMon=$(date +'%Y-%m')
 
 # Date with time:
-# 2012-12-05T12:34:56
+# 2023-07-05T12:34:56
 isoTime=$(date +'%Y-%m-%dT%H:%M:%S')
 
 # Short time:
-# 20121205T123456
+# 20230705T123456
 shTime=$(date +'%Y%m%dT%H%M%S')
