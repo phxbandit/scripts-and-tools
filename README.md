@@ -1,10 +1,8 @@
 # Scripts and Tools
 
 - 30backups.sh -- Creates and keeps the latest 30 web and SQL backups
-- 950k-usernames.txt.gz -- Pushing a million user names
 - adig.sh -- Queries authoritative name servers for A, www, and TXT records
 - character-classes.txt -- Character classes useful for web malware analysis
-- check-chef.sh -- Checks for new version of CyberChef
 - coladd.sh -- Sums a column from a file
 - convertstr.pl -- Converts a string into various formats
 - country-codes.txt -- ISO 3166 country codes
@@ -20,7 +18,6 @@
 - pron-scraper.sh -- Or manga or whatever
 - pwndirs.php -- Mass defacer
 - quick-scan.sh -- Quick scan script
-- rcptTousers.py -- Enumerates email addresses via rcpt to
 - shellfun.php -- Playing with PHP shell
 - spiga.conf -- Conf file for spiga.py
 - spiga.py -- Configurable, threaded web resource scanner
