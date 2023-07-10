@@ -21,8 +21,6 @@
 - pwndirs.php -- Mass defacer
 - quick-scan.sh -- Quick scan script
 - rcptTousers.py -- Enumerates email addresses via rcpt to
-- rdp-scanner-users.txt -- Users used in malware RDP scanner
-- rdp-scanner-words.txt -- (Pass)words used in malware RDP scanner
 - shellfun.php -- Playing with PHP shell
 - spiga.conf -- Conf file for spiga.py
 - spiga.py -- Configurable, threaded web resource scanner
