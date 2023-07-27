@@ -9,7 +9,6 @@
 - escape.pl -- Automatically escapes regular expressions
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
 - iso8601 -- ISO 8601 standard date and time functions
-- krackrok.sh -- Removes old kernels on Ubuntu systems
 - last4pass.php -- https://isc.sans.edu/forums/diary/Well+Hello+Again+Peppa/23860/
 - malware-email-addresses.txt -- Email addresses collected from malware
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
@@ -18,6 +17,7 @@
 - pron-scraper.sh -- Or manga or whatever
 - pwndirs.php -- Mass defacer
 - quick-scan.sh -- Quick scan script
+- rm-old-kerns.sh -- Removes old kernels on Ubuntu systems
 - shellfun.php -- Playing with PHP shell
 - spiga.conf -- Conf file for spiga.py
 - spiga.py -- Configurable, threaded web resource scanner
