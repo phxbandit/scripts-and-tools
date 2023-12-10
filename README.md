@@ -10,6 +10,7 @@
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
 - iso8601 -- ISO 8601 standard date and time functions
 - last4pass.php -- https://isc.sans.edu/forums/diary/Well+Hello+Again+Peppa/23860/
+- malicious-htaccess-regex.txt -- Regex to clean malicious .htaccess files
 - malware-email-addresses.txt -- Email addresses collected from malware, mostly phishing
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
 - oui.sh -- IEEE OUI lookup

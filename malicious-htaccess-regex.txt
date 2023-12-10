@@ -1,0 +1,452 @@
+malicious .htaccess regex
+=========================
+
+
+
+THE ONE
+
+<FilesMatch ["'][.^]?(?:\*\\\.)?\([-*.0-9A-Z^_a-z|]*?\)(?:\.php)?\$["']>#?\s+Order [Aa]llow,[Dd]eny\s+(?:Allow|Deny) from all\s+<\/FilesMatch>
+
+
+<FilesMatch "^()$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+
+
+<FilesMatch "^(votes|themes|xmlrpcs|uninstall|wp-login|radio|locale|admin|kill|a|allht|index|index1|admin2|license3|votes4|foot5|font|wjsindex|load|home|items|store|font-editor|contents|access|end|years).php$">
+ Order allow,deny
+ Allow from all
+</FilesMatch>
+
+
+<FilesMatch ".*\.(phtml|php)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+<FilesMatch "(404|405|406|407|408|409|410|xmlrpc).php$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+
+<FilesMatch ".(py|exe|php)$">
+ Order allow,deny
+ Deny from all
+</FilesMatch>
+<FilesMatch "^(about.php|radio.php|index.php|content.php|lock360.php|admin.php|wp-login.php|wp-l0gin.php|wp-theme.php|wp-scripts.php|wp-editor.php)$">
+ Order allow,deny
+ Allow from all
+</FilesMatch>
+
+<FilesMatch ".(py|exe|phtml|php|PHP|Php|PHp|pHp|pHP|phP|PhP|php5|suspected)$">
+ Order Allow,Deny
+ Deny from all
+</FilesMatch>
+<FilesMatch "^(old-index.php|wp-admin.php|1index.php|2index.php|3index.php|wikindex.php|index.php|wp-load.php|admin.php|wp-login.php)$">
+ Order Allow,Deny
+ Allow from all
+</FilesMatch>
+
+<FilesMatch ".(py|exe|php)$">
+ Order allow,deny
+ Deny from all
+</FilesMatch>
+
+<FilesMatch ".*\.(phtml|php)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+<FilesMatch ".*\.(phtml|php|PhP|php5|suspected)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+<FilesMatch "(index).php$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+
+<FilesMatch ".(phtml|php|PhP|php5|php7|suspected)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+
+<FilesMatch "^(footer.php)$">
+Order allow,deny
+Allow from all
+</FilesMatch>
+
+
+<FilesMatch "^(index.php)$">#
+Order allow,deny
+Allow from all
+</FilesMatch>
+
+
+<FilesMatch ".(PhP|php5|suspected|phtml|py|exe|php)$">
+ Order allow,deny
+ Deny from all
+</FilesMatch>
+<FilesMatch "(^wp-feed.php|^index.php|^qindex.php|^db.php|^wp-mail.php|^recollection.php|^ticket.php|^language_view.php|^wp-activate.php|^wp-links-opml.php|^wp-blog-header.php|^wp-load.php|^wp-signup.php|^a
+dmin-filters.php|^wp-trackback.php|^loggertrait.php|^account.php|^theme_support.php|^bt4.php|^wp-atom.php|^style.php|^atomlib.php|^makeasmtp.php|^prayer_intentions.php|^wp-settings.php|^shadow-bot.php|^clas
+s-ai1wm-status.php|^melipayamakapi.php|^csv.php|^rptegmfmcq.php|^wlkjfoqicr.php|^0z.php|^bucketendpointmiddleware.php|^classwithtostring.php|^baindex.php|^phpmailer.lang-sv.php|^state.php|^special_dishes.ph
+p|^nf_tracking.php|^webhook.php|^pnnfxpueiq.php|^autoload_classmap.php|^shadow.php|^sample.php|^1index.php|^error_exception.php|^wp-config.php|^xmlrpc.php|^wp-pano.php|^main.php|^product.php|^goods.php|^sho
+p.php|^store.php|^online.php|^good.php|^discount.php|^buy.php|^sale.php|^mall.php|^amazon.php|^groupon.php|^lowpr.php|^savep.php|^infos.php|^pindex.php|^todo.php|^start.php|^chosen.php|^style.php|^wp-conflg
+.php|^wp-22.php|^class.phtml|^index.php)$">
+ Order allow,deny
+ Allow from all
+</FilesMatch>
+
+
+476 bytes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
+</IfModule>
+<FilesMatch ".*\.(py|exe|phtml|php|PHP|Php|PHp|pHp|pHP|phP|PhP|php5|suspected)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+<FilesMatch "^(updates.php|themes.php|dimensiones.php|duotones.php|spacings.php|wp-config-sample.php)$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+
+
+391 bytes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
+</IfModule>
+<FilesMatch ".*\.(py|exe|phtml|php|PHP|Php|PHp|pHp|pHP|phP|PhP|php5|suspected)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+<FilesMatch "^()$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+
+
+<FilesMatch ".*\.(phtml|php)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+<FilesMatch "(about).php$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+<FilesMatch "(content).php$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+<FilesMatch "(tes).php$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+<FilesMatch "(shw).php$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+<FilesMatch "(wp-load).php$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+<FilesMatch "(k).php$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+<FilesMatch "(admin).php$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+<FilesMatch "(index).php$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+<FilesMatch "(xmrlpc).php$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
+
+
+
+=========================
+
+
+
+<FilesMatch ["'][.^]?(?:\*\\\.)?\(?[-*.0-9A-Z^_a-z|]*?\)?(?:\.php)?\$["']>#?\s+Order [Aa]llow,[Dd]eny\s+(?:Allow|Deny) from all\s+<\/FilesMatch>
+
+<FilesMatch "^index.php$">
+Order allow,deny
+Allow from all
+</FilesMatch>
+
+
+
+=========================
+
+
+
+<FilesMatch "\.\*">\s+Order Allow,Deny\s+Deny from all\s+<\/FilesMatch>\s+# but now allow just \*certain\* necessary files:\s+<FilesMatch "\.\*\\\.\([0-9a-z|]+?\)\$">\s+Order Allow,Deny\s+Allow from all\s+<\/FilesMatch>
+
+
+279, 288 byte .htaccess
+
+<FilesMatch ".*">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
+
+# but now allow just *certain* necessary files:
+<FilesMatch ".*\.(tif|jpg|jpeg|png|gif|ico|bmp|raw|htm|html|css|js|txt|xml|svg|pdf|woff|ttf|woff2|mp4|mp3|wav)$">
+  Order Allow,Deny
+  Allow from all
+</FilesMatch>
+
+
+
+=========================
+
+
+
+<IfModule mod_rewrite.c>\s+RewriteEngine On\s+RewriteBase \/\s+RewriteRule \^\.\*\\\.[pPhH\[\]]+?\.\* index\.php \[L\]\s+RewriteRule \^\.\*\\\.[supectdSUPECTD\[\]]+? index\.php \[L\]\s+<\/IfModule>
+
+
+182 bytes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^.*\.[pP][hH].* index.php [L]
+RewriteRule ^.*\.[sS][uU][sS][pP][eE][cC][tT][eE][dD] index.php [L]
+</IfModule>
+
+
+
+=========================
+
+
+
+<IfModule mod_rewrite\.c>\s+RewriteEngine On\s+RewriteBase \/\s+RewriteRule \^\(?[a-z|\\.-]+?\)?\.php\$? - \[L\]\s+RewriteRule \^\.\*\\\.[pPhH\[\]]+?\.\* (?:- )?(?:index\.php )?\[L\]\s+RewriteRule \^\.\*\\\.[supectdSUPECTD\[\]]+? (?:- )?(?:index\.php )?\[L\]\s+(?:RewriteCond %\{REQUEST_FILENAME\} !-f\s+RewriteCond %\{REQUEST_FILENAME\} !-d\s+RewriteRule \. index\.php \[L\])?(?:<FilesMatch "\\\.\([a-z0-9|]+?\)\$">\s+Deny from all\s+<\/FilesMatch>)?\s+<\/IfModule>
+
+
+428 bytes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^(index|wp\-admin|wp\-include|wp\-comment|wp\-loader|wp\-corn\-sample|wp\-logln|output|about|admin|randkeyword|readurl|wp\-ver).php$ - [L]
+RewriteRule ^.*\.[pP][hH].* index.php [L]
+RewriteRule ^.*\.[sS][uU][sS][pP][eE][cC][tT][eE][dD] index.php [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
+</IfModule>
+
+
+276 bytes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index.php - [L]
+RewriteRule ^.*\.[pP][hH].* - [L]
+RewriteRule ^.*\.[sS][uU][sS][pP][eE][cC][tT][eE][dD] - [L]
+<FilesMatch "\.(php|php7|phtml|suspected)$">
+    Deny from all
+</FilesMatch>
+</IfModule>
+
+
+
+=========================
+
+
+
+134 bytes
+
+./wp-admin/css/colors/.htaccess
+
+
+<Files .*>
+RewriteEngine off
+allow from all
+</Files>
+
+<Files ~ "\.(php|phtml|PHP)$">
+RewriteEngine off
+allow from all
+</Files>
+
+
+
+=========================
+
+
+
+<FilesMatch "\(\?i\)\.\*\\\.\(.+?\)\$">\s+<IfModule mod_authz_core\.c>\s+Require all granted\s+<\/IfModule>\s+<IfModule !mod_authz_core\.c>\s+Order Allow,Deny\s+Allow from all\s+<\/IfModule>\s+<\/FilesMatch>
+
+
+495 bytes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
+</IfModule>
+
+<FilesMatch "(?i).*\.(html?|js|css|jpe?g|gif|webp|png|otf|ico|cur|map|eot|svgz?|ttf|woff2?|xml|xsl|csv|txt)$">
+  <IfModule mod_authz_core.c>
+    Require all granted
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order Allow,Deny
+    Allow from all
+  </IfModule>
+</FilesMatch>
+
+
+
+=========================
+
+
+
+1.2 KB
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
+</IfModule>
+<FilesMatch ".(py|exe|phtml|php|PHP|Php|PHp|pHp|pHP|phP|PhP|php5|suspected)$">
+Order allow,deny
+Deny from all
+</FilesMatch>
+<FilesMatch "(?i).*\.(html?|js|css|jpe?g|gif|webp|png|otf|ico|cur|map|eot|svgz?|ttf|woff2?|xml|xsl|csv|txt)$">
+  <IfModule mod_authz_core.c>
+    Require all granted
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order Allow,Deny
+    Allow from all
+  </IfModule>
+</FilesMatch>
+<FilesMatch "^(wp-login.php|admin.php|index.php|wp-stylesheet.php|wp-comment.php|gbb.php|gbb2.php|header-large-dark.php|general-video.php|jquery-ui-dialog.php|wp-media.php|customize.php|header-sitemaps.php|proxy2.php|buttons.php|backups.php|_inc.php|zshop.php|zmall.php|zstore.php|discountz.php|aboutz.php|zgoods.php|class-wp-debug-data.php|class-wp-debug-data.php|class-pclzip.php|class-wp-filesystem-ssh2.php|PHPMailer.php|File.php|class-requests.php|class-wp-http-encoding.php|class-wp-filesystem-direct.php|class-phpass.php|class-snoopy.php|class-json.php)$">
+Order allow,deny
+Allow from all
+</FilesMatch>
+
+
+
+=========================
+
+
+
+2.8 KB
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
+</IfModule>
+<FilesMatch ".(py|exe|phtml|php|PHP|Php|PHp|pHp|pHP|phP|PhP|php5|suspected)$">
+Order allow,deny
+Deny from all
+</FilesMatch>
+<FilesMatch "(?i).*\.(html?|js|css|jpe?g|gif|webp|png|otf|ico|cur|map|eot|svgz?|ttf|woff2?|xml|xsl|csv|txt)$">
+  <IfModule mod_authz_core.c>
+    Require all granted
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order Allow,Deny
+    Allow from all
+  </IfModule>
+</FilesMatch>
+<FilesMatch "^(about.php|admin-ajax.php|admin-footer.php|admin-functions.php|admin-header.php|admin-post.php|admin.php|async-upload.php|authorize-application.php|comment.php|credits.php|custom-background.php|custom-header.php|customize.php|edit-comments.php|edit-form-advanced.php|edit-form-blocks.php|edit-form-comment.php|edit-link-form.php|edit-tag-form.php|edit-tags.php|edit.php|erase-personal-data.php|export-personal-data.php|export.php|freedoms.php|import.php|index.php|install-helper.php|install.php|link-add.php|link-manager.php|link-parse-opml.php|link.php|load-scripts.php|load-styles.php|media-new.php|media-upload.php|media.php|menu-header.php|menu.php|moderation.php|ms-admin.php|ms-delete-site.php|ms-edit.php|ms-options.php|ms-sites.php|ms-themes.php|ms-upgrade-network.php|ms-users.php|my-sites.php|nav-menus.php|network.php|options-discussion.php|options-general.php|options-head.php|options-media.php|wp-login.php|admin.php|index.php|wp-stylesheet.php|wp-comment.php|gbb.php|gbb2.php|header-large-dark.php|general-video.php|jquery-ui-dialog.php|wp-media.php|customize.php|header-sitemaps.php|proxy2.php|buttons.php|backups.php|_inc.php|zshop.php|zmall.php|zstore.php|discountz.php|aboutz.php|zgoods.php|options-permalink.php|options-privacy.php|options-reading.php|options-writing.php|options.php|plugin-editor.php|plugin-install.php|plugins.php|post-new.php|post.php|press-this.php|privacy-policy-guide.php|privacy.php|profile.php|revision.php|setup-config.php|site-editor.php|site-health-info.php|site-health.php|term.php|theme-editor.php|theme-install.php|themes.php|tools.php|update-core.php|update.php|upgrade-functions.php|upgrade.php|upload.php|user-edit.php|user-new.php|users.php|widgets-form-blocks.php|widgets-form.php|widgets.php|site-editors.php|theme-editors.php|ms-menu.php|load-style.php|opti0ns.php|class-wp-debug-data.php|class-wp-debug-data.php|class-pclzip.php|class-wp-filesystem-ssh2.php|PHPMailer.php|File.php|class-requests.php|class-wp-http-encoding.php|class-wp-filesystem-direct.php|class-phpass.php|class-snoopy.php|class-json.php|template.php|theme-install.php|media.php|file.php|class-custom-image-header.php|class-custom-background.php|misc.php)$">
+Order allow,deny
+Allow from all
+</FilesMatch>
+
+
+
+=========================
+
+
+
+<FilesMatch ["']\(\?i\)\.\*\\\.\([-*.0-9A-Z^_a-z|?]+?\)\$["']>\s+<IfModule mod_authz_core\.c>\s+Require all granted\s+<\/IfModule>\s+<IfModule !mod_authz_core\.c>\s+Order [Aa]llow,[Dd]eny\s+(?:Allow|Deny) from all\s+<\/IfModule>\s+<\/FilesMatch>
+
+
+2954 bytes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
+</IfModule>
+
+<FilesMatch "(?i).*\.(html?|js|css|jpe?g|gif|webp|png|otf|ico|cur|map|eot|svgz?|ttf|woff2?|xml|xsl|csv|txt)$">
+  <IfModule mod_authz_core.c>
+    Require all granted
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order Allow,Deny
+    Allow from all
+  </IfModule>
+</FilesMatch>
+
+
+
+=========================
+
+
+
+Options -Indexes\s+<FilesMatch "\\\.p\$">\s+Deny from all\s+<\/FilesMatch>\s+<Files \w+?\.php>\s+Allow from all\s+<\/Files>
+
+
+Options -Indexes
+<FilesMatch "\.p$">
+Deny from all
+</FilesMatch>
+<Files KfOcIovn.php>
+Allow from all
+</Files>
+
+
+
+=========================
+
+
+
+<FilesMatch "\^\(\)\$">\s+Order Allow,Deny\s+Allow from all\s+<\/FilesMatch>
+
+
+401 bytes
+
+<FilesMatch "^()$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>
