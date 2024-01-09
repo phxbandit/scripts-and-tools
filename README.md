@@ -5,7 +5,6 @@
 - character-classes.txt -- Character classes useful for web malware analysis
 - coladd.sh -- Sums a column from a file
 - convertstr.pl -- Converts a string into various formats
-- country-codes.txt -- ISO 3166 country codes
 - escape.pl -- Automatically escapes regular expressions
 - hosts-plus.txt -- hosts-plus.txt for mild.sh
 - iso8601 -- ISO 8601 standard date and time functions
@@ -23,6 +22,5 @@
 - spiga.conf -- Conf file for spiga.py
 - spiga.py -- Configurable, threaded web resource scanner
 - sshscan.py -- Horizontal SSH scanner
-- states-codes.txt -- List of US states and two-letter codes
 - toCharCode.pl -- Creates decimal string for JavaScript's fromCharCode
 - zonetrans.sh -- Attempts full zone transfer from each authoritative name server
