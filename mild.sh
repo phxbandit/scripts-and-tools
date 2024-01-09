@@ -58,7 +58,7 @@ done
 
 # Source time and date functions
 [ -e "$HOME/.iso8601" ] || {
-    wget -q https://raw.github.com/phxbandit/scripts-n-tools/master/iso8601
+    wget -q https://raw.githubusercontent.com/phxbandit/scripts-and-tools/master/iso8601
     mv iso8601 $HOME/.iso8601
 }
 . "$HOME/.iso8601"
@@ -112,7 +112,7 @@ else
         echo "No wget... exiting"
         exit 1
     fi
-    wget -q https://raw.github.com/phxbandit/scripts-n-tools/master/hosts-plus.txt
+    wget -q https://raw.githubusercontent.com/phxbandit/scripts-and-tools/master/hosts-plus.txt
 fi
 
 # Randomize subdomains
