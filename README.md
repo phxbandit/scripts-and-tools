@@ -2,6 +2,7 @@
 
 - 30backups.sh -- Creates and keeps the latest 30 web and SQL backups
 - adig.sh -- Queries authoritative name servers for A, www, and TXT records
+- blocklist-submission-forms.html -- Single page listing reliable blocklist vendors
 - character-classes.txt -- Character classes useful for web malware analysis
 - coladd.sh -- Sums a column from a file
 - convertstr.pl -- Converts a string into various formats
