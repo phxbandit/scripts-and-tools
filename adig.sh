@@ -5,8 +5,8 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-echo -e "\ndig +short $1 @8.8.8.8"
-ipaddr=$(dig +short "$1" @8.8.8.8)
+echo -e "\ndig +short @8.8.8.8 $1"
+ipaddr=$(dig +short @8.8.8.8 "$1")
 echo "$ipaddr"
 
 echo -e "\ndig +short -x $ipaddr"
