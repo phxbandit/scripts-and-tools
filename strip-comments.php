@@ -1,7 +1,6 @@
 <?php
 
 // strip-comments.php
-
 // https://stackoverflow.com/questions/503871/best-way-to-automatically-remove-comments-from-php-code
 
 $fileStr = file_get_contents($argv[1]);
