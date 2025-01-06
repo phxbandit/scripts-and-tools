@@ -1,7 +1,7 @@
 # Scripts and Tools
 
 - 30backups.sh -- Creates and keeps the latest 30 web and SQL backups
-- adig.sh -- DNS, reverse, and name server lookup
+- adig.sh -- DNS, reverse, and name server lookups, as well as any redirect
 - blocklist-submission-forms.html -- Blocklist and abuse submission forms
 - character-classes.txt -- Character classes useful for web malware analysis
 - coladd.sh -- Sums a column from a file
