@@ -20,7 +20,6 @@
 - quick-scan.sh -- Quick scan script
 - rm-old-kerns.sh -- Removes old kernels on Ubuntu systems
 - shellfun.php -- Playing with PHP shell
-- shells-list.html -- New 2024 web shells
 - spiga.conf -- Conf file for spiga.py
 - spiga.py -- Configurable, threaded web resource scanner
 - sshscan.py -- Horizontal SSH scanner
