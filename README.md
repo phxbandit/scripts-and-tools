@@ -4,6 +4,7 @@
 - adig.sh -- DNS, reverse, and name server lookups, as well as any redirect
 - blocklist-submission-forms.html -- Blocklist and abuse submission forms
 - character-classes.txt -- Character classes useful for web malware analysis
+- clearcache.sh -- XBAN and XPURGE for a URL
 - coladd.sh -- Sums a column from a file
 - convertstr.pl -- Converts a string into various formats
 - escape.pl -- Automatically escapes regular expressions
