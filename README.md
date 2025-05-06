@@ -13,6 +13,7 @@
 - last4pass.php -- https://isc.sans.edu/forums/diary/Well+Hello+Again+Peppa/23860/
 - malicious-htaccess-regex.txt -- Regex to clean malicious .htaccess files
 - malware-email-addresses.txt -- Email addresses collected from malware, mostly phishing
+- malware-search-terms.txt -- Basic web malware search terms
 - mild.sh -- Subdomain brute forcer inspired by fierce.pl
 - oui.sh -- IEEE OUI lookup
 - php.nanorc -- Nano PHP syntax highlighting
