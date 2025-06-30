@@ -64,10 +64,6 @@ my $rot13 = $string;
 $rot13 =~ tr/A-Za-z/N-ZA-Mn-za-m/;
 print "$rot13\n";
 
-# ROT26lol
-print "ROT26\t: ";
-print "$string\n";
-
 # MD5
 print "MD5\t: ";
 my $md5 = Digest::MD5->new;
