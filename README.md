@@ -26,4 +26,4 @@
 - spiga.py -- Configurable, threaded web resource scanner
 - sshscan.py -- Horizontal SSH scanner
 - toCharCode.pl -- Creates decimal string for JavaScript's fromCharCode
-- zonetrans.sh -- Attempts full zone transfer from each authoritative name server
+- zonetransfer.sh -- Attempts full zone transfer from each authoritative name server
