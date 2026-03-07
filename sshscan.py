@@ -191,7 +191,7 @@ for line in rand_lines:
                 count_ips += 1
 
                 # Don't scan network and broadcast addresses
-                match_badip = re.search('\.0|255$', str(ip))
+                match_badip = re.search('\.(0|255)$', str(ip))
                 if match_badip:
                     continue
                 # If status is defined, we know the connection failed
